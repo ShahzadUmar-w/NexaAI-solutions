@@ -10,10 +10,14 @@ const Footer = () => {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-orange flex items-center justify-center">
-              <span className="text-white font-bold">O</span>
+               <img 
+              src="/Logo.png" 
+              alt="Logo" 
+              className="h-10 w-auto md:h-12 object-contain"
+            />
             </div>
             <span className="font-heading font-bold text-foreground">
-              Office<span className="gradient-text-purple">Dev</span>
+              NexaAI<span className="gradient-text-purple">Solutions</span>
             </span>
           </div>
 
