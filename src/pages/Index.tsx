@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>OfficeDev | Microsoft Office Add-in Development Expert</title>
+        <title>NexaAI Solutions | Microsoft Office Add-in Development Expert</title>
         <meta
           name="description"
           content="Specialized freelance developer building production-ready Microsoft Office Add-ins for Outlook, Excel, Word, and PowerPoint. Office.js & Microsoft Graph expert."

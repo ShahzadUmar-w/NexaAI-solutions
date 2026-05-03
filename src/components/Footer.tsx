@@ -41,7 +41,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground">
-            © {currentYear} OfficeDev. All rights reserved.
+            © {currentYear} NexaAI solutions. All rights reserved.
           </p>
         </div>
       </div>
