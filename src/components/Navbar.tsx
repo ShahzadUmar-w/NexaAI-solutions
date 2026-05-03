@@ -22,7 +22,7 @@ const Navbar = () => {
           <a href="#" className="flex items-center gap-2 group">
             {/* Logo Image - Add your logo here */}
             <img 
-              src="public\Logo.png" 
+              src="/Logo.png" 
               alt="Logo" 
               className="h-10 w-auto md:h-12 object-contain"
             />

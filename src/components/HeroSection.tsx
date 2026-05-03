@@ -109,10 +109,10 @@ const HeroSection = () => {
       />
       
       {/* Floating Background Elements */}
-      <FloatingElement delay={0} duration={4} className="absolute top-20 right-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl" />
-      <FloatingElement delay={2} duration={5} className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
-      <FloatingElement delay={1} duration={3.5} className="absolute top-1/3 left-20 w-48 h-48 bg-orange-400/5 rounded-full blur-2xl" />
-      <FloatingElement delay={3} duration={4.5} className="absolute bottom-1/3 right-20 w-64 h-64 bg-purple-400/5 rounded-full blur-2xl" />
+      <FloatingElement delay={0} duration={4} className="absolute top-20 right-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl" children={""} />
+      <FloatingElement delay={2} duration={5} className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" children={""} />
+      <FloatingElement delay={1} duration={3.5} className="absolute top-1/3 left-20 w-48 h-48 bg-orange-400/5 rounded-full blur-2xl" children={""} />
+      <FloatingElement delay={3} duration={4.5} className="absolute bottom-1/3 right-20 w-64 h-64 bg-purple-400/5 rounded-full blur-2xl" children={""} />
 
       {/* Animated Particles */}
       <div className="absolute inset-0 overflow-hidden">
