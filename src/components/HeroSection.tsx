@@ -1,415 +1,226 @@
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { ArrowRight, CheckCircle2, Sparkles, Code, Zap } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import {
+  ArrowRight,
+  BadgeCheck,
+  CheckCircle2,
+  LockKeyhole,
+  Mail,
+  ServerCog,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { useRef, useEffect, useState } from "react";
 
-const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "30+", label: "Happy Clients" },
-  { value: "5+", label: "Years Experience" },
-  { value: "100%", label: "Client Satisfaction" },
+const directEmailHref =
+  "mailto:shahzad890.it@gmail.com?subject=Enterprise%20Office%20Add-in%20Consultation&body=Hi%20Shahzad%2C%0A%0AI%20would%20like%20to%20discuss%20an%20enterprise%20Office%20add-in%20project.%0A%0ACompany%3A%0AProject%20type%3A%0ATimeline%3A%0AKey%20requirements%3A%0A%0AThanks.";
+
+const trustPoints = [
+  "Office.js and Microsoft Graph",
+  "Secure OAuth permission planning",
+  "Microsoft 365 Admin deployment support",
 ];
 
-const highlights = [
-  "Outlook, Excel, Word & PowerPoint Add-ins",
-  "Office.js & Microsoft Graph Expert",
-  "Production-Ready Solutions",
+const metrics = [
+  { value: "50+", label: "Projects delivered" },
+  { value: "5+", label: "Years experience" },
+  { value: "24h", label: "Response time" },
 ];
 
-// Typing Animation Component
-const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
-  const [displayText, setDisplayText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (currentIndex < text.length) {
-        setDisplayText((prev) => prev + text[currentIndex]);
-        setCurrentIndex((prev) => prev + 1);
-      }
-    }, 50);
-
-    return () => clearTimeout(timer);
-  }, [currentIndex, text, delay]);
-
-  return (
-    <span>
-      {displayText}
-      <motion.span
-        animate={{ opacity: [1, 0] }}
-        transition={{ duration: 0.8, repeat: Infinity }}
-        className="text-orange-400"
-      >
-        |
-      </motion.span>
-    </span>
-  );
-};
-
-// Floating Elements Component
-const FloatingElement = ({ 
-  children, 
-  delay = 0, 
-  duration = 3,
-  className = "" 
-}: { 
-  children: React.ReactNode; 
-  delay?: number; 
-  duration?: number;
-  className?: string;
-}) => (
-  <motion.div
-    initial={{ y: 0, rotate: 0 }}
-    animate={{ 
-      y: [-10, 10, -10], 
-      rotate: [-2, 2, -2],
-      scale: [1, 1.05, 1]
-    }}
-    transition={{ 
-      duration, 
-      repeat: Infinity, 
-      delay,
-      ease: "easeInOut"
-    }}
-    className={className}
-  >
-    {children}
-  </motion.div>
-);
+const workflowSteps = [
+  { label: "Discovery", status: "Scope locked" },
+  { label: "Architecture", status: "Security reviewed" },
+  { label: "Build", status: "TypeScript + Office.js" },
+  { label: "Deploy", status: "M365 rollout ready" },
+];
 
 const HeroSection = () => {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={containerRef} className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Enhanced Background Effects */}
-      <motion.div 
-        style={{ y, opacity }}
-        className="absolute inset-0 hero-gradient"
+    <section ref={containerRef} className="relative min-h-screen overflow-hidden pt-28 lg:pt-32">
+      <div className="absolute inset-0 hero-gradient" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,122,24,0.18),transparent_32%),radial-gradient(circle_at_80%_30%,rgba(142,45,226,0.16),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,179,71,0.09),transparent_34%)]" />
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/40 to-transparent" />
+
+      <motion.div
+        animate={{ y: [-18, 18, -18], opacity: [0.35, 0.6, 0.35] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute right-[-8rem] top-24 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl"
       />
-      
-      {/* Animated Glow Background */}
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.2, 1],
-          rotate: [0, 180, 360],
-          opacity: [0.3, 0.5, 0.3]
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] glow-bg opacity-30"
+      <motion.div
+        animate={{ y: [18, -18, 18], opacity: [0.25, 0.5, 0.25] }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-10 left-[-10rem] h-[28rem] w-[28rem] rounded-full bg-purple-500/10 blur-3xl"
       />
-      
-      {/* Floating Background Elements */}
-      <FloatingElement delay={0} duration={4} className="absolute top-20 right-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl" children={""} />
-      <FloatingElement delay={2} duration={5} className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" children={""} />
-      <FloatingElement delay={1} duration={3.5} className="absolute top-1/3 left-20 w-48 h-48 bg-orange-400/5 rounded-full blur-2xl" children={""} />
-      <FloatingElement delay={3} duration={4.5} className="absolute bottom-1/3 right-20 w-64 h-64 bg-purple-400/5 rounded-full blur-2xl" children={""} />
 
-      {/* Animated Particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ 
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              scale: 0
-            }}
-            animate={{ 
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              scale: [0, 1, 0]
-            }}
-            transition={{ 
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              delay: Math.random() * 5
-            }}
-            className="absolute w-2 h-2 bg-orange-400/20 rounded-full blur-sm"
-          />
-        ))}
-      </div>
-
-      <motion.div 
-        style={{ y }}
-        className="section-container relative z-10"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Enhanced Badge with Pulse Animation */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
-            animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-orange mb-8 group cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.span 
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-2 h-2 rounded-full bg-orange-400"
-            />
-            <span className="text-sm font-medium bg-gradient-orange bg-clip-text text-transparent">
-              Available for new projects
-            </span>
-            <Sparkles className="w-4 h-4 text-orange-400 group-hover:rotate-12 transition-transform" />
-          </motion.div>
-
-          {/* Enhanced Headline with Typing Effect */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading leading-tight mb-6"
-          >
+      <div className="section-container relative z-10">
+        <div className="grid min-h-[calc(100vh-8rem)] items-center gap-12 pb-16 lg:grid-cols-[1.05fr,0.95fr]">
+          <div className="max-w-3xl text-center lg:text-left">
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              initial={{ opacity: 0, y: 18 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55 }}
+              className="mb-7 inline-flex items-center gap-2 rounded-full border border-orange-400/20 bg-orange-500/10 px-4 py-2 text-sm font-semibold text-orange-100 backdrop-blur-xl"
             >
-              Microsoft Office Add-in
+              <BadgeCheck className="h-4 w-4 text-orange-300" />
+              Enterprise Microsoft 365 Add-in Development
             </motion.div>
-            <br />
-            <motion.span 
-              className="gradient-text-both relative"
-              initial={{ opacity: 0, x: -50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6, type: "spring" }}
+
+            <motion.h1
+              initial={{ opacity: 0, y: 26 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="mb-6 font-heading text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl xl:text-7xl"
             >
-              <TypewriterText text="Development Expert" delay={800} />
-              
-              {/* Glow Effect Behind Text */}
-              <motion.div
-                animate={{ 
-                  opacity: [0.5, 1, 0.5],
-                  scale: [1, 1.05, 1]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-purple-500/20 blur-xl -z-10"
-              />
-            </motion.span>
-          </motion.div>
+              Build secure Office add-ins your
+              <span className="gradient-text-both block">enterprise team can trust.</span>
+            </motion.h1>
 
-          {/* Enhanced Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
-          >
-            I build production-ready add-ins that work reliably in real business
-            environments. From Outlook to Excel, I solve real productivity problems.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.22 }}
+              className="mx-auto mb-8 max-w-2xl text-lg leading-8 text-muted-foreground md:text-xl lg:mx-0"
+            >
+              Production-ready Outlook, Excel, Word, and PowerPoint add-ins with secure identity, Microsoft Graph integrations, admin rollout support, and clean technical handoff.
+            </motion.p>
 
-          {/* Enhanced Highlights with Stagger Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 1 }}
-            className="flex flex-wrap justify-center gap-4 mb-10"
-          >
-            {highlights.map((item, index) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: 1.2 + index * 0.1,
-                  type: "spring",
-                  bounce: 0.3
-                }}
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 0 20px rgba(255, 122, 24, 0.3)"
-                }}
-                className="flex items-center gap-2 text-sm text-muted-foreground glass-light px-3 py-2 rounded-lg cursor-pointer group"
-              >
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
-                >
-                  <CheckCircle2 className="w-4 h-4 bg-gradient-orange bg-clip-text text-transparent group-hover:scale-110 transition-transform" />
-                </motion.div>
-                <span className="group-hover:text-orange-300 transition-colors">{item}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Enhanced CTAs with Advanced Animations */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 1.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-          >
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 18 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.34 }}
+              className="mb-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start"
             >
-              <Button variant="hero" size="xl" asChild className="group relative overflow-hidden">
-                <a href="#contact" className="relative z-10">
-                  <motion.span
-                    initial={{ x: 0 }}
-                    whileHover={{ x: -5 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    Start Your Project
-                  </motion.span>
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                    className="ml-2 inline-block"
-                  >
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.div>
-                  
-                  {/* Button Glow Effect */}
-                  <motion.div
-                    animate={{ opacity: [0, 0.5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-purple-500/20 blur-xl"
-                  />
+              <Button variant="hero" size="xl" asChild className="group rounded-2xl px-8">
+                <a href="#contact">
+                  Book Enterprise Call
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Button>
+              <Button
+                variant="heroOutline"
+                size="xl"
+                asChild
+                className="group rounded-2xl border-orange-400/40 bg-white/[0.03] px-8 hover:bg-orange-500/10"
+              >
+                <a href={directEmailHref}>
+                  Email Project Brief
+                  <Mail className="ml-2 h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
                 </a>
               </Button>
             </motion.div>
-            
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button variant="heroOutline" size="xl" asChild className="group">
-                <a href="#portfolio" className="relative overflow-hidden">
-                  <motion.span
-                    initial={{ x: 0 }}
-                    whileHover={{ x: -3 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    View My Work
-                  </motion.span>
-                  <Code className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform" />
-                </a>
-              </Button>
-            </motion.div>
-          </motion.div>
 
-          {/* Enhanced Stats with Counter Animation */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.46 }}
+              className="mb-10 flex flex-wrap justify-center gap-3 lg:justify-start"
+            >
+              {trustPoints.map((point) => (
+                <div key={point} className="flex items-center gap-2 rounded-xl glass-light px-3.5 py-2 text-sm text-foreground/90">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-orange-300" />
+                  {point}
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.58 }}
+              className="grid gap-3 sm:grid-cols-3"
+            >
+              {metrics.map((metric) => (
+                <div key={metric.label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
+                  <p className="gradient-text-both text-3xl font-extrabold">{metric.value}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{metric.label}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 1.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+            initial={{ opacity: 0, y: 30, scale: 0.96 }}
+            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+            transition={{ duration: 0.75, delay: 0.25, type: "spring", bounce: 0.18 }}
+            className="relative"
           >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: 1.8 + index * 0.1,
-                  type: "spring",
-                  bounce: 0.3
-                }}
-                whileHover={{ 
-                  scale: 1.1,
-                  transition: { type: "spring", stiffness: 400 }
-                }}
-                className="text-center group cursor-pointer"
-              >
-                <motion.div 
-                  className="text-3xl md:text-4xl font-bold gradient-text-both mb-1 relative"
-                  initial={{ scale: 0 }}
-                  animate={isInView ? { scale: 1 } : {}}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 2 + index * 0.1,
-                    type: "spring",
-                    bounce: 0.4
-                  }}
-                >
-                  {stat.value}
-                  
-                  {/* Stat Glow Effect */}
-                  <motion.div
-                    animate={{ 
-                      opacity: [0, 0.3, 0],
-                      scale: [1, 1.2, 1]
-                    }}
-                    transition={{ 
-                      duration: 3, 
-                      repeat: Infinity,
-                      delay: index * 0.5
-                    }}
-                    className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-purple-500/20 blur-lg -z-10"
-                  />
-                </motion.div>
-                <motion.div 
-                  className="text-sm text-muted-foreground group-hover:text-orange-300 transition-colors"
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : {}}
-                  transition={{ duration: 0.4, delay: 2.2 + index * 0.1 }}
-                >
-                  {stat.label}
-                </motion.div>
-              </motion.div>
-            ))}
+            <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-orange-500/20 via-purple-500/10 to-transparent blur-2xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-orange-500/15 bg-slate-950/55 p-6 shadow-soft-lg backdrop-blur-2xl">
+              <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-5">
+                <div>
+                  <p className="text-sm font-semibold text-orange-200">Delivery Overview</p>
+                  <h2 className="mt-1 text-2xl font-bold text-foreground">Enterprise Add-in Build</h2>
+                </div>
+                <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-300">
+                  Ready
+                </div>
+              </div>
+
+              <div className="mb-6 grid gap-3 sm:grid-cols-3">
+                <div className="rounded-2xl glass-light p-4">
+                  <ShieldCheck className="mb-3 h-6 w-6 text-orange-300" />
+                  <p className="text-sm font-semibold text-foreground">Secure</p>
+                  <p className="mt-1 text-xs text-muted-foreground">OAuth + scopes</p>
+                </div>
+                <div className="rounded-2xl glass-light p-4">
+                  <ServerCog className="mb-3 h-6 w-6 text-purple-300" />
+                  <p className="text-sm font-semibold text-foreground">Deployable</p>
+                  <p className="mt-1 text-xs text-muted-foreground">M365 Admin</p>
+                </div>
+                <div className="rounded-2xl glass-light p-4">
+                  <LockKeyhole className="mb-3 h-6 w-6 text-orange-300" />
+                  <p className="text-sm font-semibold text-foreground">Controlled</p>
+                  <p className="mt-1 text-xs text-muted-foreground">IT review</p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-5">
+                <div className="mb-5 flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-orange/15 text-orange-300">
+                    <Workflow className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Workflow Path</p>
+                    <p className="text-xs text-muted-foreground">Clear process from idea to rollout</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  {workflowSteps.map((step, index) => (
+                    <motion.div
+                      key={step.label}
+                      initial={{ opacity: 0, x: 18 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 0.5 + index * 0.08 }}
+                      className="flex items-center gap-3 rounded-xl bg-background/35 p-3"
+                    >
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-500/15 text-xs font-bold text-orange-200">
+                        0{index + 1}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm font-semibold text-foreground">{step.label}</p>
+                        <p className="text-xs text-muted-foreground">{step.status}</p>
+                      </div>
+                      <CheckCircle2 className="h-4 w-4 text-orange-300" />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {["Outlook", "Excel", "Word", "PowerPoint", "Teams"].map((app) => (
+                  <span key={app} className="rounded-full border border-orange-400/15 bg-orange-500/10 px-3 py-1.5 text-xs font-medium text-orange-100">
+                    {app}
+                  </span>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
-      </motion.div>
-
-      {/* Enhanced Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 2.5, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div 
-          className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2 cursor-pointer group"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <motion.div
-            animate={{ 
-              y: [0, 8, 0],
-              opacity: [0.5, 1, 0.5]
-            }}
-            transition={{ 
-              duration: 1.5, 
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-orange-400 to-purple-400 group-hover:from-purple-400 group-hover:to-orange-400 transition-all duration-300"
-          />
-          
-          {/* Scroll Indicator Glow */}
-          <motion.div
-            animate={{ opacity: [0, 0.5, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="absolute inset-0 rounded-full bg-gradient-to-b from-orange-500/20 to-purple-500/20 blur-md"
-          />
-        </motion.div>
-        
-        {/* Scroll Text */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 2.7, duration: 0.5 }}
-          className="text-xs text-muted-foreground mt-2 text-center"
-        >
-          Scroll to explore
-        </motion.p>
-      </motion.div>
+      </div>
     </section>
   );
 };
