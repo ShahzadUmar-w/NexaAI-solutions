@@ -4,8 +4,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import { lazy, Suspense } from "react";
+
+const Index = lazy(() => import("./pages/Index"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const AddInServicePage = lazy(() => import("./pages/AddInServicePage"));
+const SEOResourcePage = lazy(() => import("./pages/SEOResourcePage"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
 
 const queryClient = new QueryClient();
 
@@ -16,10 +21,24 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/outlook-add-in-development" element={<AddInServicePage type="outlook" />} />
+              <Route path="/excel-add-in-development" element={<AddInServicePage type="excel" />} />
+              <Route path="/word-add-in-development" element={<AddInServicePage type="word" />} />
+              <Route path="/powerpoint-add-in-development" element={<AddInServicePage type="powerpoint" />} />
+              <Route path="/microsoft-graph-integration" element={<SEOResourcePage type="graph" />} />
+              <Route path="/microsoft-365-add-in-deployment" element={<SEOResourcePage type="deployment" />} />
+              <Route path="/how-to-build-outlook-add-in" element={<SEOResourcePage type="outlook-guide" />} />
+              <Route path="/office-js-vs-vsto" element={<SEOResourcePage type="officejs-vsto" />} />
+              <Route path="/excel-add-in-development-guide" element={<SEOResourcePage type="excel-guide" />} />
+              <Route path="/case-studies/outlook-crm-add-in" element={<SEOResourcePage type="outlook-crm-case" />} />
+              <Route path="/case-studies/excel-reporting-automation" element={<SEOResourcePage type="excel-reporting-case" />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

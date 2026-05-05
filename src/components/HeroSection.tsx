@@ -74,8 +74,8 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="mb-6 font-heading text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl xl:text-7xl"
             >
-              Build secure Office add-ins your
-              <span className="gradient-text-both block">enterprise team can trust.</span>
+              Custom Office Add-in Development
+              <span className="gradient-text-both block">for enterprise teams.</span>
             </motion.h1>
 
             <motion.p

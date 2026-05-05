@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Building2, CheckCircle2, Globe2, Sparkles } from "lucide-react";
 
 const companies = [
-  "FinTech Company",
+  "DataHive",
   "LegalTech Firm",
   "Healthcare SaaS",
   "Real Estate CRM",

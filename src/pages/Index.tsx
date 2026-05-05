@@ -1,22 +1,27 @@
 import { Helmet } from "react-helmet-async";
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import VideoSection from "@/components/VideoSection";
-import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import PlansSection from "@/components/PlansSection";
-import ProductSection from "@/components/ProductSection";
-import PortfolioSection from "@/components/PortfolioSection";
-import CompaniesSection from "@/components/CompaniesSection";
-import EnterpriseReadinessSection from "@/components/EnterpriseReadinessSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import { officeAddInFaqs } from "@/lib/seo-data";
 
-const siteUrl = "https://nexaaisolutions.com/";
-const seoTitle = "NexaAI Solutions | Enterprise Microsoft Office Add-in Development";
+const VideoSection = lazy(() => import("@/components/VideoSection"));
+const AboutSection = lazy(() => import("@/components/AboutSection"));
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const PlansSection = lazy(() => import("@/components/PlansSection"));
+const ProductSection = lazy(() => import("@/components/ProductSection"));
+const PortfolioSection = lazy(() => import("@/components/PortfolioSection"));
+const CompaniesSection = lazy(() => import("@/components/CompaniesSection"));
+const EnterpriseReadinessSection = lazy(() => import("@/components/EnterpriseReadinessSection"));
+const SEOContentSection = lazy(() => import("@/components/SEOContentSection"));
+const ResourcesSection = lazy(() => import("@/components/ResourcesSection"));
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+
+const siteUrl = "https://officeaddindevelopment.com/";
+const seoTitle = "Office Add-in Development | NexaAI Solutions";
 const seoDescription =
-  "Enterprise Microsoft Office add-in development for Outlook, Excel, Word, PowerPoint, and Teams. Secure Office.js, Microsoft Graph, React, TypeScript, and Microsoft 365 deployment support.";
+  "Custom Microsoft Office add-in development for Outlook, Excel, Word, PowerPoint, and Teams. Office.js, Microsoft Graph, React, TypeScript, and M365 deployment support.";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -65,6 +70,19 @@ const structuredData = {
   },
 };
 
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: officeAddInFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 const Index = () => {
   return (
     <>
@@ -99,22 +117,29 @@ const Index = () => {
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqStructuredData)}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
         <Navbar />
         <main>
           <HeroSection />
-          <VideoSection />
-          <AboutSection />
-          <ServicesSection />
-          <PlansSection />
-          <ProductSection />
-          <PortfolioSection />
-          <CompaniesSection />
-          <EnterpriseReadinessSection />
-          <TestimonialsSection />
-          <ContactSection />
+          <Suspense fallback={null}>
+            <VideoSection />
+            <AboutSection />
+            <ServicesSection />
+            <PlansSection />
+            <ProductSection />
+            <PortfolioSection />
+            <CompaniesSection />
+            <EnterpriseReadinessSection />
+            <SEOContentSection />
+            <ResourcesSection />
+            <TestimonialsSection />
+            <ContactSection />
+          </Suspense>
         </main>
         <Footer />
       </div>

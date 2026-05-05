@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://nexaaisolutions.com/sitemap.xml
+Sitemap: https://officeaddindevelopment.com/sitemap.xml

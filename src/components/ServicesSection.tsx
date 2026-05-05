@@ -1,6 +1,5 @@
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Mail, TableProperties, FileText, Presentation, ArrowRight, Sparkles, Video } from "lucide-react";
-import { useRef } from "react";
 
 const services = [
   {
@@ -48,41 +47,13 @@ const services = [
 ];
 
 const ServicesSection = () => {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-
   return (
     <section id="services" className="py-24 relative overflow-hidden">
-      {/* Enhanced Background Effects */}
-      <motion.div 
-        animate={{ 
-          backgroundPosition: ["0% 0%", "100% 100%"],
-          opacity: [0.3, 0.5, 0.3]
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-purple-500/5 to-transparent"
-      />
-      
-      {/* Floating Background Elements */}
-      <motion.div
-        animate={{ 
-          y: [-20, 20, -20],
-          rotate: [0, 5, -5, 0]
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-20 right-10 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl"
-      />
-      <motion.div
-        animate={{ 
-          y: [20, -20, 20],
-          rotate: [0, -3, 3, 0]
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-20 left-10 w-40 h-40 bg-purple-500/8 rounded-full blur-2xl"
-      />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-500/[0.035] to-transparent" />
+      <div className="absolute right-10 top-24 h-56 w-56 rounded-full bg-orange-500/5 blur-3xl" />
+      <div className="absolute bottom-16 left-10 h-64 w-64 rounded-full bg-purple-500/5 blur-3xl" />
 
-      <div ref={containerRef} className="section-container relative z-10">
-        {/* Enhanced Header */}
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -90,20 +61,14 @@ const ServicesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <motion.span 
-            className="gradient-text-orange font-semibold text-sm uppercase tracking-wider mb-4 block relative"
+          <motion.span
+            className="gradient-text-orange font-semibold text-sm uppercase tracking-wider mb-4 inline-flex items-center justify-center gap-2"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-              className="inline-block mr-2"
-            >
-              <Sparkles className="w-4 h-4" />
-            </motion.div>
+            <Sparkles className="w-4 h-4" />
             Services
           </motion.span>
           
@@ -115,19 +80,14 @@ const ServicesSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             Office 365, Google Workspace, and Electron
-            <motion.span 
-              className="gradient-text-both relative"
+            <motion.span
+              className="gradient-text-both"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6, type: "spring" }}
             >
               Automation Solutions
-              <motion.div
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-purple-500/20 blur-lg -z-10"
-              />
             </motion.span>
           </motion.h2>
           
@@ -143,53 +103,27 @@ const ServicesSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* Enhanced Services Grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 40, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ 
-                duration: 0.6, 
-                delay: index * 0.15,
-                type: "spring",
-                bounce: 0.3
-              }}
-              whileHover={{ 
-                y: -8,
-                scale: 1.02,
-                transition: { type: "spring", stiffness: 300 }
-              }}
-              className="group glass card-hover p-8 hover:shadow-glow-orange transition-all duration-500 border border-orange-500/10 hover:border-orange-500/30 relative overflow-hidden"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group glass card-hover p-8 transition-all duration-300 border border-white/10 hover:border-orange-500/25 relative overflow-hidden"
             >
-              {/* Card Background Glow */}
-              <motion.div
-                animate={{ opacity: [0, 0.1, 0] }}
-                transition={{ duration: 4, repeat: Infinity, delay: index * 0.5 }}
-                className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-purple-500/10 rounded-lg"
-              />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.04] to-purple-500/[0.03] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
               <div className="flex items-start gap-4 relative z-10">
-                <motion.div 
+                <div
                   className="w-14 h-14 rounded-xl bg-gradient-orange/10 flex items-center justify-center shrink-0 group-hover:bg-gradient-orange/20 transition-all duration-300"
-                  whileHover={{ 
-                    rotate: [0, -10, 10, 0],
-                    scale: 1.1,
-                    transition: { duration: 0.5 }
-                  }}
                 >
-                  <motion.div
-                    animate={{ rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: index * 0.3 }}
-                  >
-                    <service.icon className="w-7 h-7 bg-gradient-orange bg-clip-text text-transparent" />
-                  </motion.div>
-                </motion.div>
+                  <service.icon className="w-7 h-7 text-orange-300" />
+                </div>
                 
                 <div className="flex-1">
-                  <motion.h3 
+                  <motion.h3
                     className="text-xl font-semibold text-foreground mb-2 group-hover:text-orange-300 transition-colors"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -199,7 +133,7 @@ const ServicesSection = () => {
                     {service.title}
                   </motion.h3>
                   
-                  <motion.p 
+                  <motion.p
                     className="text-muted-foreground text-sm mb-4"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -209,7 +143,7 @@ const ServicesSection = () => {
                     {service.description}
                   </motion.p>
                   
-                  <motion.div 
+                  <motion.div
                     className="flex flex-wrap gap-2"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -219,18 +153,11 @@ const ServicesSection = () => {
                     {service.features.map((feature, featureIndex) => (
                       <motion.span
                         key={feature}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 6 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ 
-                          duration: 0.3, 
-                          delay: index * 0.15 + 0.5 + featureIndex * 0.1 
-                        }}
-                        whileHover={{ 
-                          scale: 1.05,
-                          backgroundColor: "rgba(255, 122, 24, 0.1)"
-                        }}
-                        className="text-xs px-2.5 py-1 rounded-md glass-light text-orange-300 cursor-pointer transition-all duration-200"
+                        transition={{ duration: 0.25, delay: index * 0.08 + featureIndex * 0.04 }}
+                        className="text-xs px-2.5 py-1 rounded-md glass-light text-orange-300 transition-all duration-200"
                       >
                         {feature}
                       </motion.span>
@@ -239,7 +166,7 @@ const ServicesSection = () => {
                 </div>
               </div>
               
-              <motion.div 
+              <motion.div
                 className="mt-6 pt-6 border-t border-border"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -248,22 +175,10 @@ const ServicesSection = () => {
               >
                 <motion.a
                   href="#contact"
-                  className="inline-flex items-center gap-2 gradient-text-orange font-medium text-sm group-hover:gap-3 transition-all duration-300 cursor-pointer"
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 400 }}
+                  className="inline-flex items-center gap-2 text-orange-300 font-medium text-sm transition-all duration-300 hover:text-orange-200"
                 >
-                  <motion.span
-                    animate={{ x: [0, 3, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-                  >
-                    Discuss Your Project
-                  </motion.span>
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 + 0.5 }}
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.div>
+                  Discuss Your Project
+                  <ArrowRight className="w-4 h-4" />
                 </motion.a>
               </motion.div>
             </motion.div>

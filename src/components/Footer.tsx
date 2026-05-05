@@ -1,21 +1,29 @@
-import { ArrowRight, Github, Linkedin, Mail, MapPin, ShieldCheck, Sparkles } from "lucide-react";
+﻿import { ArrowRight, Github, Linkedin, Mail, MapPin, ShieldCheck, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const directEmailHref =
   "mailto:shahzad890.it@gmail.com?subject=Enterprise%20Office%20Add-in%20Consultation&body=Hi%20Shahzad%2C%0A%0AI%20would%20like%20to%20discuss%20an%20enterprise%20Office%20add-in%20project.%0A%0ACompany%3A%0AProject%20type%3A%0ATimeline%3A%0ARequirements%3A%0A%0AThanks.";
 
 const serviceLinks = [
-  { label: "Office Add-ins", href: "#services" },
-  { label: "Project Plans", href: "#plans" },
-  { label: "Products", href: "#products" },
-  { label: "Portfolio", href: "#portfolio" },
+  { label: "Outlook Add-in Development", href: "/outlook-add-in-development" },
+  { label: "Excel Add-in Development", href: "/excel-add-in-development" },
+  { label: "Word Add-in Development", href: "/word-add-in-development" },
+  { label: "PowerPoint Add-in Development", href: "/powerpoint-add-in-development" },
 ];
 
 const trustLinks = [
-  { label: "Enterprise Readiness", href: "#enterprise" },
-  { label: "Companies", href: "#companies" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "About NexaAI Solutions", href: "/about-us" },
+  { label: "Enterprise Readiness", href: "/#enterprise" },
+  { label: "Microsoft Graph Integration", href: "/microsoft-graph-integration" },
+  { label: "M365 Add-in Deployment", href: "/microsoft-365-add-in-deployment" },
+  { label: "Office.js vs VSTO", href: "/office-js-vs-vsto" },
+];
+
+const resourceLinks = [
+  { label: "How to Build Outlook Add-in", href: "/how-to-build-outlook-add-in" },
+  { label: "Excel Add-in Guide", href: "/excel-add-in-development-guide" },
+  { label: "Outlook CRM Case Study", href: "/case-studies/outlook-crm-add-in" },
+  { label: "Excel Reporting Case Study", href: "/case-studies/excel-reporting-automation" },
 ];
 
 const Footer = () => {
@@ -28,9 +36,9 @@ const Footer = () => {
       <div className="absolute -left-28 bottom-0 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
 
       <div className="section-container relative z-10 py-14">
-        <div className="grid gap-10 lg:grid-cols-[1.25fr,0.75fr,0.75fr,1fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr,0.8fr,0.8fr,0.8fr,1fr]">
           <div>
-            <a href="#" className="mb-5 inline-flex items-center gap-3">
+            <a href="/" className="mb-5 inline-flex items-center gap-3">
               <img src="/Logo.png" alt="Nexa AI Solutions logo" className="h-12 w-auto object-contain" />
               <span className="font-heading text-xl font-bold text-white">
                 Nexa AI<span className="gradient-text-purple"> Solutions</span>
@@ -76,6 +84,21 @@ const Footer = () => {
                   key={link.label}
                   href={link.href}
                   className="block text-sm text-muted-foreground transition-colors hover:text-purple-200"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">Resources</h3>
+            <div className="space-y-3">
+              {resourceLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="block text-sm text-muted-foreground transition-colors hover:text-orange-200"
                 >
                   {link.label}
                 </a>
@@ -144,3 +167,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

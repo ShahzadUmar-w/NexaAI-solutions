@@ -1,129 +1,159 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
+import fiverrReviews from "@/data/fiverrReviews.json";
 
-const testimonials = [
-  {
-    name: "fajerhs",
-    country: "Kuwait",
-    content:
-      "I really enjoyed working with him. His language fluency made communication very easy and clear. He always respected the delivery time and finished his work on schedule. He showed a deep understanding of the tasks and always did his best. In many situations, he went above and beyond expectations.",
-    rating: 5,
-    isRepeatClient: true,
-  },
-  {
-    name: "poppy_lane1",
-    country: "Germany",
-    content:
-      "Excellent Electron JS developer. Built a smooth desktop application and handled the Microsoft Store publishing process professionally. Highly recommended!",
-    rating: 5,
-    isRepeatClient: false,
-  },
-  {
-    name: "jameswragg340",
-    country: "United Kingdom",
-    content:
-      "Great work, even though we had to go through numerous versions due to my expectations he kept going and didn't get frustrated! Excellent work, would definitely recommend!",
-    rating: 5,
-    isRepeatClient: false,
-  },
-  {
-    name: "dvmoore",
-    country: "United States",
-    content:
-      "Even though we ran into issues with the Electron app being rejected by MSFT Store several times, working closely with Shahzad, we were able to get it resolved and published.",
-    rating: 4.3,
-    isRepeatClient: false,
-  },
-  {
-    name: "upwork_consultation",
-    country: "United States",
-    content:
-      "Shahzad is great! He is super knowledgeable and knows his stuff!",
-    rating: 5,
-    isRepeatClient: false,
-  },
-  {
-    name: "outlook_calendar",
-    country: "United States",
-    content:
-      "Shahzad is a skilled and professional developer with strong technical knowledge around Outlook / Office.js add-ins. He communicated clearly throughout the project, raised concerns, and delivered a polished solution.",
-    rating: 5,
-    isRepeatClient: false,
-  },
-];
+type FiverrReview = {
+  id: string;
+  name: string;
+  country: string;
+  countryCode: string;
+  rating: number;
+  review: string;
+  price: string;
+  duration: string;
+  category: string;
+  platform: string;
+  date: string;
+  repeatClient: boolean;
+  status: string;
+  avatarUrl?: string;
+  imageUrl?: string;
+};
+
+const completedReviews = (fiverrReviews as FiverrReview[]).filter((review) => review.status === "completed");
+const averageRating =
+  completedReviews.reduce((total, review) => total + review.rating, 0) / completedReviews.length;
+const repeatClients = completedReviews.filter((review) => review.repeatClient).length;
+
+const renderStars = (rating: number) =>
+  Array.from({ length: 5 }).map((_, index) => (
+    <Star
+      key={index}
+      className={`h-4 w-4 ${
+        index < Math.round(rating) ? "fill-orange-400 text-orange-400" : "text-muted-foreground/30"
+      }`}
+    />
+  ));
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-24 relative overflow-hidden">
+    <section id="testimonials" className="relative overflow-hidden py-24">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-500/5 to-transparent" />
-      
+
       <div className="section-container relative z-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <span className="gradient-text-orange font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Testimonials
+          <span className="gradient-text-orange mb-4 block text-sm font-semibold uppercase tracking-wider">
+            Fiverr Reviews
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-            What Clients <span className="gradient-text-both">Say</span>
+          <h2 className="mb-4 font-heading text-3xl font-bold md:text-4xl">
+            Real client feedback from
+            <span className="gradient-text-both"> Office add-in and automation projects</span>
           </h2>
           <p className="text-muted-foreground">
-            Top-rated feedback from Upwork and Fiverr clients on Office add-ins, Electron apps, Google Workspace automation, and desktop publishing.
+            Verified-style Fiverr feedback from clients across Office add-ins, Electron apps, Google Workspace add-ons, desktop apps, and automation workflows.
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 20 }}
+        <div className="mx-auto mb-10 grid max-w-4xl gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl glass p-5 text-center">
+            <p className="gradient-text-both text-3xl font-extrabold">{completedReviews.length}+</p>
+            <p className="text-sm text-muted-foreground">Completed reviews added</p>
+          </div>
+          <div className="rounded-2xl glass p-5 text-center">
+            <p className="gradient-text-both text-3xl font-extrabold">{averageRating.toFixed(1)}</p>
+            <p className="text-sm text-muted-foreground">Average rating</p>
+          </div>
+          <div className="rounded-2xl glass p-5 text-center">
+            <p className="gradient-text-both text-3xl font-extrabold">{repeatClients}+</p>
+            <p className="text-sm text-muted-foreground">Repeat-client reviews</p>
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {completedReviews.map((testimonial, index) => (
+            <motion.article
+              key={testimonial.id}
+              initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="glass card-hover p-6 border border-orange-500/10 hover:border-orange-500/30 transition-all duration-300"
+              transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.5) }}
+              className="glass card-hover flex h-full flex-col border border-white/10 p-6 transition-all duration-300 hover:border-orange-500/25"
             >
-              {/* Quote Icon */}
-              <Quote className="w-8 h-8 bg-gradient-orange bg-clip-text text-transparent mb-4" />
+              {testimonial.imageUrl && (
+                <img
+                  src={testimonial.imageUrl}
+                  alt={`${testimonial.name} Fiverr review screenshot`}
+                  className="mb-5 h-36 w-full rounded-2xl object-cover"
+                  loading="lazy"
+                />
+              )}
 
-              {/* Content */}
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                "{testimonial.content}"
-              </p>
-
-              {/* Rating */}
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: Math.floor(testimonial.rating) }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-orange-400 text-orange-400" />
-                ))}
+              <div className="mb-5 flex items-start justify-between gap-4">
+                <Quote className="h-8 w-8 text-orange-300" />
+                <span className="rounded-full glass-light px-3 py-1 text-xs font-semibold text-orange-200">
+                  {testimonial.platform}
+                </span>
               </div>
 
-              {/* Author */}
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-orange/20 flex items-center justify-center">
-                  <span className="text-sm font-semibold text-orange-400">
-                    {testimonial.name.charAt(0).toUpperCase()}
-                  </span>
+              <p className="mb-6 flex-1 text-sm leading-6 text-muted-foreground">
+                "{testimonial.review}"
+              </p>
+
+              <div className="mb-4 flex items-center gap-1">
+                {renderStars(testimonial.rating)}
+                <span className="ml-2 text-sm font-semibold text-foreground">{testimonial.rating}</span>
+              </div>
+
+              <div className="mb-5 grid grid-cols-3 gap-2 text-xs">
+                <div className="rounded-xl glass-light p-2">
+                  <p className="text-muted-foreground">Price</p>
+                  <p className="font-semibold text-foreground">{testimonial.price}</p>
                 </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <p className="font-semibold text-foreground text-sm">
-                      {testimonial.name}
-                    </p>
-                    {testimonial.isRepeatClient && (
-                      <span className="text-[10px] px-1.5 py-0.5 bg-orange-500/20 text-orange-300 rounded-full">
+                <div className="rounded-xl glass-light p-2">
+                  <p className="text-muted-foreground">Duration</p>
+                  <p className="font-semibold text-foreground">{testimonial.duration}</p>
+                </div>
+                <div className="rounded-xl glass-light p-2">
+                  <p className="text-muted-foreground">Type</p>
+                  <p className="truncate font-semibold text-foreground">{testimonial.category}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 border-t border-white/10 pt-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-orange/15">
+                  {testimonial.avatarUrl ? (
+                    <img
+                      src={testimonial.avatarUrl}
+                      alt={`${testimonial.name} avatar`}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className="text-sm font-bold text-orange-300">
+                      {testimonial.name.charAt(0).toUpperCase()}
+                    </span>
+                  )}
+                </div>
+                <div className="min-w-0 text-left">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="truncate text-sm font-semibold text-foreground">{testimonial.name}</p>
+                    {testimonial.repeatClient && (
+                      <span className="rounded-full bg-orange-500/15 px-2 py-0.5 text-[10px] font-semibold text-orange-300">
                         Repeat Client
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-muted-foreground">{testimonial.country}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {testimonial.countryCode} · {testimonial.country} · {testimonial.date}
+                  </p>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
