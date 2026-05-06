@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['Plus Jakarta Sans', 'sans-serif'],
-        body: ['Plus Jakarta Sans', 'sans-serif'],
+        heading: ['Manrope', 'sans-serif'],
+        body: ['Manrope', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -74,12 +74,12 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        "glow-orange": "0 0 20px rgba(255, 122, 24, 0.4), 0 0 40px rgba(255, 179, 71, 0.2)",
-        "glow-purple": "0 0 20px rgba(142, 45, 226, 0.4), 0 0 40px rgba(255, 65, 108, 0.2)",
-        "soft": "0 4px 20px rgba(0, 0, 0, 0.3)",
-        "soft-md": "0 8px 32px rgba(0, 0, 0, 0.4)",
-        "soft-lg": "0 12px 48px rgba(0, 0, 0, 0.5)",
-        "glass": "0 8px 32px 0 rgba(31, 38, 135, 0.2)",
+        "glow-orange": "0 16px 40px rgba(245, 158, 11, 0.16)",
+        "glow-purple": "0 16px 40px rgba(56, 189, 248, 0.12)",
+        "soft": "0 1px 2px rgba(15, 23, 42, 0.16), 0 12px 34px rgba(2, 6, 23, 0.22)",
+        "soft-md": "0 20px 50px rgba(2, 6, 23, 0.3)",
+        "soft-lg": "0 28px 70px rgba(2, 6, 23, 0.38)",
+        "glass": "0 18px 56px rgba(2, 6, 23, 0.28)",
       },
       backdropFilter: {
         none: "none",

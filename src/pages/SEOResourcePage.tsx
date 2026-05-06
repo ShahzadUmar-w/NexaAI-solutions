@@ -1,5 +1,18 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, BookOpen, CheckCircle2, FileText, Rocket, Workflow } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  CalendarDays,
+  CheckCircle2,
+  FileText,
+  FolderOpen,
+  Mail,
+  Rocket,
+  ShieldCheck,
+  TableProperties,
+  UsersRound,
+  Workflow,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -132,6 +145,49 @@ const relatedLinks = [
   { label: "M365 Add-in Deployment", href: "/microsoft-365-add-in-deployment" },
 ];
 
+const graphCapabilities = [
+  {
+    icon: Mail,
+    title: "Outlook email workflows",
+    items: ["Read selected email context", "Create drafts and replies", "Save messages to CRM", "Process attachments", "Sync conversations"],
+  },
+  {
+    icon: CalendarDays,
+    title: "Calendar and meetings",
+    items: ["Read calendar events", "Create meetings", "Find available time", "Sync meeting notes", "Automate follow-ups"],
+  },
+  {
+    icon: FolderOpen,
+    title: "OneDrive and SharePoint files",
+    items: ["Upload and download files", "Create folders", "Attach documents", "Read file metadata", "Connect document libraries"],
+  },
+  {
+    icon: UsersRound,
+    title: "Users and organization data",
+    items: ["Read user profiles", "Find team members", "Use directory data", "Map managers and departments", "Support tenant users"],
+  },
+  {
+    icon: Workflow,
+    title: "Teams and collaboration",
+    items: ["Send Teams notifications", "Connect channels", "Create workflow updates", "Link Office add-ins with Teams", "Support internal collaboration"],
+  },
+  {
+    icon: TableProperties,
+    title: "Excel and reporting data",
+    items: ["Read workbook files", "Sync report data", "Connect Excel with APIs", "Refresh datasets", "Move data between M365 tools"],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security and permissions",
+    items: ["OAuth login", "Admin consent planning", "Least-privilege scopes", "Token handling", "Tenant security review"],
+  },
+  {
+    icon: Rocket,
+    title: "Business system integrations",
+    items: ["CRM sync", "Helpdesk workflows", "Document automation", "Approval flows", "Custom API bridges"],
+  },
+];
+
 const SEOResourcePage = ({ type }: { type: ResourceType }) => {
   const content = resources[type];
   const canonicalUrl = `${siteUrl}${content.path}`;
@@ -184,7 +240,7 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
                   {isCaseStudy ? <FileText className="h-4 w-4" /> : <BookOpen className="h-4 w-4" />}
                   {content.eyebrow}
                 </span>
-                <h1 className="mb-6 font-heading text-4xl font-extrabold leading-tight md:text-6xl">{content.title}</h1>
+                <h1 className="mb-6 font-heading text-4xl font-bold leading-tight md:text-6xl">{content.title}</h1>
                 <p className="mx-auto mb-8 max-w-3xl text-lg leading-8 text-muted-foreground">{content.intro}</p>
                 <Button variant="hero" size="xl" asChild className="group rounded-2xl">
                   <a href={directEmailHref}>
@@ -236,6 +292,71 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
             </div>
           </section>
 
+          {type === "graph" && (
+            <section className="relative overflow-hidden py-20">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(59,130,246,0.1),transparent_26rem),radial-gradient(circle_at_82%_18%,rgba(255,209,61,0.08),transparent_24rem)]" />
+
+              <div className="section-container relative z-10">
+                <div className="mx-auto mb-12 max-w-4xl text-center">
+                  <span className="section-kicker">
+                    <Workflow className="h-4 w-4" />
+                    What Graph Can Do
+                  </span>
+                  <h2 className="section-title mb-5">
+                    Microsoft Graph can connect your add-in
+                    <span className="gradient-text-both block">with the full Microsoft 365 workspace.</span>
+                  </h2>
+                  <p className="mx-auto max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+                    Graph is useful when an Office add-in needs access to Microsoft 365 data such as email, calendar, files, users, SharePoint, Teams, OneDrive, and business workflows with secure permissions.
+                  </p>
+                </div>
+
+                <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+                  {graphCapabilities.map((capability) => (
+                    <article
+                      key={capability.title}
+                      className="group rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-left shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-orange-300/25 hover:bg-white/[0.06]"
+                    >
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                        <capability.icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="mb-4 text-lg font-bold text-foreground">{capability.title}</h3>
+                      <div className="space-y-3">
+                        {capability.items.map((item) => (
+                          <p key={item} className="flex items-start gap-2 text-sm leading-6 text-muted-foreground">
+                            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-orange-300" />
+                            {item}
+                          </p>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                <div className="mt-10 grid gap-5 lg:grid-cols-3">
+                  <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 text-left">
+                    <h3 className="mb-3 text-xl font-bold text-foreground">For Outlook add-ins</h3>
+                    <p className="text-sm leading-7 text-muted-foreground">
+                      Graph can help read message context, fetch attachments, create drafts, sync emails to CRM, create calendar events, and trigger follow-up workflows.
+                    </p>
+                  </div>
+                  <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 text-left">
+                    <h3 className="mb-3 text-xl font-bold text-foreground">For Excel and Word add-ins</h3>
+                    <p className="text-sm leading-7 text-muted-foreground">
+                      Graph can connect workbook and document workflows with OneDrive, SharePoint, user files, reports, templates, approvals, and external business systems.
+                    </p>
+                  </div>
+                  <div className="rounded-3xl border border-orange-300/15 bg-orange-300/10 p-6 text-left">
+                    <h3 className="mb-3 text-xl font-bold text-foreground">Security comes first</h3>
+                    <p className="text-sm leading-7 text-muted-foreground">
+                      A good Graph integration uses least-privilege permissions, admin consent planning, token handling, and a clear explanation of what data the add-in needs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
           <section className="pb-24">
             <div className="section-container">
               <div className="rounded-3xl border border-purple-500/10 glass p-8">
@@ -265,3 +386,5 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
 };
 
 export default SEOResourcePage;
+
+

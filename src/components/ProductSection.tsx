@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import {
   ArrowRight,
   Bot,
@@ -160,13 +160,13 @@ const ProductSection = () => {
 
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Button variant="hero" size="lg" className="group/btn flex-1" asChild>
-                    <a href="#contact">
+                    <a href="/contact">
                       Customize Product
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </a>
                   </Button>
                   <Button variant="heroOutline" size="lg" className="flex-1" asChild>
-                    <a href="#portfolio">View Examples</a>
+                    <a href="/portfolio">View Examples</a>
                   </Button>
                 </div>
               </div>
@@ -191,7 +191,7 @@ const ProductSection = () => {
             </p>
           </div>
           <Button variant="hero" size="lg" asChild>
-            <a href="#contact">Request Product Idea</a>
+            <a href="/contact">Request Product Idea</a>
           </Button>
         </motion.div>
       </div>
@@ -200,3 +200,4 @@ const ProductSection = () => {
 };
 
 export default ProductSection;
+

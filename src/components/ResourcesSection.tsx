@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, FileText, Network, Rocket } from "lucide-react";
 
 const resources = [
@@ -31,7 +31,6 @@ const resources = [
 const ResourcesSection = () => {
   return (
     <section id="resources" className="relative overflow-hidden py-24">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent" />
       <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -40,15 +39,15 @@ const ResourcesSection = () => {
           transition={{ duration: 0.6 }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <span className="gradient-text-purple mb-4 block text-sm font-semibold uppercase tracking-wider">
+          <span className="section-kicker">
             Resources
           </span>
-          <h2 className="mb-5 font-heading text-3xl font-bold md:text-4xl">
-            Guides and pages that build
-            <span className="gradient-text-both"> topical authority</span>
+          <h2 className="section-title mb-5">
+            Helpful pages before
+            <span className="gradient-text-both block">starting an add-in project</span>
           </h2>
           <p className="text-muted-foreground">
-            Helpful pages for teams researching Office add-ins, Microsoft Graph, deployment, and enterprise automation before hiring a developer.
+            Short guides for teams researching Office add-ins, Microsoft Graph, deployment, and enterprise automation.
           </p>
         </motion.div>
 
@@ -61,10 +60,10 @@ const ResourcesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="group rounded-2xl border border-purple-500/10 glass p-6 text-left transition-all hover:border-purple-500/30 hover:shadow-glow-purple"
+              className="group enterprise-card p-6 text-left"
             >
-              <resource.icon className="mb-4 h-7 w-7 text-purple-300" />
-              <h3 className="mb-3 text-lg font-bold text-foreground group-hover:text-purple-200">{resource.label}</h3>
+              <resource.icon className="mb-4 h-7 w-7 text-orange-300" />
+              <h3 className="mb-3 text-lg font-bold text-foreground">{resource.label}</h3>
               <p className="mb-5 text-sm leading-6 text-muted-foreground">{resource.description}</p>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-orange-200">
                 Read page
@@ -79,3 +78,4 @@ const ResourcesSection = () => {
 };
 
 export default ResourcesSection;
+

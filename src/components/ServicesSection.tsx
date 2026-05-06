@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Mail, TableProperties, FileText, Presentation, ArrowRight, Sparkles, Video } from "lucide-react";
 
 const services = [
@@ -48,10 +48,9 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-500/[0.035] to-transparent" />
-      <div className="absolute right-10 top-24 h-56 w-56 rounded-full bg-orange-500/5 blur-3xl" />
-      <div className="absolute bottom-16 left-10 h-64 w-64 rounded-full bg-purple-500/5 blur-3xl" />
+    <section id="services" className="relative overflow-hidden py-24">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.025] to-transparent" />
+      <div className="absolute right-10 top-24 h-56 w-56 rounded-full bg-orange-500/10 blur-3xl" />
 
       <div className="section-container relative z-10">
         <motion.div
@@ -59,10 +58,10 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="mx-auto mb-16 max-w-3xl text-center"
         >
           <motion.span
-            className="gradient-text-orange font-semibold text-sm uppercase tracking-wider mb-4 inline-flex items-center justify-center gap-2"
+            className="section-kicker"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -73,7 +72,7 @@ const ServicesSection = () => {
           </motion.span>
           
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold font-heading mb-4"
+            className="section-title mb-5"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -81,7 +80,7 @@ const ServicesSection = () => {
           >
             Office 365, Google Workspace, and Electron
             <motion.span
-              className="gradient-text-both"
+              className="gradient-text-both block"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -103,7 +102,7 @@ const ServicesSection = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -111,20 +110,20 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group glass card-hover p-8 transition-all duration-300 border border-white/10 hover:border-orange-500/25 relative overflow-hidden"
+              className="enterprise-card group relative overflow-hidden p-8"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.04] to-purple-500/[0.03] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.045] to-pink-500/[0.025] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
               <div className="flex items-start gap-4 relative z-10">
                 <div
-                  className="w-14 h-14 rounded-xl bg-gradient-orange/10 flex items-center justify-center shrink-0 group-hover:bg-gradient-orange/20 transition-all duration-300"
+                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 transition-all duration-300 group-hover:bg-orange-300/15"
                 >
-                  <service.icon className="w-7 h-7 text-orange-300" />
+                  <service.icon className="h-7 w-7 text-orange-200" />
                 </div>
                 
                 <div className="flex-1">
                   <motion.h3
-                    className="text-xl font-semibold text-foreground mb-2 group-hover:text-orange-300 transition-colors"
+                    className="mb-2 text-xl font-semibold text-foreground transition-colors group-hover:text-orange-100"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -157,7 +156,7 @@ const ServicesSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.25, delay: index * 0.08 + featureIndex * 0.04 }}
-                        className="text-xs px-2.5 py-1 rounded-md glass-light text-orange-300 transition-all duration-200"
+                        className="rounded-md border border-white/10 bg-white/[0.045] px-2.5 py-1 text-xs text-orange-100 transition-all duration-200"
                       >
                         {feature}
                       </motion.span>
@@ -174,8 +173,8 @@ const ServicesSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.15 + 0.6 }}
               >
                 <motion.a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 text-orange-300 font-medium text-sm transition-all duration-300 hover:text-orange-200"
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-orange-200 transition-all duration-300 hover:text-orange-100"
                 >
                   Discuss Your Project
                   <ArrowRight className="w-4 h-4" />
@@ -190,3 +189,4 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
+

@@ -56,25 +56,9 @@ const trustBadges = [
 
 const PlansSection = () => {
   return (
-    <section id="plans" className="py-24 relative overflow-hidden">
-      <motion.div
-        animate={{
-          opacity: [0.18, 0.35, 0.18],
-          scale: [1, 1.08, 1],
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-x-0 top-10 mx-auto h-80 max-w-5xl rounded-full bg-gradient-to-r from-orange-500/20 via-purple-500/15 to-orange-400/10 blur-3xl"
-      />
-      <motion.div
-        animate={{ x: [-20, 20, -20], y: [0, -16, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute right-8 top-24 hidden h-24 w-24 rounded-3xl border border-orange-400/20 bg-orange-400/5 md:block"
-      />
-      <motion.div
-        animate={{ x: [20, -20, 20], y: [0, 18, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-20 left-8 hidden h-32 w-32 rounded-full border border-purple-400/20 bg-purple-400/5 md:block"
-      />
+    <section id="plans" className="relative overflow-hidden py-24">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-500/[0.035] to-transparent" />
+      <div className="absolute inset-x-0 top-10 mx-auto h-80 max-w-5xl rounded-full bg-orange-500/10 blur-3xl" />
 
       <div className="section-container relative z-10">
         <motion.div
@@ -84,13 +68,13 @@ const PlansSection = () => {
           transition={{ duration: 0.7 }}
           className="mx-auto mb-16 max-w-3xl text-center"
         >
-          <span className="gradient-text-orange mb-4 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider">
+          <span className="section-kicker">
             <PlaneTakeoff className="h-4 w-4" />
             Plans
           </span>
-          <h2 className="mb-5 font-heading text-3xl font-bold md:text-4xl">
+          <h2 className="section-title mb-5">
             Choose a project plan that fits your
-            <span className="gradient-text-both"> Office add-in goals</span>
+            <span className="gradient-text-both block">Office add-in goals</span>
           </h2>
           <p className="text-muted-foreground">
             Start lean, build production-ready, or scale into a complete automation product. Every plan can be adjusted after we review your workflow.
@@ -104,7 +88,7 @@ const PlansSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.08 }}
-                className="inline-flex items-center gap-2 rounded-full glass-light px-4 py-2 text-xs font-medium text-orange-100"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-xs font-medium text-orange-100"
               >
                 <badge.icon className="h-3.5 w-3.5 text-orange-300" />
                 {badge.label}
@@ -126,11 +110,11 @@ const PlansSection = () => {
                 type: "spring",
                 bounce: 0.25,
               }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ y: -4 }}
               className={`group relative overflow-hidden rounded-2xl p-8 text-left transition-all duration-500 ${
                 plan.popular
-                  ? "glass-orange shadow-glow-orange lg:-mt-6"
-                  : "glass border border-orange-500/10 hover:border-orange-500/30"
+                  ? "border border-orange-300/25 bg-orange-300/10 shadow-soft-lg lg:-mt-6"
+                  : "enterprise-card"
               }`}
             >
               {plan.popular && (
@@ -139,14 +123,14 @@ const PlansSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="absolute right-5 top-5 inline-flex items-center gap-1 rounded-full bg-gradient-orange px-3 py-1 text-xs font-bold text-white shadow-glow-orange"
+                  className="absolute right-5 top-5 inline-flex items-center gap-1 rounded-full bg-gradient-orange px-3 py-1 text-xs font-bold text-slate-950 shadow-glow-orange"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                   Popular
                 </motion.div>
               )}
 
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-purple-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-pink-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               <div className="relative z-10">
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-orange/10 text-orange-300 group-hover:bg-gradient-orange/20">
@@ -157,7 +141,7 @@ const PlansSection = () => {
                 <p className="mb-6 text-sm text-muted-foreground">{plan.tagline}</p>
 
                 <div className="mb-6 flex items-end gap-2">
-                  <span className="gradient-text-both text-3xl font-extrabold md:text-4xl">{plan.price}</span>
+                  <span className="gradient-text-both text-3xl font-bold md:text-4xl">{plan.price}</span>
                   {plan.price !== "Custom Quote" && <span className="pb-1 text-sm text-muted-foreground">/ project</span>}
                 </div>
 
@@ -173,7 +157,7 @@ const PlansSection = () => {
                 </ul>
 
                 <Button variant={plan.popular ? "hero" : "heroOutline"} size="lg" className="w-full group/btn" asChild>
-                  <a href="#contact">
+                  <a href="/contact">
                     {plan.cta}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </a>
@@ -200,3 +184,5 @@ const PlansSection = () => {
 };
 
 export default PlansSection;
+
+

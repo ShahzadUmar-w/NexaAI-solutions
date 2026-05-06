@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
@@ -14,6 +14,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { outlookBookingUrl } from "@/lib/booking";
 
 const readinessCards = [
   {
@@ -194,7 +195,7 @@ const EnterpriseReadinessSection = () => {
             Before development starts, we clarify scope, permissions, integrations, risks, timeline, and deployment requirements so your team knows exactly what will be built.
           </p>
           <Button variant="hero" size="lg" asChild>
-            <a href="#contact">
+            <a href={outlookBookingUrl} target="_blank" rel="noreferrer">
               Request Enterprise Consultation
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
@@ -206,3 +207,4 @@ const EnterpriseReadinessSection = () => {
 };
 
 export default EnterpriseReadinessSection;
+

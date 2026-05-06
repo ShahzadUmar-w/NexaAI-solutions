@@ -1,4 +1,4 @@
-export const officeAddInFaqs = [
+﻿export const officeAddInFaqs = [
   {
     question: "Can you build a custom Office add-in for our company?",
     answer:
@@ -20,3 +20,4 @@ export const officeAddInFaqs = [
       "Start with a short discovery call or project brief. We review workflow, permissions, integrations, timeline, security requirements, and deployment path before development begins.",
   },
 ];
+

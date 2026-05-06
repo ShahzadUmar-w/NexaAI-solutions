@@ -1,13 +1,10 @@
-import { ArrowRight } from "lucide-react";
+﻿import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AboutContent from "@/components/AboutContent";
 
 const AboutSection = () => {
   return (
     <section id="about" className="relative overflow-hidden py-24">
-      <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-orange-500/5 blur-3xl" />
-      <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-purple-500/5 blur-3xl" />
-
       <div className="section-container relative z-10">
         <AboutContent />
 
@@ -25,3 +22,4 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
+

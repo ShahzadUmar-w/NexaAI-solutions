@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, CheckCircle2, HelpCircle, SearchCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { officeAddInFaqs } from "@/lib/seo-data";
@@ -132,3 +132,4 @@ const SEOContentSection = () => {
 };
 
 export default SEOContentSection;
+

@@ -1,4 +1,4 @@
-import * as React from "react";
+﻿import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -11,12 +11,12 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground shadow-lg shadow-primary/15 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/20",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-border bg-transparent text-foreground hover:bg-secondary hover:border-primary/50",
+        outline: "border border-white/10 bg-white/[0.035] text-foreground hover:border-orange-300/35 hover:bg-white/[0.065]",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-secondary hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-to-r from-orange-500 to-orange-400 text-slate-950 shadow-lg shadow-orange-500/20 hover:from-orange-400 hover:to-orange-300 hover:shadow-xl hover:shadow-orange-500/25",
-        heroOutline: "border border-orange-400/35 bg-white/[0.03] text-foreground backdrop-blur-xl hover:bg-orange-500/10 hover:border-orange-300/60",
+        hero: "bg-gradient-to-r from-yellow-300 via-orange-500 to-pink-600 text-slate-950 shadow-lg shadow-orange-500/15 hover:from-yellow-200 hover:via-orange-400 hover:to-pink-500 hover:shadow-xl hover:shadow-pink-500/15",
+        heroOutline: "border border-white/10 bg-white/[0.035] text-foreground backdrop-blur-xl hover:bg-white/[0.07] hover:border-orange-300/35",
       },
       size: {
         default: "h-10 px-5 py-2",
@@ -48,3 +48,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
+

@@ -53,15 +53,15 @@ const AboutContent = ({ fullPage = false }: { fullPage?: boolean }) => {
         transition={{ duration: 0.6 }}
         className="relative"
       >
-        <div className="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-orange-500/20 via-purple-500/10 to-transparent blur-2xl" />
-        <div className="relative overflow-hidden rounded-[2rem] border border-orange-500/15 glass p-8 text-left shadow-soft-lg">
+        <div className="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-orange-500/10 via-pink-500/10 to-transparent blur-2xl" />
+        <div className="enterprise-card relative overflow-hidden p-8 text-left">
           <div className="mb-8 flex items-center gap-5">
             <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-3xl border border-orange-400/20 bg-white/[0.04]">
               <img src="/Logo.png" alt="Nexa AI Solutions company logo" className="h-16 w-auto object-contain" />
             </div>
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-orange-200">About Us</p>
-              <h2 className="font-heading text-3xl font-extrabold text-foreground">Nexa AI Solutions</h2>
+              <h2 className="font-heading text-3xl font-bold text-foreground">Nexa AI Solutions</h2>
             </div>
           </div>
 
@@ -94,13 +94,13 @@ const AboutContent = ({ fullPage = false }: { fullPage?: boolean }) => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="gradient-text-orange mb-4 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider">
-          <BadgeCheck className="h-4 w-4" />
-          Company Profile
-        </span>
-        <h2 className="mb-6 font-heading text-3xl font-bold md:text-4xl">
+          <span className="section-kicker">
+            <BadgeCheck className="h-4 w-4" />
+            Company Profile
+          </span>
+        <h2 className="section-title mb-6">
           A focused team for
-          <span className="gradient-text-both"> Office add-in development</span>
+          <span className="gradient-text-both block">Office add-in development</span>
         </h2>
         <p className="mb-8 leading-7 text-muted-foreground">
           Instead of offering generic web development, our work is centered around Office.js, Microsoft Graph, Microsoft 365 deployment, automation workflows, and add-ins that solve daily operational problems.
@@ -120,7 +120,7 @@ const AboutContent = ({ fullPage = false }: { fullPage?: boolean }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="rounded-2xl border border-orange-500/10 glass p-5 text-left transition-all hover:border-orange-500/30 hover:shadow-glow-orange"
+              className="enterprise-card p-5 text-left"
             >
               <item.icon className="mb-4 h-6 w-6 text-orange-300" />
               <h3 className="mb-2 font-bold text-foreground">{item.title}</h3>
@@ -131,7 +131,7 @@ const AboutContent = ({ fullPage = false }: { fullPage?: boolean }) => {
 
         <div className="flex flex-wrap gap-2">
           {technologies.map((tech) => (
-            <span key={tech} className="rounded-lg glass-light px-3 py-1.5 text-sm font-medium text-orange-200">
+            <span key={tech} className="rounded-lg border border-white/10 bg-white/[0.045] px-3 py-1.5 text-sm font-medium text-orange-100">
               {tech}
             </span>
           ))}
@@ -142,3 +142,5 @@ const AboutContent = ({ fullPage = false }: { fullPage?: boolean }) => {
 };
 
 export default AboutContent;
+
+

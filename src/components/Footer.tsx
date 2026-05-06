@@ -13,7 +13,9 @@ const serviceLinks = [
 
 const trustLinks = [
   { label: "About NexaAI Solutions", href: "/about-us" },
-  { label: "Enterprise Readiness", href: "/#enterprise" },
+  { label: "Plans and Pricing", href: "/plans" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Enterprise Readiness", href: "/enterprise" },
   { label: "Microsoft Graph Integration", href: "/microsoft-graph-integration" },
   { label: "M365 Add-in Deployment", href: "/microsoft-365-add-in-deployment" },
   { label: "Office.js vs VSTO", href: "/office-js-vs-vsto" },
@@ -134,7 +136,7 @@ const Footer = () => {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-6 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} NexaAI Solutions. All rights reserved.
+            Â© {currentYear} NexaAI Solutions. All rights reserved.
           </p>
 
           <div className="flex items-center gap-3">
@@ -167,4 +169,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
 

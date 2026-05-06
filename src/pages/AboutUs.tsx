@@ -51,7 +51,7 @@ const AboutUs = () => {
               <span className="mb-6 inline-flex rounded-full glass-orange px-4 py-2 text-sm font-semibold text-orange-100">
                 About NexaAI Solutions
               </span>
-              <h1 className="mx-auto mb-6 max-w-4xl font-heading text-4xl font-extrabold leading-tight md:text-6xl">
+              <h1 className="mx-auto mb-6 max-w-4xl font-heading text-4xl font-bold leading-tight md:text-6xl">
                 Specialist Office add-in development company for Microsoft 365 teams.
               </h1>
               <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground">
@@ -70,7 +70,7 @@ const AboutUs = () => {
                   Send a short brief and we will help define scope, security, architecture, and deployment path for your Office add-in project.
                 </p>
                 <Button variant="hero" size="xl" asChild className="group rounded-2xl">
-                  <a href="/#contact">
+                  <a href="/contact">
                     Contact NexaAI Solutions
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </a>
@@ -86,3 +86,5 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+
+

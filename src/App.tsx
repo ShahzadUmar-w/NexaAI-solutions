@@ -1,4 +1,4 @@
-import { Toaster } from "@/components/ui/toaster";
+﻿import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -11,6 +11,12 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const AddInServicePage = lazy(() => import("./pages/AddInServicePage"));
 const SEOResourcePage = lazy(() => import("./pages/SEOResourcePage"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
+const Services = lazy(() => import("./pages/Services"));
+const Plans = lazy(() => import("./pages/Plans"));
+const Products = lazy(() => import("./pages/Products"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const Enterprise = lazy(() => import("./pages/Enterprise"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 const queryClient = new QueryClient();
 
@@ -25,6 +31,12 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/plans" element={<Plans />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/enterprise" element={<Enterprise />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/outlook-add-in-development" element={<AddInServicePage type="outlook" />} />
               <Route path="/excel-add-in-development" element={<AddInServicePage type="excel" />} />
               <Route path="/word-add-in-development" element={<AddInServicePage type="word" />} />
@@ -46,3 +58,4 @@ const App = () => (
 );
 
 export default App;
+

@@ -38,8 +38,6 @@ const renderStars = (rating: number) =>
 const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="relative overflow-hidden py-24">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-500/5 to-transparent" />
-
       <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,30 +45,30 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <span className="gradient-text-orange mb-4 block text-sm font-semibold uppercase tracking-wider">
+          <span className="section-kicker">
             Fiverr Reviews
           </span>
-          <h2 className="mb-4 font-heading text-3xl font-bold md:text-4xl">
-            Real client feedback from
-            <span className="gradient-text-both"> Office add-in and automation projects</span>
+          <h2 className="section-title mb-4">
+            Client feedback from
+            <span className="gradient-text-both block">add-in and automation work</span>
           </h2>
           <p className="text-muted-foreground">
-            Verified-style Fiverr feedback from clients across Office add-ins, Electron apps, Google Workspace add-ons, desktop apps, and automation workflows.
+            Selected public reviews from completed Office add-in, plugin, desktop app, and automation projects.
           </p>
         </motion.div>
 
         <div className="mx-auto mb-10 grid max-w-4xl gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl glass p-5 text-center">
-            <p className="gradient-text-both text-3xl font-extrabold">{completedReviews.length}+</p>
-            <p className="text-sm text-muted-foreground">Completed reviews added</p>
+          <div className="enterprise-card p-5 text-center">
+            <p className="text-3xl font-bold text-orange-200">{completedReviews.length}+</p>
+            <p className="text-sm text-muted-foreground">Public reviews</p>
           </div>
-          <div className="rounded-2xl glass p-5 text-center">
-            <p className="gradient-text-both text-3xl font-extrabold">{averageRating.toFixed(1)}</p>
+          <div className="enterprise-card p-5 text-center">
+            <p className="text-3xl font-bold text-orange-200">{averageRating.toFixed(1)}</p>
             <p className="text-sm text-muted-foreground">Average rating</p>
           </div>
-          <div className="rounded-2xl glass p-5 text-center">
-            <p className="gradient-text-both text-3xl font-extrabold">{repeatClients}+</p>
-            <p className="text-sm text-muted-foreground">Repeat-client reviews</p>
+          <div className="enterprise-card p-5 text-center">
+            <p className="text-3xl font-bold text-orange-200">{repeatClients}+</p>
+            <p className="text-sm text-muted-foreground">Repeat clients</p>
           </div>
         </div>
 
@@ -82,7 +80,7 @@ const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.5) }}
-              className="glass card-hover flex h-full flex-col border border-white/10 p-6 transition-all duration-300 hover:border-orange-500/25"
+              className="enterprise-card flex h-full flex-col p-6"
             >
               {testimonial.imageUrl && (
                 <img
@@ -94,7 +92,7 @@ const TestimonialsSection = () => {
               )}
 
               <div className="mb-5 flex items-start justify-between gap-4">
-                <Quote className="h-8 w-8 text-orange-300" />
+                {/* <Quote className="h-8 w-8 text-orange-300" /> */}
                 <span className="rounded-full glass-light px-3 py-1 text-xs font-semibold text-orange-200">
                   {testimonial.platform}
                 </span>
@@ -109,19 +107,13 @@ const TestimonialsSection = () => {
                 <span className="ml-2 text-sm font-semibold text-foreground">{testimonial.rating}</span>
               </div>
 
-              <div className="mb-5 grid grid-cols-3 gap-2 text-xs">
-                <div className="rounded-xl glass-light p-2">
-                  <p className="text-muted-foreground">Price</p>
-                  <p className="font-semibold text-foreground">{testimonial.price}</p>
-                </div>
-                <div className="rounded-xl glass-light p-2">
-                  <p className="text-muted-foreground">Duration</p>
-                  <p className="font-semibold text-foreground">{testimonial.duration}</p>
-                </div>
-                <div className="rounded-xl glass-light p-2">
-                  <p className="text-muted-foreground">Type</p>
-                  <p className="truncate font-semibold text-foreground">{testimonial.category}</p>
-                </div>
+              <div className="mb-5 flex flex-wrap gap-2 text-xs">
+                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-semibold text-muted-foreground">
+                  {testimonial.category}
+                </span>
+                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-semibold text-muted-foreground">
+                  {testimonial.duration}
+                </span>
               </div>
 
               <div className="flex items-center gap-3 border-t border-white/10 pt-4">
@@ -149,7 +141,7 @@ const TestimonialsSection = () => {
                     )}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    {testimonial.countryCode} · {testimonial.country} · {testimonial.date}
+                    {testimonial.countryCode} � {testimonial.country} � {testimonial.date}
                   </p>
                 </div>
               </div>
@@ -162,3 +154,6 @@ const TestimonialsSection = () => {
 };
 
 export default TestimonialsSection;
+
+
+

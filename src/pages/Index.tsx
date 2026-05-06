@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+﻿import { Helmet } from "react-helmet-async";
 import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -6,14 +6,10 @@ import Footer from "@/components/Footer";
 import { officeAddInFaqs } from "@/lib/seo-data";
 
 const VideoSection = lazy(() => import("@/components/VideoSection"));
+const Interactive3DSection = lazy(() => import("@/components/Interactive3DSection"));
+const SkillsSection = lazy(() => import("@/components/SkillsSection"));
 const AboutSection = lazy(() => import("@/components/AboutSection"));
-const ServicesSection = lazy(() => import("@/components/ServicesSection"));
-const PlansSection = lazy(() => import("@/components/PlansSection"));
-const ProductSection = lazy(() => import("@/components/ProductSection"));
-const PortfolioSection = lazy(() => import("@/components/PortfolioSection"));
 const CompaniesSection = lazy(() => import("@/components/CompaniesSection"));
-const EnterpriseReadinessSection = lazy(() => import("@/components/EnterpriseReadinessSection"));
-const SEOContentSection = lazy(() => import("@/components/SEOContentSection"));
 const ResourcesSection = lazy(() => import("@/components/ResourcesSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
@@ -127,15 +123,11 @@ const Index = () => {
         <main>
           <HeroSection />
           <Suspense fallback={null}>
-            <VideoSection />
+            {/* <VideoSection /> */}
+            <Interactive3DSection />
+            <SkillsSection />
             <AboutSection />
-            <ServicesSection />
-            <PlansSection />
-            <ProductSection />
-            <PortfolioSection />
             <CompaniesSection />
-            <EnterpriseReadinessSection />
-            <SEOContentSection />
             <ResourcesSection />
             <TestimonialsSection />
             <ContactSection />
@@ -148,3 +140,4 @@ const Index = () => {
 };
 
 export default Index;
+

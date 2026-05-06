@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Play, Pause, Video, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -166,3 +166,4 @@ const VideoSection = () => {
 };
 
 export default VideoSection;
+
