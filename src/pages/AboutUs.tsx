@@ -69,7 +69,7 @@ const AboutUs = () => {
                 <p className="mb-6 text-muted-foreground">
                   Send a short brief and we will help define scope, security, architecture, and deployment path for your Office add-in project.
                 </p>
-                <Button variant="hero" size="xl" asChild className="group rounded-2xl">
+                <Button variant="hero" size="xl" asChild className="group rounded-full">
                   <a href="/contact">
                     Contact NexaAI Solutions
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -86,5 +86,6 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+
 
 

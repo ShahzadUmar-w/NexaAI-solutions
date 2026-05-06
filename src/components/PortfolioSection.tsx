@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { portfolioProjects } from "@/data/portfolioProjects";
+import { portfolioProjectSlug, portfolioProjects } from "@/data/portfolioProjects";
 
 const allCategory = "All Projects";
 
@@ -74,7 +74,7 @@ const PortfolioSection = () => {
   };
 
   return (
-    <section id="portfolio" className="relative overflow-hidden py-24">
+    <section id="portfolio" className="relative overflow-hidden pb-24 pt-28 lg:pt-32">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/[0.035] to-transparent" />
       <div className="absolute -right-24 top-20 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
       <div className="absolute -left-24 bottom-20 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
@@ -203,10 +203,18 @@ const PortfolioSection = () => {
                   ))}
                 </div>
 
-                <Button variant="heroOutline" size="lg" className="w-full rounded-2xl" onClick={() => openProject(index)}>
-                  <Eye className="mr-2 h-4 w-4" />
-                  View project screens
-                </Button>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <Button variant="heroOutline" size="lg" className="rounded-full" onClick={() => openProject(index)}>
+                    <Eye className="mr-2 h-4 w-4" />
+                    Preview
+                  </Button>
+                  <Button variant="hero" size="lg" className="rounded-full" asChild>
+                    <a href={`/portfolio/${portfolioProjectSlug(project)}`}>
+                      Case details
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
               </div>
             </motion.article>
           ))}
@@ -315,3 +323,4 @@ const PortfolioSection = () => {
 };
 
 export default PortfolioSection;
+

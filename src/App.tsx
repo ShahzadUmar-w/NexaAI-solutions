@@ -15,8 +15,11 @@ const Services = lazy(() => import("./pages/Services"));
 const Plans = lazy(() => import("./pages/Plans"));
 const Products = lazy(() => import("./pages/Products"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
+const PortfolioDetail = lazy(() => import("./pages/PortfolioDetail"));
 const Enterprise = lazy(() => import("./pages/Enterprise"));
 const Contact = lazy(() => import("./pages/Contact"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Terms = lazy(() => import("./pages/Terms"));
 
 const queryClient = new QueryClient();
 
@@ -35,8 +38,11 @@ const App = () => (
               <Route path="/plans" element={<Plans />} />
               <Route path="/products" element={<Products />} />
               <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
               <Route path="/enterprise" element={<Enterprise />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<Terms />} />
               <Route path="/outlook-add-in-development" element={<AddInServicePage type="outlook" />} />
               <Route path="/excel-add-in-development" element={<AddInServicePage type="excel" />} />
               <Route path="/word-add-in-development" element={<AddInServicePage type="word" />} />

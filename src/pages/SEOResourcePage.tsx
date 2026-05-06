@@ -145,6 +145,45 @@ const relatedLinks = [
   { label: "M365 Add-in Deployment", href: "/microsoft-365-add-in-deployment" },
 ];
 
+const getResourceAccent = (type: ResourceType) => {
+  if (type === "graph") {
+    return {
+      heroGlow: "bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.16),transparent_32%),radial-gradient(circle_at_78%_18%,rgba(168,85,247,0.12),transparent_30%)]",
+      sectionGlow: "bg-[radial-gradient(circle_at_18%_12%,rgba(34,211,238,0.12),transparent_26rem),radial-gradient(circle_at_82%_18%,rgba(168,85,247,0.1),transparent_24rem)]",
+      pill: "border-cyan-300/20 bg-cyan-300/10 text-cyan-100",
+      icon: "text-cyan-200",
+      card: "border-cyan-300/15 bg-cyan-300/10",
+      check: "text-cyan-300",
+      hover: "hover:border-cyan-300/25",
+      gradientText: "from-cyan-200 via-blue-200 to-white",
+    };
+  }
+
+  if (type === "excel-guide" || type === "excel-reporting-case") {
+    return {
+      heroGlow: "bg-[radial-gradient(circle_at_20%_20%,rgba(34,197,94,0.15),transparent_32%),radial-gradient(circle_at_78%_18%,rgba(20,184,166,0.1),transparent_30%)]",
+      sectionGlow: "bg-[radial-gradient(circle_at_18%_12%,rgba(34,197,94,0.1),transparent_26rem),radial-gradient(circle_at_82%_18%,rgba(20,184,166,0.08),transparent_24rem)]",
+      pill: "border-emerald-300/20 bg-emerald-300/10 text-emerald-100",
+      icon: "text-emerald-200",
+      card: "border-emerald-300/15 bg-emerald-300/10",
+      check: "text-emerald-300",
+      hover: "hover:border-emerald-300/25",
+      gradientText: "from-emerald-200 via-lime-200 to-white",
+    };
+  }
+
+  return {
+    heroGlow: "bg-[radial-gradient(circle_at_20%_20%,rgba(37,99,235,0.16),transparent_32%),radial-gradient(circle_at_78%_18%,rgba(255,122,24,0.1),transparent_30%)]",
+    sectionGlow: "bg-[radial-gradient(circle_at_18%_12%,rgba(37,99,235,0.1),transparent_26rem),radial-gradient(circle_at_82%_18%,rgba(255,122,24,0.08),transparent_24rem)]",
+    pill: "border-blue-300/20 bg-blue-300/10 text-blue-100",
+    icon: "text-blue-200",
+    card: "border-blue-300/15 bg-blue-300/10",
+    check: "text-blue-300",
+    hover: "hover:border-blue-300/25",
+    gradientText: "from-blue-200 via-orange-100 to-white",
+  };
+};
+
 const graphCapabilities = [
   {
     icon: Mail,
@@ -190,6 +229,7 @@ const graphCapabilities = [
 
 const SEOResourcePage = ({ type }: { type: ResourceType }) => {
   const content = resources[type];
+  const accent = getResourceAccent(type);
   const canonicalUrl = `${siteUrl}${content.path}`;
   const isCaseStudy = content.eyebrow === "Case Study";
   const directEmailHref = `mailto:shahzad890.it@gmail.com?subject=${encodeURIComponent(content.title)}&body=${encodeURIComponent(
@@ -233,16 +273,16 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
         <main>
           <section className="relative overflow-hidden pb-16 pt-32">
             <div className="absolute inset-0 hero-gradient" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,122,24,0.18),transparent_32%),radial-gradient(circle_at_78%_18%,rgba(142,45,226,0.14),transparent_30%)]" />
+            <div className={`absolute inset-0 ${accent.heroGlow}`} />
             <div className="section-container relative z-10">
               <div className="mx-auto max-w-4xl text-center">
-                <span className="mb-6 inline-flex items-center gap-2 rounded-full glass-orange px-4 py-2 text-sm font-semibold text-orange-100">
+                <span className={`mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold backdrop-blur-xl ${accent.pill}`}>
                   {isCaseStudy ? <FileText className="h-4 w-4" /> : <BookOpen className="h-4 w-4" />}
                   {content.eyebrow}
                 </span>
                 <h1 className="mb-6 font-heading text-4xl font-bold leading-tight md:text-6xl">{content.title}</h1>
                 <p className="mx-auto mb-8 max-w-3xl text-lg leading-8 text-muted-foreground">{content.intro}</p>
-                <Button variant="hero" size="xl" asChild className="group rounded-2xl">
+                <Button variant="hero" size="xl" asChild className="group rounded-full">
                   <a href={directEmailHref}>
                     Discuss This Topic
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -266,19 +306,19 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
                   </div>
                 </article>
 
-                <aside className="rounded-3xl glass-orange p-8 text-left">
+                <aside className={`rounded-3xl border p-8 text-left ${accent.card}`}>
                   <h2 className="mb-5 text-2xl font-bold text-foreground">Key points</h2>
                   <div className="space-y-4">
                     {content.bullets.map((bullet) => (
                       <p key={bullet} className="flex items-start gap-3 text-sm text-muted-foreground">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange-300" />
+                        <CheckCircle2 className={`mt-0.5 h-5 w-5 shrink-0 ${accent.check}`} />
                         {bullet}
                       </p>
                     ))}
                   </div>
 
                   <div className="mt-8 rounded-2xl bg-background/25 p-5">
-                    <Rocket className="mb-3 h-6 w-6 text-orange-300" />
+                    <Rocket className={`mb-3 h-6 w-6 ${accent.check}`} />
                     <p className="mb-2 font-semibold text-foreground">Need implementation help?</p>
                     <p className="mb-4 text-sm leading-6 text-muted-foreground">
                       I can help turn this topic into a secure Office add-in project with scope, architecture, and deployment support.
@@ -294,7 +334,7 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
 
           {type === "graph" && (
             <section className="relative overflow-hidden py-20">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(59,130,246,0.1),transparent_26rem),radial-gradient(circle_at_82%_18%,rgba(255,209,61,0.08),transparent_24rem)]" />
+              <div className={`absolute inset-0 ${accent.sectionGlow}`} />
 
               <div className="section-container relative z-10">
                 <div className="mx-auto mb-12 max-w-4xl text-center">
@@ -304,7 +344,7 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
                   </span>
                   <h2 className="section-title mb-5">
                     Microsoft Graph can connect your add-in
-                    <span className="gradient-text-both block">with the full Microsoft 365 workspace.</span>
+                    <span className={`block bg-gradient-to-r ${accent.gradientText} bg-clip-text text-transparent`}>with the full Microsoft 365 workspace.</span>
                   </h2>
                   <p className="mx-auto max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
                     Graph is useful when an Office add-in needs access to Microsoft 365 data such as email, calendar, files, users, SharePoint, Teams, OneDrive, and business workflows with secure permissions.
@@ -315,16 +355,16 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
                   {graphCapabilities.map((capability) => (
                     <article
                       key={capability.title}
-                      className="group rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-left shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-orange-300/25 hover:bg-white/[0.06]"
+                      className={`group rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} hover:bg-white/[0.06]`}
                     >
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                      <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.card} ${accent.icon}`}>
                         <capability.icon className="h-6 w-6" />
                       </div>
                       <h3 className="mb-4 text-lg font-bold text-foreground">{capability.title}</h3>
                       <div className="space-y-3">
                         {capability.items.map((item) => (
                           <p key={item} className="flex items-start gap-2 text-sm leading-6 text-muted-foreground">
-                            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-orange-300" />
+                            <CheckCircle2 className={`mt-1 h-4 w-4 shrink-0 ${accent.check}`} />
                             {item}
                           </p>
                         ))}
@@ -346,7 +386,7 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
                       Graph can connect workbook and document workflows with OneDrive, SharePoint, user files, reports, templates, approvals, and external business systems.
                     </p>
                   </div>
-                  <div className="rounded-3xl border border-orange-300/15 bg-orange-300/10 p-6 text-left">
+                  <div className={`rounded-3xl border p-6 text-left ${accent.card}`}>
                     <h3 className="mb-3 text-xl font-bold text-foreground">Security comes first</h3>
                     <p className="text-sm leading-7 text-muted-foreground">
                       A good Graph integration uses least-privilege permissions, admin consent planning, token handling, and a clear explanation of what data the add-in needs.
@@ -386,5 +426,6 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
 };
 
 export default SEOResourcePage;
+
 
 

@@ -10,7 +10,7 @@ const PageShell = ({ children }: PageShellProps) => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-16 lg:pt-20">{children}</main>
+      <main className="pt-20 lg:pt-24">{children}</main>
       <Footer />
     </div>
   );

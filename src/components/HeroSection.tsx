@@ -82,7 +82,7 @@ const HeroSection = () => {
               transition={{ duration: 0.52, delay: 0.28 }}
               className="mb-8 flex flex-col gap-3 sm:flex-row"
             >
-              <Button variant="hero" size="xl" asChild className="group rounded-xl px-8">
+              <Button variant="hero" size="xl" asChild className="group rounded-full px-8">
                 <a href={outlookBookingUrl} target="_blank" rel="noreferrer">
                   Book Outlook Call
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -92,7 +92,7 @@ const HeroSection = () => {
                 variant="heroOutline"
                 size="xl"
                 asChild
-                className="group rounded-xl border-white/15 bg-white/[0.045] px-8 text-white hover:bg-white/[0.08]"
+                className="group rounded-full border-white/15 bg-white/[0.045] px-8 text-white hover:bg-white/[0.08]"
               >
                 <a href={directEmailHref}>
                   Email Brief
@@ -193,3 +193,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+

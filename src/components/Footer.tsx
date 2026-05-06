@@ -28,6 +28,11 @@ const resourceLinks = [
   { label: "Excel Reporting Case Study", href: "/case-studies/excel-reporting-automation" },
 ];
 
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms", href: "/terms" },
+];
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -136,10 +141,15 @@ const Footer = () => {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-6 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            Â© {currentYear} NexaAI Solutions. All rights reserved.
+            &copy; {currentYear} NexaAI Solutions. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {legalLinks.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-orange-200">
+                {link.label}
+              </a>
+            ))}
             <a
               href="#"
               aria-label="LinkedIn"

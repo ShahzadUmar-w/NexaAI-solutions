@@ -7,6 +7,16 @@ export type PortfolioProject = {
   images: string[];
 };
 
+export const portfolioProjectSlug = (project: Pick<PortfolioProject, "title" | "category">) =>
+  `${project.category}-${project.title}`
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+export const findPortfolioProjectBySlug = (slug: string) =>
+  portfolioProjects.find((project) => portfolioProjectSlug(project) === slug);
+
 export const portfolioProjects: PortfolioProject[] = [
     {
         "title":  "Attachment",

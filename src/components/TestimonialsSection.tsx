@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Quote, Star } from "lucide-react";
+﻿import { motion } from "framer-motion";
+import { Eye, Star, X } from "lucide-react";
+import { useState } from "react";
 import fiverrReviews from "@/data/fiverrReviews.json";
 
 type FiverrReview = {
@@ -36,6 +37,8 @@ const renderStars = (rating: number) =>
   ));
 
 const TestimonialsSection = () => {
+  const [activeScreenshot, setActiveScreenshot] = useState<FiverrReview | null>(null);
+
   return (
     <section id="testimonials" className="relative overflow-hidden py-24">
       <div className="section-container relative z-10">
@@ -45,9 +48,7 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <span className="section-kicker">
-            Fiverr Reviews
-          </span>
+          <span className="section-kicker">Fiverr & Upwork Reviews</span>
           <h2 className="section-title mb-4">
             Client feedback from
             <span className="gradient-text-both block">add-in and automation work</span>
@@ -83,16 +84,27 @@ const TestimonialsSection = () => {
               className="enterprise-card flex h-full flex-col p-6"
             >
               {testimonial.imageUrl && (
-                <img
-                  src={testimonial.imageUrl}
-                  alt={`${testimonial.name} Fiverr review screenshot`}
-                  className="mb-5 h-36 w-full rounded-2xl object-cover"
-                  loading="lazy"
-                />
+                <button
+                  type="button"
+                  onClick={() => setActiveScreenshot(testimonial)}
+                  className="group relative mb-5 block overflow-hidden rounded-2xl border border-white/10 bg-[#0f172a]"
+                >
+                  <img
+                    src={testimonial.imageUrl}
+                    alt={`${testimonial.name} ${testimonial.platform} review screenshot`}
+                    className="h-40 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <span className="absolute inset-0 flex items-center justify-center bg-black/35 opacity-0 transition-opacity group-hover:opacity-100">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/55 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md">
+                      <Eye className="h-4 w-4" />
+                      View screenshot
+                    </span>
+                  </span>
+                </button>
               )}
 
               <div className="mb-5 flex items-start justify-between gap-4">
-                {/* <Quote className="h-8 w-8 text-orange-300" /> */}
                 <span className="rounded-full glass-light px-3 py-1 text-xs font-semibold text-orange-200">
                   {testimonial.platform}
                 </span>
@@ -141,7 +153,7 @@ const TestimonialsSection = () => {
                     )}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    {testimonial.countryCode} � {testimonial.country} � {testimonial.date}
+                    {testimonial.countryCode} | {testimonial.country} | {testimonial.date}
                   </p>
                 </div>
               </div>
@@ -149,11 +161,39 @@ const TestimonialsSection = () => {
           ))}
         </div>
       </div>
+
+      {activeScreenshot?.imageUrl && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-xl" role="dialog" aria-modal="true">
+          <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-[#0b1020] shadow-soft-lg">
+            <div className="flex items-center justify-between gap-4 border-b border-white/10 p-4">
+              <div className="text-left">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-200">
+                  {activeScreenshot.platform} Feedback
+                </p>
+                <h3 className="mt-1 text-lg font-bold text-white">{activeScreenshot.name}</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveScreenshot(null)}
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition-colors hover:bg-white/[0.08]"
+                aria-label="Close feedback screenshot"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="max-h-[78vh] overflow-auto bg-black/25 p-4">
+              <img
+                src={activeScreenshot.imageUrl}
+                alt={`${activeScreenshot.name} ${activeScreenshot.platform} full feedback screenshot`}
+                className="mx-auto w-full max-w-4xl rounded-2xl border border-white/10 object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
 
 export default TestimonialsSection;
-
-
-
