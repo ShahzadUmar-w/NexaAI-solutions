@@ -16,6 +16,7 @@ const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"
 const ContactSection = lazy(() => import("@/components/ContactSection"));
 
 const siteUrl = "https://officeaddindevelopment.com/";
+const defaultOgImage = `${siteUrl}og-office-addin-development.png`;
 const seoTitle = "Office Add-in Development | NexaAI Solutions";
 const seoDescription =
   "Custom Microsoft Office add-in development for Outlook, Excel, Word, PowerPoint, and Teams. Office.js, Microsoft Graph, Salesforce, QuickBooks, CRM, ERP, DMS, CMS, AI, and M365 deployment support.";
@@ -26,7 +27,7 @@ const structuredData = {
   name: "NexaAI Solutions",
   url: siteUrl,
   logo: `${siteUrl}Logo.png`,
-  image: `${siteUrl}Logo.png`,
+  image: defaultOgImage,
   description: seoDescription,
   email: "shahzad890.it@gmail.com",
   areaServed: "Worldwide",
@@ -103,13 +104,13 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={siteUrl} />
         <meta property="og:site_name" content="NexaAI Solutions" />
-        <meta property="og:image" content={`${siteUrl}Logo.png`} />
-        <meta property="og:image:alt" content="NexaAI Solutions logo" />
+        <meta property="og:image" content={defaultOgImage} />
+        <meta property="og:image:alt" content="Office Add-in Development by NexaAI Solutions" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
-        <meta name="twitter:image" content={`${siteUrl}Logo.png`} />
+        <meta name="twitter:image" content={defaultOgImage} />
 
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}

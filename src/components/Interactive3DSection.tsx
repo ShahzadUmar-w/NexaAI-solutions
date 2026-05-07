@@ -93,30 +93,32 @@ const Interactive3DSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(255,209,61,0.1),transparent_24rem),radial-gradient(circle_at_80%_70%,rgba(225,29,143,0.08),transparent_26rem)]" />
 
       <div className="section-container relative z-10">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.82fr,1.18fr]">
+        <div className="grid items-stretch gap-10 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-left"
+            className="flex h-full flex-col justify-between text-left lg:min-h-[640px]"
           >
-            <span className="section-kicker">
-              <Boxes className="h-4 w-4" />
-              Interactive Build System
-            </span>
+            <div>
+              <span className="section-kicker">
+                <Boxes className="h-4 w-4" />
+                Interactive Build System
+              </span>
 
-            <h2 className="section-title mb-5">
-              From idea to a working
-              <span className="gradient-text-both block">Office add-in experience.</span>
-            </h2>
+              <h2 className="section-title mb-5">
+                From idea to a working
+                <span className="gradient-text-both block">Office add-in experience.</span>
+              </h2>
 
-            <p className="mb-8 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
-              A clean visual of how your add-in comes together: interface, Office.js logic, Microsoft Graph,
-              secure permissions, and deployment support in one connected delivery flow.
-            </p>
+              <p className="max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
+                A clean visual of how your add-in comes together: interface, Office.js logic, Microsoft Graph,
+                secure permissions, and deployment support in one connected delivery flow.
+              </p>
+            </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:mt-0">
               {processSteps.map((step, index) => (
                 <motion.article
                   key={step.title}
@@ -124,7 +126,7 @@ const Interactive3DSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.07 }}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"
+                  className="flex min-h-[190px] flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-4"
                 >
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
                     <step.icon className="h-5 w-5" />
@@ -141,10 +143,10 @@ const Interactive3DSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.08 }}
-            className="relative"
+            className="relative h-full"
           >
             <div
-              className="office-3d-scene relative mx-auto min-h-[620px] w-full max-w-[820px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 shadow-soft-lg"
+              className="office-3d-scene relative mx-auto h-full min-h-[640px] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 shadow-soft-lg"
               onPointerMove={handlePointerMove}
               onPointerLeave={resetRotation}
               style={sceneStyle}

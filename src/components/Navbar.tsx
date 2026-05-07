@@ -2,18 +2,14 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   BarChart3,
-  BookOpen,
   CalendarCheck,
   ChevronDown,
-  FileText,
-  Mail,
   Menu,
-  Presentation,
   Rocket,
   ShieldCheck,
-  TableProperties,
   X,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { outlookBookingUrl } from "@/lib/booking";
@@ -37,34 +33,48 @@ const companyLinks = [
   { name: "Resources", href: "/microsoft-graph-integration" },
 ];
 
-const solutionLinks = [
+type SolutionLink = {
+  name: string;
+  href: string;
+  description: string;
+  accent: string;
+  icon?: LucideIcon;
+  brand?: "outlook";
+  imageSrc?: string;
+  imageClassName?: string;
+};
+
+const solutionLinks: SolutionLink[] = [
   {
     name: "Outlook Add-ins",
     href: "/outlook-add-in-development",
     description: "Email, calendar, CRM, AI, phishing report, and Graph workflows.",
-    icon: Mail,
-    accent: "text-blue-200 bg-blue-300/10 border-blue-300/15",
+    brand: "outlook",
+    accent: "bg-blue-300/10 border-blue-300/15",
   },
   {
     name: "Excel Add-ins",
     href: "/excel-add-in-development",
     description: "Reports, custom functions, dashboards, APIs, and spreadsheet automation.",
-    icon: TableProperties,
-    accent: "text-emerald-200 bg-emerald-300/10 border-emerald-300/15",
+    imageSrc: "/excel-icon.png",
+    imageClassName: "h-6 w-6",
+    accent: "bg-emerald-300/10 border-emerald-300/15",
   },
   {
     name: "Word Add-ins",
     href: "/word-add-in-development",
     description: "Document automation, AI writing, templates, PDF, and review flows.",
-    icon: FileText,
-    accent: "text-sky-200 bg-sky-300/10 border-sky-300/15",
+    imageSrc: "/Microsoft_Office_Word_Logo_512px.png",
+    imageClassName: "h-6 w-7",
+    accent: "bg-sky-300/10 border-sky-300/15",
   },
   {
     name: "PowerPoint Add-ins",
     href: "/powerpoint-add-in-development",
     description: "Slide libraries, proposal decks, templates, and brand workflows.",
-    icon: Presentation,
-    accent: "text-orange-200 bg-orange-300/10 border-orange-300/15",
+    imageSrc: "/ppt-icon.png",
+    imageClassName: "h-6 w-6",
+    accent: "bg-orange-300/10 border-orange-300/15",
   },
   {
     name: "Microsoft Graph",
@@ -111,6 +121,35 @@ const BookCallButton = ({ size = "default", className = "" }: { size?: "default"
     </a>
   </Button>
 );
+
+const OutlookIcon = () => (
+  <span className="relative block h-6 w-6">
+    <span className="absolute bottom-0 right-0 h-[18px] w-[18px] rounded-[0.28rem] bg-[#0078d4]" />
+    <span className="absolute right-0 top-1 h-3.5 w-[18px] rounded-[0.22rem] bg-[#28a8ea]" />
+    <span className="absolute right-0 top-2.5 h-3 w-[18px] overflow-hidden rounded-b-[0.25rem] bg-[#106ebe]">
+      <span className="absolute -top-1 left-0 h-3 w-3 rotate-45 bg-[#50b0f2]" />
+      <span className="absolute -top-1 right-0 h-3 w-3 rotate-45 bg-[#005a9e]" />
+    </span>
+    <span className="absolute left-0 top-1.5 flex h-[18px] w-[18px] items-center justify-center rounded-[0.28rem] bg-[#0f6cbd] text-[0.62rem] font-bold leading-none text-white shadow-[3px_3px_8px_rgba(0,0,0,0.22)]">
+      O
+    </span>
+  </span>
+);
+
+const SolutionIcon = ({ link }: { link: SolutionLink }) => {
+  if (link.brand === "outlook") return <OutlookIcon />;
+
+  if (link.imageSrc) {
+    return <img src={link.imageSrc} alt="" aria-hidden="true" className={`${link.imageClassName ?? "h-6 w-6"} object-contain`} />;
+  }
+
+  if (link.icon) {
+    const LinkIcon = link.icon;
+    return <LinkIcon className="h-4 w-4" />;
+  }
+
+  return null;
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -199,7 +238,6 @@ const Navbar = () => {
 
                       <div className="grid gap-1">
                         {solutionLinks.map((link) => {
-                          const LinkIcon = link.icon;
                           const active = isActiveHref(location.pathname, link.href);
                           return (
                             <a
@@ -210,7 +248,7 @@ const Navbar = () => {
                               }`}
                             >
                               <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border ${link.accent}`}>
-                                <LinkIcon className="h-4 w-4" />
+                                <SolutionIcon link={link} />
                               </span>
                               <span className="text-sm font-semibold text-foreground group-hover/card:text-orange-100">{link.name}</span>
                             </a>
@@ -278,7 +316,6 @@ const Navbar = () => {
               <p className="px-1 text-xs font-semibold uppercase tracking-wider text-orange-200">Solutions</p>
               <div className="grid gap-2 sm:grid-cols-2">
                 {solutionLinks.map((link) => {
-                  const LinkIcon = link.icon;
                   return (
                     <a
                       key={link.href}
@@ -287,7 +324,7 @@ const Navbar = () => {
                     >
                       <span className="flex items-center gap-3">
                         <span className={`flex h-9 w-9 items-center justify-center rounded-xl border ${link.accent}`}>
-                          <LinkIcon className="h-4 w-4" />
+                          <SolutionIcon link={link} />
                         </span>
                         {link.name}
                       </span>

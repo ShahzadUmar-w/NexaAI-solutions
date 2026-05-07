@@ -17,8 +17,8 @@ const localDraftsKey = "nexa_blog_drafts";
 const localSessionKey = "nexa_admin_session";
 const supabaseTokenKey = "nexa_supabase_token";
 
-const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || "shahzad890.it@gmail.com";
-const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD || "nexa-admin-2026";
+const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || "";
+const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD || "";
 
 const slugify = (value: string) =>
   value
@@ -100,7 +100,7 @@ const Admin = () => {
       }
     }
 
-    if (loginEmail.trim() === adminEmail && loginPassword === adminPassword) {
+    if (adminEmail && adminPassword && loginEmail.trim() === adminEmail && loginPassword === adminPassword) {
       window.localStorage.setItem(localSessionKey, "true");
       setIsAuthed(true);
       setLoginError("");
@@ -235,9 +235,7 @@ const Admin = () => {
                 </span>
                 <h1 className="mb-4 text-3xl font-bold text-foreground">Blog admin area</h1>
                 <p className="mb-6 text-sm leading-6 text-muted-foreground">
-                  {isSupabaseConfigured
-                    ? "Login with your Supabase Auth user to publish blog posts and upload images."
-                    : "Supabase env keys missing hain, is liye local draft mode active hai."}
+                  Private blog editor. Login credentials are required to manage draft and published posts.
                 </p>
                 <form onSubmit={login} className="space-y-4">
                   <label className="block">
@@ -246,7 +244,7 @@ const Admin = () => {
                       value={loginEmail}
                       onChange={(event) => setLoginEmail(event.target.value)}
                       className="w-full rounded-xl border border-white/10 bg-white/[0.045] px-4 py-3 text-foreground outline-none focus:border-orange-300/45"
-                      placeholder={adminEmail}
+                      placeholder="admin@example.com"
                     />
                   </label>
                   <label className="block">
@@ -264,11 +262,6 @@ const Admin = () => {
                     Login
                   </Button>
                 </form>
-                <p className="mt-5 rounded-xl border border-orange-300/15 bg-orange-300/10 p-4 text-xs leading-5 text-orange-100">
-                  {isSupabaseConfigured
-                    ? "Supabase me Authentication > Users se admin user create karein. Us email/password se login hoga."
-                    : `Fallback credentials: ${adminEmail} / nexa-admin-2026. Supabase add karne ke baad ye fallback use nahi hoga.`}
-                </p>
               </div>
             ) : (
               <div className="grid gap-8 lg:grid-cols-[1fr,0.72fr]">

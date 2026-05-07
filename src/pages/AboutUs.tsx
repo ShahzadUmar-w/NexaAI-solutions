@@ -6,6 +6,7 @@ import AboutContent from "@/components/AboutContent";
 import { Button } from "@/components/ui/button";
 
 const siteUrl = "https://officeaddindevelopment.com";
+const defaultOgImage = `${siteUrl}/og-office-addin-development.png`;
 const title = "About NexaAI Solutions | Office Add-in Development";
 const description =
   "Learn about NexaAI Solutions, a specialist Office add-in development company building secure Microsoft 365 automation with Office.js, Microsoft Graph, React, and TypeScript.";
@@ -34,10 +35,11 @@ const AboutUs = () => {
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${siteUrl}/about-us`} />
-        <meta property="og:image" content={`${siteUrl}/Logo.png`} />
+        <meta property="og:image" content={defaultOgImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={defaultOgImage} />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 

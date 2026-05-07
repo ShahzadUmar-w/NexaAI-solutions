@@ -3,6 +3,9 @@ import { CheckCircle2, FileText, MessagesSquare, ShieldCheck } from "lucide-reac
 import PageShell from "@/components/PageShell";
 import ContactSection from "@/components/ContactSection";
 
+const siteUrl = "https://officeaddindevelopment.com";
+const defaultOgImage = `${siteUrl}/og-office-addin-development.png`;
+
 const briefItems = [
   "Which Office app you want to extend: Outlook, Excel, Word, PowerPoint, Teams, or multiple apps.",
   "The workflow users repeat today and what should become automated inside the add-in.",
@@ -35,7 +38,14 @@ const Contact = () => {
           name="description"
           content="Contact NexaAI Solutions for Outlook, Excel, Word, PowerPoint, Office.js, Microsoft Graph, and enterprise Office add-in development."
         />
-        <link rel="canonical" href="https://officeaddindevelopment.com/contact" />
+        <link rel="canonical" href={`${siteUrl}/contact`} />
+        <meta property="og:title" content="Contact Office Add-in Developer | NexaAI Solutions" />
+        <meta property="og:description" content="Send a project brief for Outlook, Excel, Word, PowerPoint, Office.js, Microsoft Graph, and enterprise add-in development." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${siteUrl}/contact`} />
+        <meta property="og:image" content={defaultOgImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={defaultOgImage} />
       </Helmet>
       <PageShell>
         <ContactSection />

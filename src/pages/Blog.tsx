@@ -2,11 +2,11 @@ import { Helmet } from "react-helmet-async";
 import { ArrowRight, BookOpen, Search } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import PageShell from "@/components/PageShell";
-import { Button } from "@/components/ui/button";
 import { blogPosts, type BlogPost } from "@/data/blogPosts";
 import { fetchPublishedBlogPosts } from "@/lib/supabaseBlog";
 
 const siteUrl = "https://officeaddindevelopment.com";
+const defaultOgImage = `${siteUrl}/og-office-addin-development.png`;
 
 const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>(blogPosts);
@@ -62,6 +62,9 @@ const Blog = () => {
         <meta property="og:description" content="Guides and insights for Microsoft Office add-ins, Office.js, Outlook, Excel, Word, PowerPoint, and Graph integrations." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${siteUrl}/blog`} />
+        <meta property="og:image" content={defaultOgImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={defaultOgImage} />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
@@ -83,7 +86,7 @@ const Blog = () => {
             </div>
 
             <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.035] p-4">
-              <div className="flex flex-col gap-3 text-left md:flex-row md:items-center md:justify-between">
+              <div className="flex items-center gap-3 text-left">
                 <div className="flex items-center gap-3">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
                     <Search className="h-5 w-5" />
@@ -93,9 +96,6 @@ const Blog = () => {
                     <p className="text-sm text-muted-foreground">Every article targets real search intent, not keyword stuffing.</p>
                   </div>
                 </div>
-                <Button variant="heroOutline" asChild>
-                  <a href="/admin">Admin Login</a>
-                </Button>
               </div>
             </div>
 
@@ -104,7 +104,7 @@ const Blog = () => {
                 <article key={post.slug} className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] text-left transition-all hover:-translate-y-1 hover:border-orange-300/25">
                   <a href={`/blog/${post.slug}`} className="block">
                     <div className="relative h-52 overflow-hidden bg-[#0f172a]">
-                      <img src={post.image} alt={post.title} loading="lazy" className="h-full w-full object-cover object-top opacity-85 transition-transform duration-500 group-hover:scale-105" />
+                      <img src={post.image} alt={post.title} loading="lazy" decoding="async" className="h-full w-full object-cover object-top opacity-85 transition-transform duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#070b14] via-transparent to-transparent" />
                       <span className="absolute left-4 top-4 rounded-full border border-orange-300/20 bg-orange-300/10 px-3 py-1 text-xs font-bold text-orange-100">
                         {post.category}

@@ -36,6 +36,7 @@ type ClientReview = {
 };
 
 const siteUrl = "https://officeaddindevelopment.com";
+const defaultOgImage = `${siteUrl}/og-office-addin-development.png`;
 
 const appAccents = {
   outlook: {
@@ -228,6 +229,13 @@ const outlookTrustStats = [
   { value: "M365", label: "Tenant deployment" },
 ];
 
+const outlookDeliveryHighlights = [
+  "Read and compose mode workflows",
+  "CRM, ticket, and task creation from email context",
+  "Graph-backed calendar, file, and mailbox actions",
+  "Tenant-ready manifest and deployment support",
+];
+
 const outlookCapabilityGroups = [
   {
     icon: Bot,
@@ -271,6 +279,34 @@ const wordTrustStats = [
   { value: "Templates", label: "Document generation" },
   { value: "AI", label: "Writing assistance" },
   { value: "Graph", label: "File integrations" },
+];
+
+const wordDeliveryHighlights = [
+  "Template and clause insertion workflows",
+  "AI drafting, review, comments, and rewrite actions",
+  "SharePoint, OneDrive, Graph, and backend integrations",
+  "Document export, routing, and deployment support",
+];
+
+const wordCapabilityGroups = [
+  {
+    icon: FileText,
+    title: "Document automation",
+    description: "Generate structured Word documents from templates, approved content, form inputs, CRM records, or internal systems.",
+    items: ["Template filling", "Dynamic fields", "Clause insertion", "Document assembly"],
+  },
+  {
+    icon: Bot,
+    title: "AI writing assistant",
+    description: "Add AI actions inside Word for drafting, rewriting, summarizing, risk review, and comments without leaving the document.",
+    items: ["Rewrite selected text", "Summarize sections", "Suggest comments", "Review document quality"],
+  },
+  {
+    icon: Link2,
+    title: "Business system sync",
+    description: "Connect Word workflows with SharePoint, OneDrive, Graph, CRMs, databases, or private backend services.",
+    items: ["Pull approved data", "Save to SharePoint", "Sync metadata", "Connect custom APIs"],
+  },
 ];
 
 const wordShowcaseImages = [
@@ -526,6 +562,14 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
       return enhancements.reviewTerms.some((term) => haystack.includes(term));
     })
     .slice(0, 3);
+  const featuredOutlookImage = outlookShowcaseImages[0];
+  const supportingOutlookImages = outlookShowcaseImages.slice(1);
+  const primarySupportingOutlookImages = supportingOutlookImages.slice(0, 4);
+  const remainingOutlookImages = supportingOutlookImages.slice(4);
+  const featuredWordImage = wordShowcaseImages[0];
+  const supportingWordImages = wordShowcaseImages.slice(1);
+  const primarySupportingWordImages = supportingWordImages.slice(0, 4);
+  const remainingWordImages = supportingWordImages.slice(4);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -567,11 +611,12 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
         <meta property="og:description" content={content.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:image" content={`${siteUrl}/Logo.png`} />
+        <meta property="og:image" content={defaultOgImage} />
+        <meta property="og:image:alt" content={`${content.title} by NexaAI Solutions`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={content.metaTitle} />
         <meta name="twitter:description" content={content.description} />
-        <meta name="twitter:image" content={`${siteUrl}/Logo.png`} />
+        <meta name="twitter:image" content={defaultOgImage} />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
       </Helmet>
@@ -587,7 +632,7 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
               className="absolute left-[8%] top-36 hidden h-20 w-20 rounded-[1.65rem] border border-white/10 bg-white/[0.045] p-4 shadow-soft backdrop-blur-xl lg:block"
             >
-              <img src={content.brandIcon} alt="" className="h-full w-full object-contain" />
+              <img src={content.brandIcon} alt="" decoding="async" className="h-full w-full object-contain" />
             </motion.div>
             <motion.div
               animate={{ y: [0, 14, 0], rotate: [0, -4, 0] }}
@@ -620,7 +665,7 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                     className="relative flex h-20 w-20 items-center justify-center rounded-[1.65rem] border border-white/10 bg-white/[0.055] p-4 shadow-soft-lg backdrop-blur-xl md:h-24 md:w-24"
                   >
-                    <img src={content.brandIcon} alt={content.brandAlt} className="h-full w-full object-contain" />
+                    <img src={content.brandIcon} alt={content.brandAlt} decoding="async" fetchPriority="high" className="h-full w-full object-contain" />
                   </motion.div>
                 </motion.div>
 
@@ -782,7 +827,7 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
                     className={`group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] text-left transition-all duration-300 hover:-translate-y-1 ${accent.hover}`}
                   >
                     <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
-                      <img src={item.image} alt={item.title} loading="lazy" className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+                      <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0b1020]/70 via-transparent to-transparent" />
                     </div>
                     <div className="p-5">
@@ -874,6 +919,7 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
                           src={item.src}
                           alt={item.title}
                           loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0b1020]/70 via-transparent to-transparent opacity-70" />
@@ -907,36 +953,62 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
             <>
               <section className="relative overflow-hidden py-20">
                 <div className={`absolute inset-0 ${accent.sectionGlow}`} />
+                <div className="absolute left-1/2 top-16 h-72 w-[44rem] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
 
                 <div className="section-container relative z-10">
-                  <div className="mx-auto mb-12 max-w-4xl text-center">
-                    <span className="section-kicker">
-                      <Mail className="h-4 w-4" />
-                      Outlook Add-in Capabilities
-                    </span>
-                    <h2 className="section-title mb-5">
-                      What we can build
-                      <span className={`block bg-gradient-to-r ${accent.gradientText} bg-clip-text text-transparent`}>inside Microsoft Outlook.</span>
-                    </h2>
-                    <p className="mx-auto max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
-                      Outlook add-ins can do much more than show a task pane. We can connect email context with AI, CRMs, project tools, security reporting, files, calendars, and custom business systems.
-                    </p>
+                  <div className="mb-12 grid gap-8 lg:grid-cols-[0.92fr,1.08fr] lg:items-center">
+                    <div className="text-left">
+                      <span className="section-kicker">
+                        <Mail className="h-4 w-4" />
+                        Outlook Add-in Capabilities
+                      </span>
+                      <h2 className="section-title mb-5">
+                        Business workflows
+                        <span className={`block bg-gradient-to-r ${accent.gradientText} bg-clip-text text-transparent`}>built inside Outlook.</span>
+                      </h2>
+                      <p className="max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+                        Turn the inbox into a guided workflow: read email context, trigger AI actions, sync CRM records, create tasks, route attachments, and prepare the add-in for Microsoft 365 deployment.
+                      </p>
+                    </div>
+
+                    <div className="rounded-[2rem] border border-blue-300/15 bg-[#0b1428]/75 p-5 text-left shadow-[0_24px_80px_rgba(37,99,235,0.18)]">
+                      <div className="mb-5 flex items-center gap-4 rounded-3xl border border-white/10 bg-white/[0.045] p-4">
+                        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-blue-300/15 bg-blue-300/10">
+                          <img src="/email.png" alt="Outlook add-in icon" className="h-11 w-11 object-contain" />
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-200">Outlook workflow layer</p>
+                          <h3 className="mt-1 text-xl font-bold text-foreground">Email context to business action</h3>
+                        </div>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {outlookDeliveryHighlights.map((item) => (
+                          <div key={item} className="flex items-start gap-2 rounded-2xl border border-white/10 bg-white/[0.035] p-3 text-sm leading-6 text-muted-foreground">
+                            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-blue-300" />
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
                   <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                    {outlookCapabilityGroups.map((group) => (
+                    {outlookCapabilityGroups.map((group, index) => (
                       <article
                         key={group.title}
-                        className={`rounded-3xl border border-white/10 bg-white/[0.04] p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} hover:bg-white/[0.06]`}
+                        className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0d162b] p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} hover:bg-[#101d36]`}
                       >
+                        <div className="absolute right-5 top-4 text-5xl font-black text-white/[0.035]">0{index + 1}</div>
+                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/35 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                         <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.iconBox}`}>
                           <group.icon className="h-6 w-6" />
                         </div>
                         <h3 className="mb-3 text-xl font-bold text-foreground">{group.title}</h3>
                         <p className="mb-5 text-sm leading-6 text-muted-foreground">{group.description}</p>
-                        <div className="space-y-3">
+                        <div className="grid gap-2">
                           {group.items.map((item) => (
-                            <p key={item} className="flex items-start gap-2 text-sm leading-6 text-muted-foreground">
+                            <p key={item} className="flex items-start gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-3 py-2 text-sm leading-6 text-muted-foreground">
                               <CheckCircle2 className={`mt-1 h-4 w-4 shrink-0 ${accent.check}`} />
                               {item}
                             </p>
@@ -983,16 +1055,69 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
 
                     <div className="grid gap-3 sm:grid-cols-3">
                       {outlookTrustStats.map((stat) => (
-                        <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-left">
-                          <p className="text-xl font-bold text-white">{stat.value}</p>
+                        <div key={stat.label} className="rounded-2xl border border-blue-300/15 bg-blue-300/10 p-4 text-left">
+                          <p className="text-xl font-bold text-blue-100">{stat.value}</p>
                           <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">{stat.label}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                    {outlookShowcaseImages.map((item) => (
+                  <div className="grid gap-5 lg:grid-cols-[1.05fr,0.95fr]">
+                    <article className="group overflow-hidden rounded-[2rem] border border-blue-300/15 bg-[#0d162b] text-left shadow-[0_24px_80px_rgba(37,99,235,0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-300/30">
+                      <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
+                        <img
+                          src={featuredOutlookImage.src}
+                          alt={featuredOutlookImage.title}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#07111f] via-[#07111f]/20 to-transparent" />
+                        <div className="absolute left-5 top-5 rounded-full border border-blue-300/20 bg-blue-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-blue-100 backdrop-blur-md">
+                          Featured Outlook case
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <h3 className="mb-2 text-2xl font-bold text-foreground">{featuredOutlookImage.title}</h3>
+                        <p className="text-sm leading-6 text-muted-foreground">{featuredOutlookImage.description}</p>
+                        <div className="mt-5 flex flex-wrap gap-2">
+                          {["Task pane UI", "Email workflow", "Office.js"].map((tag) => (
+                            <span key={tag} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-blue-100">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </article>
+
+                    <div className="grid gap-5 sm:grid-cols-2">
+                      {primarySupportingOutlookImages.map((item) => (
+                        <article
+                          key={item.src}
+                          className={`group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} hover:bg-white/[0.06]`}
+                        >
+                          <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
+                            <img
+                              src={item.src}
+                              alt={item.title}
+                              loading="lazy"
+                              decoding="async"
+                              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#0b1020]/70 via-transparent to-transparent opacity-70" />
+                          </div>
+                          <div className="p-5">
+                            <h3 className="mb-2 text-lg font-bold text-foreground">{item.title}</h3>
+                            <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                    {remainingOutlookImages.map((item) => (
                       <article
                         key={item.src}
                         className={`group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} hover:bg-white/[0.06]`}
@@ -1002,6 +1127,7 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
                             src={item.src}
                             alt={item.title}
                             loading="lazy"
+                            decoding="async"
                             className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#0b1020]/70 via-transparent to-transparent opacity-70" />
@@ -1033,73 +1159,198 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
           )}
 
           {type === "word" && (
-            <section className="relative overflow-hidden py-20">
-              <div className={`absolute inset-0 ${accent.sectionGlow}`} />
+            <>
+              <section className="relative overflow-hidden py-20">
+                <div className={`absolute inset-0 ${accent.sectionGlow}`} />
+                <div className="absolute left-1/2 top-16 h-72 w-[44rem] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
 
-              <div className="section-container relative z-10">
-                <div className="mb-10 grid items-end gap-8 lg:grid-cols-[1fr,0.85fr]">
-                  <div className="text-left">
-                    <span className="section-kicker">
-                      <FileText className="h-4 w-4" />
-                      Word Add-in Proof
-                    </span>
-                    <h2 className="section-title mb-5">
-                      Real Word add-in screens
-                      <span className={`block bg-gradient-to-r ${accent.gradientText} bg-clip-text text-transparent`}>for document automation trust.</span>
-                    </h2>
-                    <p className="max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
-                      Word add-in screenshots make the service easier to trust by showing real task panes, AI writing tools, document generation flows, comments, tracking, and business integrations.
-                    </p>
+                <div className="section-container relative z-10">
+                  <div className="mb-12 grid gap-8 lg:grid-cols-[0.92fr,1.08fr] lg:items-center">
+                    <div className="text-left">
+                      <span className="section-kicker">
+                        <FileText className="h-4 w-4" />
+                        Word Add-in Capabilities
+                      </span>
+                      <h2 className="section-title mb-5">
+                        Document workflows
+                        <span className={`block bg-gradient-to-r ${accent.gradientText} bg-clip-text text-transparent`}>built inside Word.</span>
+                      </h2>
+                      <p className="max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+                        Turn Word into a guided document workspace: generate drafts, insert approved clauses, review content with AI, sync files with Microsoft 365, and deliver a clean add-in experience for real users.
+                      </p>
+                    </div>
+
+                    <div className="rounded-[2rem] border border-sky-300/15 bg-[#0b1428]/75 p-5 text-left shadow-[0_24px_80px_rgba(37,99,235,0.18)]">
+                      <div className="mb-5 flex items-center gap-4 rounded-3xl border border-white/10 bg-white/[0.045] p-4">
+                        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-sky-300/15 bg-sky-300/10">
+                          <img src="/Microsoft_Office_Word_Logo_512px.png" alt="Word add-in icon" className="h-11 w-12 object-contain" />
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-200">Word workflow layer</p>
+                          <h3 className="mt-1 text-xl font-bold text-foreground">Document content to business output</h3>
+                        </div>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {wordDeliveryHighlights.map((item) => (
+                          <div key={item} className="flex items-start gap-2 rounded-2xl border border-white/10 bg-white/[0.035] p-3 text-sm leading-6 text-muted-foreground">
+                            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-sky-300" />
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="grid gap-3 sm:grid-cols-3">
-                    {wordTrustStats.map((stat) => (
-                      <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-left">
-                        <p className="text-xl font-bold text-white">{stat.value}</p>
-                        <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">{stat.label}</p>
-                      </div>
+                  <div className="grid gap-5 md:grid-cols-3">
+                    {wordCapabilityGroups.map((group, index) => (
+                      <article
+                        key={group.title}
+                        className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0d162b] p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} hover:bg-[#101d36]`}
+                      >
+                        <div className="absolute right-5 top-4 text-5xl font-black text-white/[0.035]">0{index + 1}</div>
+                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/35 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                        <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.iconBox}`}>
+                          <group.icon className="h-6 w-6" />
+                        </div>
+                        <h3 className="mb-3 text-xl font-bold text-foreground">{group.title}</h3>
+                        <p className="mb-5 text-sm leading-6 text-muted-foreground">{group.description}</p>
+                        <div className="grid gap-2">
+                          {group.items.map((item) => (
+                            <p key={item} className="flex items-start gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-3 py-2 text-sm leading-6 text-muted-foreground">
+                              <CheckCircle2 className={`mt-1 h-4 w-4 shrink-0 ${accent.check}`} />
+                              {item}
+                            </p>
+                          ))}
+                        </div>
+                      </article>
                     ))}
                   </div>
                 </div>
+              </section>
 
-                <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                  {wordShowcaseImages.map((item) => (
-                    <article
-                      key={item.src}
-                      className={`group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} hover:bg-white/[0.06]`}
-                    >
-                      <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
-                        <img
-                          src={item.src}
-                          alt={item.title}
-                          loading="lazy"
-                          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1020]/70 via-transparent to-transparent opacity-70" />
-                      </div>
-                      <div className="p-5">
-                        <h3 className="mb-2 text-lg font-bold text-foreground">{item.title}</h3>
-                        <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
-                      </div>
-                    </article>
-                  ))}
-                </div>
+              <section className="relative overflow-hidden py-20">
+                <div className={`absolute inset-0 ${accent.sectionGlow}`} />
 
-                <div className={`mt-8 rounded-3xl border p-6 text-left ${accent.card}`}>
-                  <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                    <div>
-                      <h3 className="mb-2 text-xl font-bold text-foreground">Want to add more Word screenshots?</h3>
-                      <p className="text-sm leading-6 text-muted-foreground">
-                        Put new images in <span className={`font-semibold ${accent.cardText}`}>public/word</span>, then add them to the gallery list so every Word add-in project builds more trust.
+                <div className="section-container relative z-10">
+                  <div className="mb-10 grid items-end gap-8 lg:grid-cols-[1fr,0.85fr]">
+                    <div className="text-left">
+                      <span className="section-kicker">
+                        <FileText className="h-4 w-4" />
+                        Word Add-in Proof
+                      </span>
+                      <h2 className="section-title mb-5">
+                        Real Word add-in screens
+                        <span className={`block bg-gradient-to-r ${accent.gradientText} bg-clip-text text-transparent`}>for document automation trust.</span>
+                      </h2>
+                      <p className="max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+                        Word add-in screenshots make the service easier to trust by showing real task panes, AI writing tools, document generation flows, comments, tracking, and business integrations.
                       </p>
                     </div>
-                    <Button variant="hero" asChild className="shrink-0 rounded-full">
-                      <a href={directEmailHref}>Discuss Word Add-in</a>
-                    </Button>
+
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      {wordTrustStats.map((stat) => (
+                        <div key={stat.label} className="rounded-2xl border border-sky-300/15 bg-sky-300/10 p-4 text-left">
+                          <p className="text-xl font-bold text-sky-100">{stat.value}</p>
+                          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">{stat.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid gap-5 lg:grid-cols-[1.05fr,0.95fr]">
+                    <article className="group overflow-hidden rounded-[2rem] border border-sky-300/15 bg-[#0d162b] text-left shadow-[0_24px_80px_rgba(37,99,235,0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-sky-300/30">
+                      <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
+                        <img
+                          src={featuredWordImage.src}
+                          alt={featuredWordImage.title}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#07111f] via-[#07111f]/20 to-transparent" />
+                        <div className="absolute left-5 top-5 rounded-full border border-sky-300/20 bg-sky-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-sky-100 backdrop-blur-md">
+                          Featured Word case
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <h3 className="mb-2 text-2xl font-bold text-foreground">{featuredWordImage.title}</h3>
+                        <p className="text-sm leading-6 text-muted-foreground">{featuredWordImage.description}</p>
+                        <div className="mt-5 flex flex-wrap gap-2">
+                          {["Task pane UI", "Document workflow", "Office.js"].map((tag) => (
+                            <span key={tag} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-sky-100">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </article>
+
+                    <div className="grid gap-5 sm:grid-cols-2">
+                      {primarySupportingWordImages.map((item) => (
+                        <article
+                          key={item.src}
+                          className={`group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} hover:bg-white/[0.06]`}
+                        >
+                          <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
+                            <img
+                              src={item.src}
+                              alt={item.title}
+                              loading="lazy"
+                              decoding="async"
+                              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#0b1020]/70 via-transparent to-transparent opacity-70" />
+                          </div>
+                          <div className="p-5">
+                            <h3 className="mb-2 text-lg font-bold text-foreground">{item.title}</h3>
+                            <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                    {remainingWordImages.map((item) => (
+                      <article
+                        key={item.src}
+                        className={`group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} hover:bg-white/[0.06]`}
+                      >
+                        <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
+                          <img
+                            src={item.src}
+                            alt={item.title}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#0b1020]/70 via-transparent to-transparent opacity-70" />
+                        </div>
+                        <div className="p-5">
+                          <h3 className="mb-2 text-lg font-bold text-foreground">{item.title}</h3>
+                          <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+
+                  <div className={`mt-8 rounded-3xl border p-6 text-left ${accent.card}`}>
+                    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <h3 className="mb-2 text-xl font-bold text-foreground">Need AI writing, templates, or SharePoint document automation?</h3>
+                        <p className="text-sm leading-6 text-muted-foreground">
+                          We can design the Word add-in workflow, document actions, backend integration, file storage, and Microsoft 365 deployment path.
+                        </p>
+                      </div>
+                      <Button variant="hero" asChild className="shrink-0 rounded-full">
+                        <a href={directEmailHref}>Discuss Word Add-in</a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            </>
           )}
 
           <section className="py-20">

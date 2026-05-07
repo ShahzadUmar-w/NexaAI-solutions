@@ -57,6 +57,12 @@ const expectations = [
   "Support options after launch",
 ];
 
+const trustSignals = [
+  "50+ Office add-ins delivered",
+  "Outlook, Excel, Word, PowerPoint",
+  "24h response",
+];
+
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -205,14 +211,21 @@ const ContactSection = () => {
           <p className="text-muted-foreground">
             Send a short project brief and I will reply with practical next steps, scope questions, and delivery options.
           </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            {trustSignals.map((signal) => (
+              <span key={signal} className="rounded-full border border-orange-300/15 bg-orange-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-orange-100">
+                {signal}
+              </span>
+            ))}
+          </div>
         </motion.div>
 
-        <div className="grid gap-8 lg:grid-cols-[0.85fr,1.15fr]">
+        <div className="grid items-stretch gap-8 lg:grid-cols-[0.85fr,1.15fr]">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-5 text-left"
+            className="flex h-full flex-col gap-5 text-left"
           >
             {contactInfo.map((info) => {
               const content = (
@@ -289,8 +302,9 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="h-full"
           >
-            <form onSubmit={handleSubmit} className="enterprise-card space-y-6 p-6 text-left md:p-8">
+            <form onSubmit={handleSubmit} className="enterprise-card flex h-full flex-col gap-6 p-6 text-left md:p-8">
               <div className="rounded-2xl border border-orange-300/15 bg-orange-300/10 p-4">
                 <p className="text-sm font-semibold text-foreground">Project inquiry</p>
                 <p className="mt-1 text-xs leading-5 text-muted-foreground">
@@ -340,14 +354,13 @@ const ContactSection = () => {
                 </select>
               </div>
 
-              <div>
+              <div className="flex flex-1 flex-col">
                 <label className="mb-2 block text-sm font-medium text-foreground">Project Details</label>
                 <textarea
                   required
-                  rows={5}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.045] px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-orange-300/45"
+                  className="min-h-[220px] flex-1 resize-none rounded-xl border border-white/10 bg-white/[0.045] px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-orange-300/45 lg:min-h-[280px]"
                   placeholder="Tell me about your workflow, users, Office app, APIs, timeline, and deployment needs..."
                 />
               </div>

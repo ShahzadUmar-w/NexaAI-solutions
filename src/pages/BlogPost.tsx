@@ -26,6 +26,48 @@ const getLocalDrafts = (): BlogPostType[] => {
   }
 };
 
+const getRelatedLinks = (post: BlogPostType) => {
+  const text = `${post.title} ${post.category} ${post.keywords.join(" ")}`.toLowerCase();
+
+  if (text.includes("outlook") || text.includes("salesforce")) {
+    return [
+      { label: "Outlook Add-in Development", href: "/outlook-add-in-development" },
+      { label: "Outlook CRM Case Study", href: "/case-studies/outlook-crm-add-in" },
+      { label: "Outlook Portfolio Screens", href: "/portfolio/outlook-add-in-outlook-crm" },
+    ];
+  }
+
+  if (text.includes("excel") || text.includes("quickbooks")) {
+    return [
+      { label: "Excel Add-in Development", href: "/excel-add-in-development" },
+      { label: "Excel Reporting Case Study", href: "/case-studies/excel-reporting-automation" },
+      { label: "Excel Portfolio Screens", href: "/portfolio" },
+    ];
+  }
+
+  if (text.includes("word") || text.includes("sharepoint")) {
+    return [
+      { label: "Word Add-in Development", href: "/word-add-in-development" },
+      { label: "Microsoft Graph Integration", href: "/microsoft-graph-integration" },
+      { label: "Word Portfolio Screens", href: "/portfolio" },
+    ];
+  }
+
+  if (text.includes("powerpoint")) {
+    return [
+      { label: "PowerPoint Add-in Development", href: "/powerpoint-add-in-development" },
+      { label: "Portfolio Examples", href: "/portfolio" },
+      { label: "Contact for Proposal Automation", href: "/contact" },
+    ];
+  }
+
+  return [
+    { label: "Office Add-in Services", href: "/services" },
+    { label: "Microsoft Graph Integration", href: "/microsoft-graph-integration" },
+    { label: "Portfolio Examples", href: "/portfolio" },
+  ];
+};
+
 const BlogPost = () => {
   const { slug = "" } = useParams();
   const localDrafts = useMemo(() => getLocalDrafts(), []);
@@ -33,6 +75,7 @@ const BlogPost = () => {
   const [post, setPost] = useState<BlogPostType>(fallbackPost);
   const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
   const imageUrl = getAbsoluteImageUrl(post.image);
+  const relatedLinks = getRelatedLinks(post);
 
   useEffect(() => {
     let mounted = true;
@@ -114,7 +157,7 @@ const BlogPost = () => {
               </div>
 
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-3 shadow-soft-lg">
-                <img src={post.image} alt={post.title} className="aspect-[16/10] w-full rounded-[1.5rem] object-cover object-top" />
+                <img src={post.image} alt={post.title} decoding="async" fetchPriority="high" className="aspect-[16/10] w-full rounded-[1.5rem] object-cover object-top" />
               </div>
             </div>
 
@@ -139,6 +182,22 @@ const BlogPost = () => {
                   )}
                 </section>
               ))}
+            </div>
+
+            <div className="mx-auto mt-8 max-w-4xl rounded-3xl border border-white/10 bg-white/[0.035] p-6 text-left">
+              <h2 className="mb-4 text-xl font-bold text-foreground">Related services and examples</h2>
+              <div className="grid gap-3 md:grid-cols-3">
+                {relatedLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-sm font-bold text-foreground transition-colors hover:border-orange-300/25 hover:bg-white/[0.065]"
+                  >
+                    {link.label}
+                    <ArrowRight className="h-4 w-4 text-orange-300 transition-transform group-hover:translate-x-1" />
+                  </a>
+                ))}
+              </div>
             </div>
 
             <div className="mx-auto mt-10 max-w-4xl rounded-3xl border border-orange-300/15 bg-orange-300/10 p-8 text-left">

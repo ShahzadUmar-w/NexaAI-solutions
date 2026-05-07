@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { outlookBookingUrl } from "@/lib/booking";
 
 const siteUrl = "https://officeaddindevelopment.com";
+const defaultOgImage = `${siteUrl}/og-office-addin-development.png`;
 const title = "Enterprise Security Practices for Office Add-ins | NexaAI Solutions";
 const description =
   "Review NexaAI Solutions security practices for Microsoft Office add-in development, including OAuth, Microsoft Graph permissions, tenant deployment, data handling, testing, and support.";
@@ -118,7 +119,9 @@ const EnterpriseSecurity = () => {
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${siteUrl}/enterprise-security`} />
-        <meta property="og:image" content={`${siteUrl}/Logo.png`} />
+        <meta property="og:image" content={defaultOgImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={defaultOgImage} />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 

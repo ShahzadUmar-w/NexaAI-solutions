@@ -27,6 +27,7 @@ type ResourceType =
   | "excel-reporting-case";
 
 const siteUrl = "https://officeaddindevelopment.com";
+const defaultOgImage = `${siteUrl}/og-office-addin-development.png`;
 
 const resources = {
   graph: {
@@ -261,10 +262,11 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
         <meta property="og:description" content={content.description} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:image" content={`${siteUrl}/Logo.png`} />
+        <meta property="og:image" content={defaultOgImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={content.metaTitle} />
         <meta name="twitter:description" content={content.description} />
+        <meta name="twitter:image" content={defaultOgImage} />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 

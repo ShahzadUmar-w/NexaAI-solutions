@@ -230,6 +230,7 @@ const PortfolioSection = () => {
                       src={project.images[0]}
                       alt={`${project.title} preview`}
                       loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.035]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#070b16] via-[#070b16]/20 to-transparent" />
@@ -247,7 +248,7 @@ const PortfolioSection = () => {
                       <div className="absolute bottom-4 right-4 flex -space-x-3">
                         {project.images.slice(1, 4).map((image, imageIndex) => (
                           <span key={image} className="block h-12 w-16 overflow-hidden rounded-xl border border-white/20 bg-[#0f172a] shadow-soft">
-                            <img src={image} alt={`${project.title} small preview ${imageIndex + 2}`} loading="lazy" className="h-full w-full object-cover object-top" />
+                            <img src={image} alt={`${project.title} small preview ${imageIndex + 2}`} loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
                           </span>
                         ))}
                       </div>
@@ -345,6 +346,7 @@ const PortfolioSection = () => {
                   <img
                     src={selectedProject.images[selectedImageIndex]}
                     alt={`${selectedProject.title} screen ${selectedImageIndex + 1}`}
+                    decoding="async"
                     className="max-h-[62vh] w-full object-contain object-top"
                   />
                 </div>
@@ -396,7 +398,7 @@ const PortfolioSection = () => {
                         selectedImageIndex === imageIndex ? "border-orange-300 ring-2 ring-orange-300/20" : "border-white/10 hover:border-orange-300/35"
                       }`}
                     >
-                      <img src={image} alt={`${selectedProject.title} thumbnail ${imageIndex + 1}`} className="aspect-video h-full w-full object-cover object-top" />
+                      <img src={image} alt={`${selectedProject.title} thumbnail ${imageIndex + 1}`} loading="lazy" decoding="async" className="aspect-video h-full w-full object-cover object-top" />
                     </button>
                   ))}
                 </div>

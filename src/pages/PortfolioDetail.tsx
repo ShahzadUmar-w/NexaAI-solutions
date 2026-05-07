@@ -19,6 +19,8 @@ const PortfolioDetail = () => {
   const { slug = "" } = useParams();
   const project = findPortfolioProjectBySlug(slug) || portfolioProjects[0];
   const canonicalUrl = `${siteUrl}/portfolio/${portfolioProjectSlug(project)}`;
+  const seoTitle = `${project.title} ${project.category} Case Study | Office.js Portfolio`;
+  const seoDescription = `${project.title} case study for ${project.category}: ${project.summary} Built with ${project.stack.slice(0, 4).join(", ")}.`;
   const relatedProjects = portfolioProjects
     .filter((item) => item.category === project.category && portfolioProjectSlug(item) !== portfolioProjectSlug(project))
     .slice(0, 3);
@@ -26,9 +28,9 @@ const PortfolioDetail = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    name: `${project.title} ${project.category} Portfolio`,
+    name: seoTitle,
     url: canonicalUrl,
-    description: project.summary,
+    description: seoDescription,
     creator: {
       "@type": "Organization",
       name: "NexaAI Solutions",
@@ -40,14 +42,12 @@ const PortfolioDetail = () => {
   return (
     <>
       <Helmet>
-        <title>{project.title} {project.category} Portfolio | NexaAI Solutions</title>
-        <meta
-          name="description"
-          content={`${project.title} portfolio example for ${project.category}. ${project.summary}`}
-        />
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <meta name="keywords" content={`${project.category} case study, ${project.title} portfolio, Office.js portfolio, Microsoft Office add-in development, ${project.stack.join(", ")}`} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content={`${project.title} ${project.category} Portfolio`} />
-        <meta property="og:description" content={project.summary} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={project.images[0] ? `${siteUrl}${project.images[0]}` : `${siteUrl}/Logo.png`} />
@@ -98,6 +98,8 @@ const PortfolioDetail = () => {
                 <img
                   src={project.images[0]}
                   alt={`${project.title} main screenshot`}
+                  decoding="async"
+                  fetchPriority="high"
                   className="aspect-[16/10] w-full rounded-[1.5rem] object-cover object-top"
                 />
               </div>
@@ -139,6 +141,7 @@ const PortfolioDetail = () => {
                       src={image}
                       alt={`${project.title} screenshot ${index + 1}`}
                       loading="lazy"
+                      decoding="async"
                       className="aspect-[16/10] w-full rounded-2xl object-cover object-top"
                     />
                   </div>
@@ -178,7 +181,7 @@ const PortfolioDetail = () => {
                       href={`/portfolio/${portfolioProjectSlug(item)}`}
                       className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] text-left transition-all hover:-translate-y-1 hover:border-orange-300/25"
                     >
-                      <img src={item.images[0]} alt={item.title} loading="lazy" className="aspect-video w-full object-cover object-top transition-transform group-hover:scale-105" />
+                      <img src={item.images[0]} alt={item.title} loading="lazy" decoding="async" className="aspect-video w-full object-cover object-top transition-transform group-hover:scale-105" />
                       <div className="p-5">
                         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-orange-200">{item.category}</p>
                         <h3 className="font-bold text-foreground">{item.title}</h3>
