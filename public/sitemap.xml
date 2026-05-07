@@ -31,10 +31,58 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://officeaddindevelopment.com/integrations</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url><loc>https://officeaddindevelopment.com/integrations/salesforce-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/hubspot-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/zoho-crm-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/pipedrive-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/dynamics-365-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/freshsales-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/quickbooks-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/xero-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/netsuite-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/sap-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/oracle-erp-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/sage-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/sharepoint-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/onedrive-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/docusign-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/dropbox-sign-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/box-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/google-drive-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/jira-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/asana-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/monday-com-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/trello-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/clickup-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/notion-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/zendesk-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/freshdesk-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/intercom-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/slack-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/teams-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/servicenow-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/postgresql-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/sql-server-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/supabase-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/airtable-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/rest-apis-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://officeaddindevelopment.com/integrations/graphql-apis-office-add-in-integration</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url>
     <loc>https://officeaddindevelopment.com/portfolio</loc>
     <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/feedbacks</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://officeaddindevelopment.com/enterprise</loc>
@@ -43,10 +91,76 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://officeaddindevelopment.com/enterprise-security</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://officeaddindevelopment.com/contact</loc>
     <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/blog</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/blog/custom-outlook-add-in-development-guide</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/blog/excel-add-in-development-for-reporting-automation</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/blog/microsoft-graph-integration-for-office-add-ins</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/blog/office-add-in-development-cost-and-timeline</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/blog/microsoft-365-add-in-deployment-checklist</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/blog/outlook-add-in-limitations-office-js</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/blog/ai-word-add-in-development-document-automation</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/blog/powerpoint-add-in-development-for-sales-proposals</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
+  </url>
+  <url>
+    <loc>https://officeaddindevelopment.com/blog/office-add-in-maintenance-security-support</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
   </url>
   <url>
     <loc>https://officeaddindevelopment.com/privacy-policy</loc>

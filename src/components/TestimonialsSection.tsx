@@ -1,6 +1,7 @@
 ﻿import { motion } from "framer-motion";
-import { Eye, Star, X } from "lucide-react";
+import { ArrowRight, Eye, Star, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import fiverrReviews from "@/data/fiverrReviews.json";
 
 type FiverrReview = {
@@ -36,8 +37,14 @@ const renderStars = (rating: number) =>
     />
   ));
 
-const TestimonialsSection = () => {
+type TestimonialsSectionProps = {
+  limit?: number;
+  showFeedbacksLink?: boolean;
+};
+
+const TestimonialsSection = ({ limit, showFeedbacksLink = false }: TestimonialsSectionProps) => {
   const [activeScreenshot, setActiveScreenshot] = useState<FiverrReview | null>(null);
+  const visibleReviews = typeof limit === "number" ? completedReviews.slice(0, limit) : completedReviews;
 
   return (
     <section id="testimonials" className="relative overflow-hidden py-24">
@@ -74,7 +81,7 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {completedReviews.map((testimonial, index) => (
+          {visibleReviews.map((testimonial, index) => (
             <motion.article
               key={testimonial.id}
               initial={{ opacity: 0, y: 22 }}
@@ -160,6 +167,18 @@ const TestimonialsSection = () => {
             </motion.article>
           ))}
         </div>
+
+        {showFeedbacksLink && completedReviews.length > visibleReviews.length && (
+          <div className="mt-10 flex justify-center">
+            <Link
+              to="/feedbacks"
+              className="inline-flex items-center gap-2 rounded-full border border-orange-300/25 bg-orange-400/10 px-5 py-3 text-sm font-semibold text-orange-100 transition-colors hover:bg-orange-400/15"
+            >
+              View all client feedbacks
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        )}
       </div>
 
       {activeScreenshot?.imageUrl && (

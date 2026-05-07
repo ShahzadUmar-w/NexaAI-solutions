@@ -194,10 +194,10 @@ const EnterpriseReadinessSection = () => {
           <p className="mx-auto mb-5 max-w-2xl text-sm text-muted-foreground">
             Before development starts, we clarify scope, permissions, integrations, risks, timeline, and deployment requirements so your team knows exactly what will be built.
           </p>
-          <Button variant="hero" size="lg" asChild>
+          <Button variant="hero" size="lg" asChild className="w-full sm:w-auto">
             <a href={outlookBookingUrl} target="_blank" rel="noreferrer">
-              Request Enterprise Consultation
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <span>Request Enterprise Consultation</span>
+              <ArrowRight className="h-4 w-4" />
             </a>
           </Button>
         </motion.div>

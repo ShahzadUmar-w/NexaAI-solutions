@@ -14,12 +14,19 @@ const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Services = lazy(() => import("./pages/Services"));
 const Plans = lazy(() => import("./pages/Plans"));
 const Products = lazy(() => import("./pages/Products"));
+const Integrations = lazy(() => import("./pages/Integrations"));
+const IntegrationDetail = lazy(() => import("./pages/IntegrationDetail"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const PortfolioDetail = lazy(() => import("./pages/PortfolioDetail"));
+const Feedbacks = lazy(() => import("./pages/Feedbacks"));
 const Enterprise = lazy(() => import("./pages/Enterprise"));
+const EnterpriseSecurity = lazy(() => import("./pages/EnterpriseSecurity"));
 const Contact = lazy(() => import("./pages/Contact"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Terms = lazy(() => import("./pages/Terms"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const Admin = lazy(() => import("./pages/Admin"));
 
 const queryClient = new QueryClient();
 
@@ -37,10 +44,17 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/plans" element={<Plans />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/integrations" element={<Integrations />} />
+              <Route path="/integrations/:slug" element={<IntegrationDetail />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
+              <Route path="/feedbacks" element={<Feedbacks />} />
               <Route path="/enterprise" element={<Enterprise />} />
+              <Route path="/enterprise-security" element={<EnterpriseSecurity />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/admin" element={<Admin />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/outlook-add-in-development" element={<AddInServicePage type="outlook" />} />

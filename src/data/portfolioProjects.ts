@@ -491,21 +491,21 @@ export const portfolioProjects: PortfolioProject[] = [
                        "/Outlook/X!%20sync%20calender%20meeting%20outlook%20add-in/Screenshot%202025-07-13%20170507.png"
                    ]
     },
-    {
-        "title":  "Zoom Integration",
-        "category":  "Outlook Add-in",
-        "summary":  "Outlook add-in project for email, calendar, attachments, CRM, or Microsoft 365 workflow automation.",
-        "outcome":  "Cleaner Outlook workflow with fewer manual email steps",
-        "stack":  [
-                      "Outlook",
-                      "Office.js",
-                      "Microsoft Graph",
-                      "React"
-                  ],
-        "images":  [
-                       "/Outlook/Zoom_integration/Outlook%26Zoom.png"
-                   ]
-    },
+    // {
+    //     "title":  "Zoom Integration",
+    //     "category":  "Outlook Add-in",
+    //     "summary":  "Outlook add-in project for email, calendar, attachments, CRM, or Microsoft 365 workflow automation.",
+    //     "outcome":  "Cleaner Outlook workflow with fewer manual email steps",
+    //     "stack":  [
+    //                   "Outlook",
+    //                   "Office.js",
+    //                   "Microsoft Graph",
+    //                   "React"
+    //               ],
+    //     "images":  [
+    //                    "/Outlook/Zoom_integration/Outlook%26Zoom.png"
+    //                ]
+    // },
     {
         "title":  "Chart Visulation",
         "category":  "PowerPoint Add-in",

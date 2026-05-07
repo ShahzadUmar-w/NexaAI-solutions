@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   Star,
   TableProperties,
+  type LucideIcon,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -200,6 +201,19 @@ const relatedServices = [
   { label: "M365 Add-in Deployment", href: "/microsoft-365-add-in-deployment" },
   { label: "Outlook Add-in Guide", href: "/how-to-build-outlook-add-in" },
   { label: "Excel Add-in Guide", href: "/excel-add-in-development-guide" },
+];
+
+const integrationCtas = [
+  { label: "Need Salesforce integration?", href: "/integrations/salesforce-office-add-in-integration" },
+  { label: "Need QuickBooks integration?", href: "/integrations/quickbooks-office-add-in-integration" },
+  { label: "Need SharePoint integration?", href: "/integrations/sharepoint-office-add-in-integration" },
+];
+
+const officeAppCoverage: { title: string; text: string; icon: LucideIcon }[] = [
+  { title: "Outlook", text: "Email context, CRM activity, tickets, attachments, AI summaries, and follow-ups.", icon: Mail },
+  { title: "Excel", text: "Reports, dashboards, custom functions, validation, imports, and controlled data sync.", icon: TableProperties },
+  { title: "Word", text: "Templates, document generation, approvals, signatures, metadata, and review workflows.", icon: FileText },
+  { title: "PowerPoint", text: "Proposal decks, reusable slide libraries, charts, sales assets, and branded summaries.", icon: Presentation },
 ];
 
 const excelTrustStats = [
@@ -1090,6 +1104,44 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
 
           <section className="py-20">
             <div className="section-container">
+              <div className="mb-10 rounded-3xl border border-white/10 bg-white/[0.035] p-7 text-left">
+                <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+                  <div>
+                    <span className="section-kicker">
+                      <Link2 className="h-4 w-4" />
+                      Integration Options
+                    </span>
+                    <h2 className="mt-4 text-3xl font-bold text-foreground">Connect this add-in with business systems.</h2>
+                    <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
+                      A service page should make it easy for buyers to jump from Office app development to the exact CRM, ERP, or document system integration they need.
+                    </p>
+                  </div>
+                  <Button variant="heroOutline" asChild className="shrink-0 rounded-full">
+                    <a href="/integrations">View all integrations</a>
+                  </Button>
+                </div>
+                <div className="grid gap-3 md:grid-cols-3">
+                  {integrationCtas.map((item) => (
+                    <a key={item.href} href={item.href} className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-sm font-bold text-foreground transition-colors hover:border-orange-300/25 hover:bg-white/[0.065]">
+                      {item.label}
+                      <ArrowRight className="h-4 w-4 text-orange-300 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+                {officeAppCoverage.map((item) => (
+                  <article key={item.title} className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 text-left">
+                    <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border ${accent.iconBox}`}>
+                      <item.icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="mb-3 text-lg font-bold text-foreground">{item.title}</h3>
+                    <p className="text-sm leading-6 text-muted-foreground">{item.text}</p>
+                  </article>
+                ))}
+              </div>
+
               <div className="rounded-3xl border border-purple-500/10 glass p-8">
                 <h2 className="mb-6 text-center text-3xl font-bold text-foreground">Related Office add-in services</h2>
                 <div className="grid gap-4 md:grid-cols-4">

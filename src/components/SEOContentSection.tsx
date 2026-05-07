@@ -24,6 +24,11 @@ const serviceTopics = [
     href: "/#enterprise",
     text: "Connect Office add-ins with mail, calendar, files, users, Teams, SharePoint, and secure Microsoft 365 tenant data.",
   },
+  {
+    title: "CRM, ERP, DMS, CMS, and AI Integrations",
+    href: "/services#integrations",
+    text: "Integrate Office add-ins with Salesforce, HubSpot, QuickBooks, Xero, SharePoint, DocuSign, Jira, Zendesk, databases, AI models, and private APIs.",
+  },
 ];
 
 const SEOContentSection = () => {
@@ -52,7 +57,7 @@ const SEOContentSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
           {serviceTopics.map((topic, index) => (
             <motion.article
               key={topic.title}

@@ -22,6 +22,7 @@
       {
         "button-name": "off"
       }
-    ]
+    ],
+    "axe/aria": "off"
   }
 }

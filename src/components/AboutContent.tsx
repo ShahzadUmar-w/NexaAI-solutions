@@ -45,23 +45,23 @@ export const technologies = [
 
 const AboutContent = ({ fullPage = false }: { fullPage?: boolean }) => {
   return (
-    <div className="grid items-center gap-14 lg:grid-cols-[0.95fr,1.05fr]">
+    <div className="grid min-w-0 items-center gap-10 lg:grid-cols-[0.95fr,1.05fr] lg:gap-14">
       <motion.div
         initial={{ opacity: 0, x: -24 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="relative"
+        className="relative min-w-0"
       >
-        <div className="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-orange-500/10 via-pink-500/10 to-transparent blur-2xl" />
-        <div className="enterprise-card relative overflow-hidden p-8 text-left">
-          <div className="mb-8 flex items-center gap-5">
-            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-3xl border border-orange-400/20 bg-white/[0.04]">
-              <img src="/Logo.png" alt="Nexa AI Solutions company logo" className="h-16 w-auto object-contain" />
+        <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-orange-500/10 via-pink-500/10 to-transparent blur-2xl sm:-inset-5 sm:rounded-[2.5rem]" />
+        <div className="enterprise-card relative min-w-0 overflow-hidden p-5 text-left sm:p-8">
+          <div className="mb-7 flex min-w-0 items-center gap-4 sm:mb-8 sm:gap-5">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-orange-400/20 bg-white/[0.04] sm:h-20 sm:w-20 sm:rounded-3xl">
+              <img src="/Logo.png" alt="Nexa AI Solutions company logo" className="h-12 w-auto object-contain sm:h-16" />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-sm font-semibold uppercase tracking-wider text-orange-200">About Us</p>
-              <h2 className="font-heading text-3xl font-bold text-foreground">Nexa AI Solutions</h2>
+              <h2 className="font-heading text-2xl font-bold leading-tight text-foreground sm:text-3xl">Nexa AI Solutions</h2>
             </div>
           </div>
 
@@ -74,13 +74,13 @@ const AboutContent = ({ fullPage = false }: { fullPage?: boolean }) => {
 
           <div className="grid gap-3">
             {companyDetails.map((detail) => (
-              <div key={detail.label} className="flex items-center gap-4 rounded-2xl glass-light p-4">
+              <div key={detail.label} className="flex min-w-0 items-center gap-3 rounded-2xl glass-light p-4 sm:gap-4">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-orange/10 text-orange-300">
                   <detail.icon className="h-5 w-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs uppercase tracking-wider text-muted-foreground">{detail.label}</p>
-                  <p className="font-semibold text-foreground">{detail.value}</p>
+                  <p className="break-words font-semibold leading-6 text-foreground">{detail.value}</p>
                 </div>
               </div>
             ))}
@@ -93,6 +93,7 @@ const AboutContent = ({ fullPage = false }: { fullPage?: boolean }) => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        className="min-w-0"
       >
           <span className="section-kicker">
             <BadgeCheck className="h-4 w-4" />

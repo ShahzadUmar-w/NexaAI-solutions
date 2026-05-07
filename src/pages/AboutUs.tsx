@@ -64,15 +64,15 @@ const AboutUs = () => {
             <div className="section-container">
               <AboutContent fullPage />
 
-              <div className="mx-auto mt-14 max-w-3xl rounded-3xl glass-orange p-8 text-center">
+              <div className="mx-auto mt-14 max-w-3xl rounded-3xl glass-orange p-5 text-center sm:p-8">
                 <h2 className="mb-3 text-3xl font-bold text-foreground">Want to work with us?</h2>
                 <p className="mb-6 text-muted-foreground">
                   Send a short brief and we will help define scope, security, architecture, and deployment path for your Office add-in project.
                 </p>
-                <Button variant="hero" size="xl" asChild className="group rounded-full">
+                <Button variant="hero" size="xl" asChild className="group w-full rounded-full sm:w-auto">
                   <a href="/contact">
-                    Contact NexaAI Solutions
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    <span>Contact NexaAI Solutions</span>
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>
               </div>

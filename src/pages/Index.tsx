@@ -10,6 +10,7 @@ const Interactive3DSection = lazy(() => import("@/components/Interactive3DSectio
 const SkillsSection = lazy(() => import("@/components/SkillsSection"));
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const CompaniesSection = lazy(() => import("@/components/CompaniesSection"));
+const IntegrationEcosystemSection = lazy(() => import("@/components/IntegrationEcosystemSection"));
 const ResourcesSection = lazy(() => import("@/components/ResourcesSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
@@ -17,7 +18,7 @@ const ContactSection = lazy(() => import("@/components/ContactSection"));
 const siteUrl = "https://officeaddindevelopment.com/";
 const seoTitle = "Office Add-in Development | NexaAI Solutions";
 const seoDescription =
-  "Custom Microsoft Office add-in development for Outlook, Excel, Word, PowerPoint, and Teams. Office.js, Microsoft Graph, React, TypeScript, and M365 deployment support.";
+  "Custom Microsoft Office add-in development for Outlook, Excel, Word, PowerPoint, and Teams. Office.js, Microsoft Graph, Salesforce, QuickBooks, CRM, ERP, DMS, CMS, AI, and M365 deployment support.";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -91,7 +92,7 @@ const Index = () => {
         />
         <meta
           name="keywords"
-          content="Microsoft Office add-in development, enterprise Office add-ins, Outlook add-in developer, Excel add-in developer, Word add-in developer, PowerPoint add-in developer, Office.js, Microsoft Graph, Microsoft 365 deployment, React TypeScript add-ins"
+          content="Microsoft Office add-in development, enterprise Office add-ins, Outlook add-in developer, Excel add-in developer, Word add-in developer, PowerPoint add-in developer, Office.js, Microsoft Graph, Salesforce integration, QuickBooks integration, CRM integration, ERP integration, DMS integration, CMS integration, AI Office add-ins, Microsoft 365 deployment, React TypeScript add-ins"
         />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="NexaAI Solutions" />
@@ -128,8 +129,9 @@ const Index = () => {
             <SkillsSection />
             <AboutSection />
             <CompaniesSection />
+            <IntegrationEcosystemSection />
             <ResourcesSection />
-            <TestimonialsSection />
+            <TestimonialsSection limit={6} showFeedbacksLink />
             <ContactSection />
           </Suspense>
         </main>

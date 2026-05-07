@@ -15,13 +15,16 @@ const trustLinks = [
   { label: "About NexaAI Solutions", href: "/about-us" },
   { label: "Plans and Pricing", href: "/plans" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Client Feedbacks", href: "/feedbacks" },
   { label: "Enterprise Readiness", href: "/enterprise" },
+  { label: "Security Practices", href: "/enterprise-security" },
   { label: "Microsoft Graph Integration", href: "/microsoft-graph-integration" },
   { label: "M365 Add-in Deployment", href: "/microsoft-365-add-in-deployment" },
   { label: "Office.js vs VSTO", href: "/office-js-vs-vsto" },
 ];
 
 const resourceLinks = [
+  { label: "Office Add-in Integrations", href: "/integrations" },
   { label: "How to Build Outlook Add-in", href: "/how-to-build-outlook-add-in" },
   { label: "Excel Add-in Guide", href: "/excel-add-in-development-guide" },
   { label: "Outlook CRM Case Study", href: "/case-studies/outlook-crm-add-in" },
@@ -119,8 +122,8 @@ const Footer = () => {
               Send a short brief and I will respond with next steps for scope, security, and delivery.
             </p>
 
-            <Button variant="hero" size="lg" className="mb-5 w-full group" asChild>
-              <a href={directEmailHref}>
+            <Button variant="hero" size="sm" className="group mb-5 h-11 w-full whitespace-nowrap rounded-xl px-4 text-sm" asChild>
+              <a href={directEmailHref} className="whitespace-nowrap">
                 Email Project Brief
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>

@@ -23,6 +23,7 @@ const directEmailHref =
 
 const sectionLinks = [
   { name: "Services", href: "/services" },
+  { name: "Blog", href: "/blog" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Plans", href: "/plans" },
   { name: "Enterprise", href: "/enterprise" },
@@ -32,6 +33,7 @@ const sectionLinks = [
 const companyLinks = [
   { name: "About", href: "/about-us" },
   { name: "Products", href: "/products" },
+  { name: "Security", href: "/enterprise-security" },
   { name: "Resources", href: "/microsoft-graph-integration" },
 ];
 
@@ -132,13 +134,13 @@ const Navbar = () => {
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#070b14] shadow-[0_18px_60px_rgba(0,0,0,0.32)]">
       <div className="section-container">
         <div className={`flex items-center justify-between gap-4 transition-all duration-300 ${isScrolled ? "h-16" : "h-16 lg:h-20"}`}>
-          <a href="/" className="group flex w-[260px] shrink-0 items-center gap-3 2xl:w-[285px]">
+          <a href="/" className="group flex min-w-0 flex-1 items-center gap-3 lg:w-[260px] lg:flex-none 2xl:w-[285px]">
             <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.055] shadow-soft md:h-12 md:w-12">
               <img src="/Logo.png" alt="Nexa AI Solutions logo" className="h-9 w-auto object-contain md:h-10" />
               <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/10 to-pink-500/10 opacity-0 transition-opacity group-hover:opacity-100" />
             </span>
             <span className="min-w-0">
-              <span className="block whitespace-nowrap font-heading text-base font-bold text-white sm:text-lg">
+              <span className="block truncate whitespace-nowrap font-heading text-base font-bold text-white sm:text-lg">
                 Nexa AI<span className="text-orange-200"> Solutions</span>
               </span>
               <span className="hidden whitespace-nowrap text-xs text-muted-foreground xl:block">Office Add-in Development</span>
@@ -223,13 +225,13 @@ const Navbar = () => {
           </div>
 
           <div className="hidden shrink-0 items-center gap-2 xl:flex">
-            <div className="hidden items-center gap-2 min-[1900px]:flex">
+            {/* <div className="hidden items-center gap-2 min-[1900px]:flex">
               {trustBadges.map((badge) => (
                 <span key={badge} className="rounded-full border border-white/10 bg-white/[0.035] px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
                   {badge}
                 </span>
               ))}
-            </div>
+            </div> */}
             <Button variant="heroOutline" size="default" className="hidden rounded-full border-white/15 bg-white/[0.04] min-[1500px]:inline-flex" asChild>
               <a href={directEmailHref}>Email Brief</a>
             </Button>
@@ -309,4 +311,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

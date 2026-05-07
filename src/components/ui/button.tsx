@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-bold tracking-[-0.01em] transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex max-w-full items-center justify-center gap-2 whitespace-normal break-words rounded-xl text-center text-sm font-bold leading-snug tracking-[-0.01em] transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -24,10 +24,10 @@ const buttonVariants = cva(
           "nexa-ridge-button nexa-ridge-outline",
       },
       size: {
-        default: "h-10 px-5 py-2",
-        sm: "h-9 px-4 text-xs",
-        lg: "h-12 px-8 text-base",
-        xl: "h-14 px-10 text-lg",
+        default: "min-h-10 px-5 py-2",
+        sm: "min-h-9 px-4 py-2 text-xs",
+        lg: "min-h-12 px-6 py-3 text-base sm:px-8",
+        xl: "min-h-14 px-6 py-3 text-base sm:px-10 sm:text-lg",
         icon: "h-10 w-10 rounded-full",
       },
     },

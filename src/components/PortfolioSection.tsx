@@ -4,10 +4,10 @@ import {
   BadgeCheck,
   ChevronLeft,
   ChevronRight,
+  CheckCircle2,
   Eye,
   FileText,
   Images,
-  Sparkles,
   X,
 } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -17,9 +17,9 @@ import { portfolioProjectSlug, portfolioProjects } from "@/data/portfolioProject
 const allCategory = "All Projects";
 
 const proofPoints = [
-  "Projects are grouped from your real public folders, so clients can see multiple screens from the same delivery.",
-  "Portfolio includes Outlook, PowerPoint, Word, Google Docs add-ons, and Google Sheets add-ons.",
-  "To add more work, create a project folder and add 2-4 screenshots. Then regenerate or add it to portfolioProjects.",
+  "Real screenshots from delivered add-in workflows, grouped by product and Office surface.",
+  "Each case includes multiple screens so buyers can inspect the actual task pane, flow, and UI quality.",
+  "Coverage across Outlook, PowerPoint, Word, Google Docs, Google Sheets, Microsoft Graph, and React-based add-ins.",
 ];
 
 const categoryOrder = [
@@ -30,6 +30,65 @@ const categoryOrder = [
   "Google Docs Add-on",
   "Google Sheets Add-on",
 ];
+
+const getProjectNarrative = (project: (typeof portfolioProjects)[number]) => {
+  const title = project.title.toLowerCase();
+  const category = project.category.toLowerCase();
+
+  if (title.includes("attachment")) {
+    return {
+      summary: "Attachment-focused Outlook workflow for sorting, reviewing, saving, and routing mailbox files with fewer manual steps.",
+      outcome: "Faster attachment handling with cleaner mailbox-to-business-system flow",
+    };
+  }
+
+  if (title.includes("chatgpt") || title.includes("ai")) {
+    return {
+      summary: "AI-assisted Outlook add-in experience for reading email context, generating useful responses, and improving productivity inside the inbox.",
+      outcome: "Smarter email handling with AI support inside the daily Outlook workflow",
+    };
+  }
+
+  if (title.includes("dms") || title.includes("doc") || title.includes("gesdoc")) {
+    return {
+      summary: "Document management add-in workflow for filing emails, attachments, metadata, and business records from Outlook.",
+      outcome: "More reliable document capture with traceable Outlook-to-DMS handoff",
+    };
+  }
+
+  if (title.includes("email")) {
+    return {
+      summary: "Email automation add-in for saving, sorting, classifying, or routing Outlook messages with a guided task pane experience.",
+      outcome: "Reduced repetitive email admin with a more consistent Outlook workflow",
+    };
+  }
+
+  if (category.includes("powerpoint")) {
+    return {
+      summary: "PowerPoint add-in workflow for proposal generation, reusable slide content, visual automation, and branded presentation delivery.",
+      outcome: "Faster deck production with reusable, governed presentation assets",
+    };
+  }
+
+  if (category.includes("word")) {
+    return {
+      summary: "Word add-in workflow for document automation, drafting support, templates, review actions, and business content generation.",
+      outcome: "Cleaner document production with guided actions inside Microsoft Word",
+    };
+  }
+
+  if (category.includes("google")) {
+    return {
+      summary: "Google Workspace add-on workflow for business automation, data handling, document actions, and productivity improvements.",
+      outcome: "More structured Google Workspace workflow with custom add-on support",
+    };
+  }
+
+  return {
+    summary: project.summary,
+    outcome: project.outcome,
+  };
+};
 
 const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState(allCategory);
@@ -151,73 +210,101 @@ const PortfolioSection = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <motion.article
-              key={`${project.category}-${project.title}`}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: Math.min(index * 0.035, 0.35) }}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] transition-all duration-300 hover:-translate-y-1 hover:border-orange-400/30 hover:bg-white/[0.055]"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
-                <img
-                  src={project.images[0]}
-                  alt={`${project.title} preview`}
-                  loading="lazy"
-                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1020] via-[#0b1020]/10 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3">
-                  <span className="rounded-full border border-white/10 bg-black/35 px-3 py-1 text-xs font-semibold text-orange-100 backdrop-blur-md">
-                    {project.category}
-                  </span>
-                  <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">
-                    <Images className="h-3.5 w-3.5" />
-                    {project.images.length} screens
-                  </span>
-                </div>
-              </div>
+          {filteredProjects.map((project, index) => {
+            const narrative = getProjectNarrative(project);
+            const visibleStack = project.stack.slice(0, 3);
+            const hiddenStackCount = Math.max(project.stack.length - visibleStack.length, 0);
 
-              <div className="p-6 text-left">
-                <div className="mb-4 flex items-start justify-between gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-300">
-                    <FileText className="h-6 w-6" />
+            return (
+              <motion.article
+                key={`${project.category}-${project.title}`}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: Math.min(index * 0.035, 0.35) }}
+                className="group relative flex h-full overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#070b16] shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-orange-300/35 hover:bg-[#0a1020]"
+              >
+                <div className="flex w-full flex-col">
+                  <div className="relative aspect-[16/9] overflow-hidden bg-[#0f172a]">
+                    <img
+                      src={project.images[0]}
+                      alt={`${project.title} preview`}
+                      loading="lazy"
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.035]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#070b16] via-[#070b16]/20 to-transparent" />
+                    <div className="absolute left-4 top-4 flex max-w-[calc(100%-2rem)] flex-wrap gap-2">
+                      <span className="rounded-full border border-white/10 bg-black/45 px-3 py-1 text-xs font-semibold text-orange-100 backdrop-blur-md">
+                        {project.category}
+                      </span>
+                      <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/45 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">
+                        <Images className="h-3.5 w-3.5" />
+                        {project.images.length} screens
+                      </span>
+                    </div>
+
+                    {project.images.length > 1 && (
+                      <div className="absolute bottom-4 right-4 flex -space-x-3">
+                        {project.images.slice(1, 4).map((image, imageIndex) => (
+                          <span key={image} className="block h-12 w-16 overflow-hidden rounded-xl border border-white/20 bg-[#0f172a] shadow-soft">
+                            <img src={image} alt={`${project.title} small preview ${imageIndex + 2}`} loading="lazy" className="h-full w-full object-cover object-top" />
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  <Sparkles className="h-5 w-5 text-orange-200 opacity-70" />
-                </div>
 
-                <h3 className="mb-3 text-xl font-bold text-foreground">{project.title}</h3>
-                <p className="mb-5 text-sm leading-6 text-muted-foreground">{project.summary}</p>
+                  <div className="flex flex-1 flex-col p-6 text-left">
+                    <div className="mb-4 flex items-start gap-4">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                        <FileText className="h-5 w-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-xl font-bold leading-tight text-foreground">{project.title}</h3>
+                        <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">{project.category}</p>
+                      </div>
+                    </div>
 
-                <div className="mb-5 rounded-2xl border border-orange-400/15 bg-orange-400/10 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-orange-200">Outcome</p>
-                  <p className="mt-1 text-sm font-semibold text-foreground">{project.outcome}</p>
-                </div>
+                    <p className="mb-5 min-h-[4.5rem] text-sm leading-6 text-muted-foreground">{narrative.summary}</p>
 
-                <div className="mb-6 flex flex-wrap gap-2">
-                  {project.stack.map((item) => (
-                    <span key={item} className="rounded-full bg-white/[0.055] px-3 py-1 text-xs text-muted-foreground">
-                      {item}
-                    </span>
-                  ))}
-                </div>
+                    <div className="mb-5 rounded-2xl border border-white/10 bg-white/[0.035] p-4">
+                      <p className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-orange-200">
+                        <CheckCircle2 className="h-3.5 w-3.5" />
+                        Business value
+                      </p>
+                      <p className="text-sm font-semibold leading-6 text-foreground">{narrative.outcome}</p>
+                    </div>
 
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <Button variant="heroOutline" size="lg" className="rounded-full" onClick={() => openProject(index)}>
-                    <Eye className="mr-2 h-4 w-4" />
-                    Preview
-                  </Button>
-                  <Button variant="hero" size="lg" className="rounded-full" asChild>
-                    <a href={`/portfolio/${portfolioProjectSlug(project)}`}>
-                      Case details
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
+                    <div className="mb-6 flex flex-wrap gap-2">
+                      {visibleStack.map((item) => (
+                        <span key={item} className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1 text-xs text-muted-foreground">
+                          {item}
+                        </span>
+                      ))}
+                      {hiddenStackCount > 0 && (
+                        <span className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1 text-xs text-muted-foreground">
+                          +{hiddenStackCount}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="mt-auto grid grid-cols-2 gap-3">
+                      <Button variant="heroOutline" size="sm" className="h-11 whitespace-nowrap rounded-xl px-3 text-sm" onClick={() => openProject(index)}>
+                        <Eye className="mr-2 h-4 w-4" />
+                        Preview
+                      </Button>
+                      <Button variant="hero" size="sm" className="h-11 whitespace-nowrap rounded-xl px-3 text-sm" asChild>
+                        <a href={`/portfolio/${portfolioProjectSlug(project)}`} className="whitespace-nowrap">
+                          Case details
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            );
+          })}
         </div>
 
         <div className="mt-12 rounded-3xl border border-orange-400/15 bg-gradient-to-r from-orange-500/10 via-white/[0.03] to-purple-500/10 p-6 text-center md:p-8">
@@ -225,8 +312,8 @@ const PortfolioSection = () => {
           <p className="mx-auto mb-6 max-w-2xl text-sm leading-6 text-muted-foreground">
             Share your workflow, target Office app, and deployment needs. I will help turn it into a realistic scope.
           </p>
-          <Button variant="hero" size="lg" asChild>
-            <a href="/contact">
+          <Button variant="hero" size="sm" className="h-11 whitespace-nowrap rounded-xl px-5 text-sm" asChild>
+            <a href="/contact" className="whitespace-nowrap">
               Discuss Your Project
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
