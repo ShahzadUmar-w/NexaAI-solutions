@@ -62,7 +62,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.06] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl xl:text-7xl"
+              className="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.08] tracking-[-0.025em] text-white sm:text-5xl md:text-[3.45rem] xl:text-[4.25rem]"
             >
               Professional Office add-ins for Microsoft 365 teams.
             </motion.h1>
@@ -82,21 +82,21 @@ const HeroSection = () => {
               transition={{ duration: 0.52, delay: 0.28 }}
               className="mb-8 flex flex-col gap-3 sm:flex-row"
             >
-              <Button variant="hero" size="xl" asChild className="group rounded-full px-8">
-                <a href={outlookBookingUrl} target="_blank" rel="noreferrer">
+              <Button variant="hero" size="sm" asChild className="group h-11 whitespace-nowrap rounded-xl px-5 text-sm">
+                <a href={outlookBookingUrl} target="_blank" rel="noreferrer" className="whitespace-nowrap">
                   Book Outlook Call
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
               <Button
                 variant="heroOutline"
-                size="xl"
+                size="sm"
                 asChild
-                className="group rounded-full border-white/15 bg-white/[0.045] px-8 text-white hover:bg-white/[0.08]"
+                className="group h-11 whitespace-nowrap rounded-xl border-white/15 bg-white/[0.045] px-5 text-sm text-white hover:bg-white/[0.08]"
               >
-                <a href={directEmailHref}>
+                <a href={directEmailHref} className="whitespace-nowrap">
                   Email Brief
-                  <Mail className="ml-2 h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
+                  <Mail className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
                 </a>
               </Button>
             </motion.div>
@@ -151,9 +151,9 @@ const HeroSection = () => {
                       initial={{ opacity: 0, y: 14 }}
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.35, delay: 0.3 + index * 0.06 }}
-                      className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[#11182c]/70 p-4"
+                      className="flex min-h-[4.25rem] items-center gap-3 rounded-2xl border border-white/10 bg-[#11182c]/70 p-3"
                     >
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-orange-200">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-orange-200">
                         <app.icon className="h-5 w-5" />
                       </div>
                       <h3 className="font-bold text-white">{app.label}</h3>

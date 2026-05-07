@@ -85,7 +85,7 @@ const IntegrationEcosystemSection = () => {
                 <Network className="h-4 w-4" />
                 Add-in Integrations
               </span>
-              <h2 className="mt-5 max-w-3xl font-heading text-[clamp(2.25rem,3.7vw,4rem)] font-extrabold leading-[0.98] tracking-tight text-foreground">
+              <h2 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight tracking-normal text-foreground md:text-4xl">
                 Enterprise Office add-ins connected to the systems your team already uses
               </h2>
               <p className="mt-5 max-w-2xl text-base font-normal leading-8 text-muted-foreground md:text-lg">
