@@ -130,7 +130,7 @@ const ProductSection = () => {
                     <product.icon className="h-7 w-7" />
                   </motion.div>
 
-                  <span className="rounded-full glass-light px-3 py-1 text-xs font-semibold text-orange-200">
+                  <span className="rounded-full glass-light px-3 py-1 text-xs font-semibold text-orange-700 dark:text-orange-200">
                     {product.status}
                   </span>
                 </div>
@@ -138,7 +138,7 @@ const ProductSection = () => {
                 <p className="mb-2 text-xs font-semibold uppercase tracking-wider gradient-text-purple">
                   {product.category}
                 </p>
-                <h3 className="mb-3 text-2xl font-bold text-foreground transition-colors group-hover:text-purple-200">
+                <h3 className="mb-3 text-2xl font-bold text-foreground transition-colors group-hover:text-slate-950 dark:group-hover:text-purple-200">
                   {product.name}
                 </h3>
                 <p className="mb-6 text-sm leading-6 text-muted-foreground">{product.description}</p>
@@ -151,7 +151,7 @@ const ProductSection = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 + highlightIndex * 0.08 }}
-                      className="rounded-lg glass-light px-3 py-1.5 text-xs text-purple-200"
+                      className="rounded-lg glass-light px-3 py-1.5 text-xs text-purple-700 dark:text-purple-200"
                     >
                       {highlight}
                     </motion.span>
@@ -181,7 +181,7 @@ const ProductSection = () => {
           transition={{ duration: 0.65, delay: 0.25 }}
           className="mt-12 grid gap-4 rounded-2xl glass-orange p-6 md:grid-cols-[auto,1fr,auto] md:items-center"
         >
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-background/30 text-orange-200">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-background/30 text-orange-700 dark:text-orange-200">
             <Bot className="h-7 w-7" />
           </div>
           <div className="text-left">

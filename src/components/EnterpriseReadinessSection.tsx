@@ -109,10 +109,10 @@ const EnterpriseReadinessSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-purple-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               <div className="relative z-10">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-orange/10 text-orange-300 group-hover:bg-gradient-orange/20">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50 text-orange-700 group-hover:bg-orange-100 dark:bg-gradient-orange/10 dark:text-orange-300 dark:group-hover:bg-gradient-orange/20">
                   <card.icon className="h-7 w-7" />
                 </div>
-                <h3 className="mb-3 text-lg font-bold text-foreground group-hover:text-orange-200">{card.title}</h3>
+                <h3 className="mb-3 text-lg font-bold text-foreground transition-colors group-hover:text-slate-950 dark:group-hover:text-orange-200">{card.title}</h3>
                 <p className="mb-5 text-sm leading-6 text-muted-foreground">{card.description}</p>
                 <ul className="space-y-3">
                   {card.points.map((point) => (
@@ -136,11 +136,11 @@ const EnterpriseReadinessSection = () => {
             className="rounded-3xl glass-orange p-7 text-left"
           >
             <div className="mb-7 flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-background/30 text-orange-200">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-background/30 text-orange-700 dark:text-orange-200">
                 <KeyRound className="h-6 w-6" />
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-orange-200">Enterprise Process</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-orange-700 dark:text-orange-200">Enterprise Process</p>
                 <h3 className="text-xl font-bold text-foreground">A safer path from idea to deployment</h3>
               </div>
             </div>

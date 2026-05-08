@@ -4,11 +4,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { ThemeProvider } from "next-themes";
 import { lazy, Suspense } from "react";
 
 const Index = lazy(() => import("./pages/Index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AddInServicePage = lazy(() => import("./pages/AddInServicePage"));
+const CustomServicePage = lazy(() => import("./pages/CustomServicePage"));
 const SEOResourcePage = lazy(() => import("./pages/SEOResourcePage"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Services = lazy(() => import("./pages/Services"));
@@ -32,13 +34,14 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Suspense fallback={null}>
-            <Routes>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Suspense fallback={null}>
+              <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/services" element={<Services />} />
@@ -61,6 +64,10 @@ const App = () => (
               <Route path="/excel-add-in-development" element={<AddInServicePage type="excel" />} />
               <Route path="/word-add-in-development" element={<AddInServicePage type="word" />} />
               <Route path="/powerpoint-add-in-development" element={<AddInServicePage type="powerpoint" />} />
+              <Route path="/google-apps-script-development" element={<CustomServicePage type="google-apps-script" />} />
+              <Route path="/desktop-app-development" element={<CustomServicePage type="desktop-app" />} />
+              <Route path="/automation-development" element={<CustomServicePage type="automation" />} />
+              <Route path="/mobile-app-development" element={<CustomServicePage type="mobile-app" />} />
               <Route path="/microsoft-graph-integration" element={<SEOResourcePage type="graph" />} />
               <Route path="/microsoft-365-add-in-deployment" element={<SEOResourcePage type="deployment" />} />
               <Route path="/how-to-build-outlook-add-in" element={<SEOResourcePage type="outlook-guide" />} />
@@ -69,11 +76,12 @@ const App = () => (
               <Route path="/case-studies/outlook-crm-add-in" element={<SEOResourcePage type="outlook-crm-case" />} />
               <Route path="/case-studies/excel-reporting-automation" element={<SEOResourcePage type="excel-reporting-case" />} />
               <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   </HelmetProvider>
 );
 

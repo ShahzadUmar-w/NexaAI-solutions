@@ -343,14 +343,14 @@ const Admin = () => {
                       {isSupabaseConfigured ? "Publish Post" : "Save Draft"}
                     </Button>
                   </div>
-                  {status && <p className="mt-4 rounded-xl border border-orange-300/15 bg-orange-300/10 p-4 text-sm text-orange-100">{status}</p>}
+                  {status && <p className="mt-4 rounded-xl border border-orange-200 bg-orange-50 p-4 text-sm text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-100">{status}</p>}
                 </div>
 
                 <aside className="space-y-5 text-left">
                   <div className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-5 shadow-soft">
                     <h2 className="mb-4 text-xl font-bold text-foreground">Preview</h2>
                     <img src={post.image} alt="Blog preview" className="mb-4 aspect-video w-full rounded-2xl object-cover object-top" />
-                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-200">{post.category}</p>
+                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-700 dark:text-orange-200">{post.category}</p>
                     <h3 className="mb-3 text-2xl font-bold text-foreground">{post.title || "Blog title preview"}</h3>
                     <p className="text-sm leading-6 text-muted-foreground">{post.excerpt || "Short excerpt preview will appear here."}</p>
                   </div>
@@ -374,7 +374,7 @@ const Admin = () => {
                     </div>
                   </div>
 
-                  <div className="rounded-[2rem] border border-orange-300/15 bg-orange-300/10 p-5 text-sm leading-6 text-orange-100">
+                  <div className="rounded-[2rem] border border-orange-200 bg-orange-50 p-5 text-sm leading-6 text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-100">
                     SEO note: Supabase posts public blog page par show honge. Best SEO ke liye important evergreen posts ko sitemap me bhi add karein ya static data me mirror karein.
                   </div>
                 </aside>

@@ -107,7 +107,7 @@ const Plans = () => {
               <div className="grid gap-3">
                 {milestoneSteps.map((item, index) => (
                   <div key={item} className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-left">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-orange-300/15 bg-orange-300/10 text-sm font-bold text-orange-200">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-orange-200 bg-orange-50 text-sm font-bold text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200">
                       {index + 1}
                     </div>
                     <p className="text-sm leading-6 text-muted-foreground">{item}</p>

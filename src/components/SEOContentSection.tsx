@@ -69,7 +69,7 @@ const SEOContentSection = () => {
             >
               <BookOpen className="mb-4 h-6 w-6 text-orange-300" />
               <h3 className="mb-3 text-lg font-bold text-foreground">
-                <a href={topic.href} className="transition-colors hover:text-orange-200">
+                <a href={topic.href} className="transition-colors hover:text-orange-700 dark:hover:text-orange-200">
                   {topic.title}
                 </a>
               </h3>

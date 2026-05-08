@@ -50,7 +50,7 @@ const Footer = () => {
           <div>
             <a href="/" className="mb-5 inline-flex items-center gap-3">
               <img src="/Logo.png" alt="Nexa AI Solutions logo" className="h-12 w-auto object-contain" />
-              <span className="font-heading text-xl font-bold text-white">
+              <span className="font-heading text-xl font-bold text-foreground dark:text-white">
                 Nexa AI<span className="gradient-text-purple"> Solutions</span>
               </span>
             </a>
@@ -60,11 +60,11 @@ const Footer = () => {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full glass-light px-4 py-2 text-xs font-medium text-orange-100">
+              <span className="inline-flex items-center gap-2 rounded-full glass-light px-4 py-2 text-xs font-medium text-orange-700 dark:text-orange-100">
                 <ShieldCheck className="h-3.5 w-3.5 text-orange-300" />
                 Secure add-in delivery
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full glass-light px-4 py-2 text-xs font-medium text-purple-100">
+              <span className="inline-flex items-center gap-2 rounded-full glass-light px-4 py-2 text-xs font-medium text-pink-700 dark:text-purple-100">
                 <Sparkles className="h-3.5 w-3.5 text-purple-300" />
                 M365 deployment ready
               </span>
@@ -78,7 +78,7 @@ const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="block text-sm text-muted-foreground transition-colors hover:text-orange-200"
+                  className="block text-sm text-muted-foreground transition-colors hover:text-orange-700 dark:hover:text-orange-200"
                 >
                   {link.label}
                 </a>
@@ -93,7 +93,7 @@ const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="block text-sm text-muted-foreground transition-colors hover:text-purple-200"
+                  className="block text-sm text-muted-foreground transition-colors hover:text-pink-700 dark:hover:text-purple-200"
                 >
                   {link.label}
                 </a>
@@ -108,7 +108,7 @@ const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="block text-sm text-muted-foreground transition-colors hover:text-orange-200"
+                  className="block text-sm text-muted-foreground transition-colors hover:text-orange-700 dark:hover:text-orange-200"
                 >
                   {link.label}
                 </a>
@@ -130,7 +130,7 @@ const Footer = () => {
             </Button>
 
             <div className="space-y-3 text-sm text-muted-foreground">
-              <a href={directEmailHref} className="flex items-center gap-3 transition-colors hover:text-orange-100">
+              <a href={directEmailHref} className="flex items-center gap-3 transition-colors hover:text-orange-700 dark:hover:text-orange-100">
                 <Mail className="h-4 w-4 text-orange-300" />
                 shahzad890.it@gmail.com
               </a>
@@ -142,14 +142,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-6 md:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-5 border-t border-border pt-6 dark:border-white/10 md:flex-row">
           <p className="text-sm text-muted-foreground">
             &copy; {currentYear} NexaAI Solutions. All rights reserved.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3">
             {legalLinks.map((link) => (
-              <a key={link.href} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-orange-200">
+              <a key={link.href} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-orange-700 dark:hover:text-orange-200">
                 {link.label}
               </a>
             ))}

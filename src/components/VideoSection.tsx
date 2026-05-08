@@ -66,7 +66,7 @@ const VideoSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/20 bg-orange-500/5 px-4 py-2 text-sm font-medium text-orange-200 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-medium text-orange-700 backdrop-blur-md dark:border-orange-500/20 dark:bg-orange-500/5 dark:text-orange-200">
             <Sparkles className="w-4 h-4 text-orange-300" />
             Quick demo of my Office Add-in process
           </div>

@@ -172,7 +172,7 @@ const EnterpriseSecurity = () => {
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {securityPractices.map((item) => (
                 <article key={item.title} className="enterprise-card p-6 text-left">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50 text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200">
                     <item.icon className="h-6 w-6" />
                   </div>
                   <h3 className="mb-3 text-lg font-bold text-foreground">{item.title}</h3>

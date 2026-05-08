@@ -81,7 +81,7 @@ const PortfolioDetail = () => {
                 </p>
 
                 <div className="mb-8 rounded-3xl border border-orange-300/15 bg-orange-300/10 p-6">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-orange-200">Outcome</p>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-orange-700 dark:text-orange-200">Outcome</p>
                   <p className="text-lg font-bold text-foreground">{project.outcome}</p>
                 </div>
 
@@ -129,7 +129,7 @@ const PortfolioDetail = () => {
                   <h2 className="text-3xl font-bold text-foreground">Project screenshots</h2>
                   <p className="mt-2 text-sm text-muted-foreground">Screens from the same project folder, grouped so clients can review the actual workflow.</p>
                 </div>
-                <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-orange-100">
+                <span className="rounded-full border border-slate-200 bg-white/[0.85] px-4 py-2 text-sm font-semibold text-orange-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-orange-100">
                   {project.images.length} screens
                 </span>
               </div>
@@ -183,7 +183,7 @@ const PortfolioDetail = () => {
                     >
                       <img src={item.images[0]} alt={item.title} loading="lazy" decoding="async" className="aspect-video w-full object-cover object-top transition-transform group-hover:scale-105" />
                       <div className="p-5">
-                        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-orange-200">{item.category}</p>
+                        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-orange-700 dark:text-orange-200">{item.category}</p>
                         <h3 className="font-bold text-foreground">{item.title}</h3>
                       </div>
                     </a>

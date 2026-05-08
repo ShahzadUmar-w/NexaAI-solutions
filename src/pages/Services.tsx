@@ -61,11 +61,11 @@ const Services = () => {
         <title>Office Add-in Development Services | NexaAI Solutions</title>
         <meta
           name="description"
-          content="Microsoft Office add-in development services for Outlook, Excel, Word, PowerPoint, Office.js, Microsoft Graph, AI, Salesforce, QuickBooks, CRM, ERP, DMS, CMS, and business system integrations."
+          content="Software development services for Outlook, Excel, Word, PowerPoint, Google Apps Script, desktop apps, mobile apps, automations, Office.js, Microsoft Graph, AI, CRM, ERP, DMS, CMS, and business integrations."
         />
         <link rel="canonical" href={`${siteUrl}/services`} />
         <meta property="og:title" content="Office Add-in Development Services | NexaAI Solutions" />
-        <meta property="og:description" content="Custom Outlook, Excel, Word, and PowerPoint add-ins with Office.js, Microsoft Graph, secure integrations, and Microsoft 365 deployment support." />
+        <meta property="og:description" content="Custom Outlook, Excel, Word, PowerPoint, Google Apps Script, desktop app, mobile app, and automation development with secure integrations." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${siteUrl}/services`} />
         <meta property="og:image" content={defaultOgImage} />
@@ -101,7 +101,7 @@ const Services = () => {
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {officeCoverage.map(([title, text, Icon]) => (
                 <article key={title} className="enterprise-card p-6 text-left">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50 text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200">
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="mb-3 text-xl font-bold text-foreground">{title}</h3>

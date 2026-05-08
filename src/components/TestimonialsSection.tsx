@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Eye, Star, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -67,15 +67,15 @@ const TestimonialsSection = ({ limit, showFeedbacksLink = false }: TestimonialsS
 
         <div className="mx-auto mb-10 grid max-w-4xl gap-4 sm:grid-cols-3">
           <div className="enterprise-card p-5 text-center">
-            <p className="text-3xl font-bold text-orange-200">{completedReviews.length}+</p>
+            <p className="text-3xl font-bold text-orange-700 dark:text-orange-200">{completedReviews.length}+</p>
             <p className="text-sm text-muted-foreground">Public reviews</p>
           </div>
           <div className="enterprise-card p-5 text-center">
-            <p className="text-3xl font-bold text-orange-200">{averageRating.toFixed(1)}</p>
+            <p className="text-3xl font-bold text-orange-700 dark:text-orange-200">{averageRating.toFixed(1)}</p>
             <p className="text-sm text-muted-foreground">Average rating</p>
           </div>
           <div className="enterprise-card p-5 text-center">
-            <p className="text-3xl font-bold text-orange-200">{repeatClients}+</p>
+            <p className="text-3xl font-bold text-orange-700 dark:text-orange-200">{repeatClients}+</p>
             <p className="text-sm text-muted-foreground">Repeat clients</p>
           </div>
         </div>
@@ -94,7 +94,7 @@ const TestimonialsSection = ({ limit, showFeedbacksLink = false }: TestimonialsS
                 <button
                   type="button"
                   onClick={() => setActiveScreenshot(testimonial)}
-                  className="group relative mb-5 block overflow-hidden rounded-2xl border border-white/10 bg-[#0f172a]"
+                  className="group relative mb-5 block overflow-hidden rounded-2xl border border-border bg-slate-100 dark:border-white/10 dark:bg-[#0f172a]"
                 >
                   <img
                     src={testimonial.imageUrl}
@@ -112,7 +112,7 @@ const TestimonialsSection = ({ limit, showFeedbacksLink = false }: TestimonialsS
               )}
 
               <div className="mb-5 flex items-start justify-between gap-4">
-                <span className="rounded-full glass-light px-3 py-1 text-xs font-semibold text-orange-200">
+                <span className="rounded-full glass-light px-3 py-1 text-xs font-semibold text-orange-700 dark:text-orange-200">
                   {testimonial.platform}
                 </span>
               </div>
@@ -127,15 +127,15 @@ const TestimonialsSection = ({ limit, showFeedbacksLink = false }: TestimonialsS
               </div>
 
               <div className="mb-5 flex flex-wrap gap-2 text-xs">
-                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-semibold text-muted-foreground">
+                <span className="rounded-full border border-border bg-white/70 px-3 py-1 font-semibold text-muted-foreground dark:border-white/10 dark:bg-white/[0.04]">
                   {testimonial.category}
                 </span>
-                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-semibold text-muted-foreground">
+                <span className="rounded-full border border-border bg-white/70 px-3 py-1 font-semibold text-muted-foreground dark:border-white/10 dark:bg-white/[0.04]">
                   {testimonial.duration}
                 </span>
               </div>
 
-              <div className="flex items-center gap-3 border-t border-white/10 pt-4">
+              <div className="flex items-center gap-3 border-t border-border pt-4 dark:border-white/10">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-orange/15">
                   {testimonial.avatarUrl ? (
                     <img
@@ -172,7 +172,7 @@ const TestimonialsSection = ({ limit, showFeedbacksLink = false }: TestimonialsS
           <div className="mt-10 flex justify-center">
             <Link
               to="/feedbacks"
-              className="inline-flex items-center gap-2 rounded-full border border-orange-300/25 bg-orange-400/10 px-5 py-3 text-sm font-semibold text-orange-100 transition-colors hover:bg-orange-400/15"
+              className="inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-50 px-5 py-3 text-sm font-semibold text-orange-700 transition-colors hover:bg-orange-100 dark:border-orange-300/25 dark:bg-orange-400/10 dark:text-orange-100 dark:hover:bg-orange-400/15"
             >
               View all client feedbacks
               <ArrowRight className="h-4 w-4" />
@@ -186,7 +186,7 @@ const TestimonialsSection = ({ limit, showFeedbacksLink = false }: TestimonialsS
           <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-[#0b1020] shadow-soft-lg">
             <div className="flex items-center justify-between gap-4 border-b border-white/10 p-4">
               <div className="text-left">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-200">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-700 dark:text-orange-200">
                   {activeScreenshot.platform} Feedback
                 </p>
                 <h3 className="mt-1 text-lg font-bold text-white">{activeScreenshot.name}</h3>

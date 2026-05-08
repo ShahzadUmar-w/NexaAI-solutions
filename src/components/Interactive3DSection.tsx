@@ -89,8 +89,8 @@ const Interactive3DSection = () => {
   } as CSSProperties;
 
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-[#0b1020]/80 py-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(255,209,61,0.1),transparent_24rem),radial-gradient(circle_at_80%_70%,rgba(225,29,143,0.08),transparent_26rem)]" />
+    <section id="build-system" className="relative overflow-hidden border-y border-slate-200/80 bg-white/70 py-24 dark:border-white/10 dark:bg-[#0b1020]/80">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(249,115,22,0.055),transparent_24rem),radial-gradient(circle_at_80%_70%,rgba(14,165,233,0.045),transparent_26rem)] dark:bg-[radial-gradient(circle_at_22%_20%,rgba(255,209,61,0.1),transparent_24rem),radial-gradient(circle_at_80%_70%,rgba(225,29,143,0.08),transparent_26rem)]" />
 
       <div className="section-container relative z-10">
         <div className="grid items-stretch gap-10 lg:grid-cols-2">
@@ -126,9 +126,9 @@ const Interactive3DSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.07 }}
-                  className="flex min-h-[190px] flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-4"
+                  className="flex min-h-[190px] flex-col rounded-2xl border border-border bg-card/80 p-4 shadow-soft dark:border-white/10 dark:bg-white/[0.04]"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-soft dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200">
                     <step.icon className="h-5 w-5" />
                   </div>
                   <h3 className="mb-2 text-base font-bold text-foreground">{step.title}</h3>
@@ -146,17 +146,17 @@ const Interactive3DSection = () => {
             className="relative h-full"
           >
             <div
-              className="office-3d-scene relative mx-auto h-full min-h-[640px] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 shadow-soft-lg"
+              className="office-3d-scene relative mx-auto h-full min-h-[640px] w-full overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft-lg dark:border-white/10 dark:bg-[#0b1020]"
               onPointerMove={handlePointerMove}
               onPointerLeave={resetRotation}
               style={sceneStyle}
             >
-              <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent_36%),radial-gradient(circle_at_50%_45%,rgba(255,209,61,0.14),transparent_18rem)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(14,165,233,0.06),transparent_36%),radial-gradient(circle_at_50%_45%,rgba(249,115,22,0.08),transparent_18rem)] dark:bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent_36%),radial-gradient(circle_at_50%_45%,rgba(255,209,61,0.14),transparent_18rem)]" />
               <div className="office-gallery-grid absolute inset-0" />
-              <div className="absolute left-1/2 top-[45%] h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10" />
-              <div className="absolute left-1/2 top-[45%] h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-300/10" />
-              <div className="absolute left-1/2 top-[45%] h-[38rem] w-[38rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.045]" />
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_var(--mx,50%)_var(--my,45%),rgba(255,255,255,0.08),transparent_16rem)]" />
+              <div className="absolute left-1/2 top-[45%] h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200 dark:border-white/10" />
+              <div className="absolute left-1/2 top-[45%] h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-300/20 dark:border-orange-300/10" />
+              <div className="absolute left-1/2 top-[45%] h-[38rem] w-[38rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200/70 dark:border-white/[0.045]" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_var(--mx,50%)_var(--my,45%),rgba(14,165,233,0.08),transparent_16rem)] dark:bg-[radial-gradient(circle_at_var(--mx,50%)_var(--my,45%),rgba(255,255,255,0.08),transparent_16rem)]" />
 
               <div className="office-gallery-stage absolute inset-x-6 top-8 h-[470px]">
                 <div className="office-gallery-platform" />
@@ -193,19 +193,19 @@ const Interactive3DSection = () => {
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-[#11182c]/80 p-4 backdrop-blur-xl">
-                  <div className="mb-2 flex items-center gap-2 text-sm font-bold text-white">
-                    <ShieldCheck className="h-4 w-4 text-orange-200" />
+                <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-[#11182c]/90">
+                  <div className="mb-2 flex items-center gap-2 text-sm font-bold text-slate-950 dark:text-white">
+                    <ShieldCheck className="h-4 w-4 text-orange-700 dark:text-orange-200" />
                     Secure by design
                   </div>
-                  <p className="text-xs leading-5 text-slate-400">Auth, permissions, and Microsoft 365 deployment support.</p>
+                  <p className="text-xs leading-5 text-slate-600 dark:text-slate-400">Auth, permissions, and Microsoft 365 deployment support.</p>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-[#11182c]/80 p-4 backdrop-blur-xl">
-                  <div className="mb-2 flex items-center gap-2 text-sm font-bold text-white">
-                    <Rocket className="h-4 w-4 text-orange-200" />
+                <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-[#11182c]/80">
+                  <div className="mb-2 flex items-center gap-2 text-sm font-bold text-slate-950 dark:text-white">
+                    <Rocket className="h-4 w-4 text-orange-700 dark:text-orange-200" />
                     Built to launch
                   </div>
-                  <p className="text-xs leading-5 text-slate-400">Production-ready UI, testing, fixes, and handover.</p>
+                  <p className="text-xs leading-5 text-slate-600 dark:text-slate-400">Production-ready UI, testing, fixes, and handover.</p>
                 </div>
               </div>
             </div>

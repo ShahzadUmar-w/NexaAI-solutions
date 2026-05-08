@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, FileText, Network, Rocket } from "lucide-react";
 
 const resources = [
@@ -65,7 +65,7 @@ const ResourcesSection = () => {
               <resource.icon className="mb-4 h-7 w-7 text-orange-300" />
               <h3 className="mb-3 text-lg font-bold text-foreground">{resource.label}</h3>
               <p className="mb-5 text-sm leading-6 text-muted-foreground">{resource.description}</p>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-orange-200">
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-orange-700 dark:text-orange-200">
                 Read page
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
@@ -78,4 +78,3 @@ const ResourcesSection = () => {
 };
 
 export default ResourcesSection;
-

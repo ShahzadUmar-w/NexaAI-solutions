@@ -311,19 +311,19 @@ const IntegrationDetail = () => {
 
             <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-[1fr,auto,1fr,auto,1fr] md:items-center">
               <article className="enterprise-card p-6 text-left">
-                <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-sm font-bold text-orange-100">1</span>
+                <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50 text-sm font-bold text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-100">1</span>
                 <h3 className="mb-3 text-xl font-bold text-foreground">Office app</h3>
                 <p className="text-sm leading-6 text-muted-foreground">Outlook, Excel, Word, or PowerPoint captures the user action and business context.</p>
               </article>
               <ArrowRight className="hidden h-6 w-6 text-orange-300 md:block" />
               <article className="enterprise-card p-6 text-left">
-                <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-sm font-bold text-orange-100">2</span>
+                <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50 text-sm font-bold text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-100">2</span>
                 <h3 className="mb-3 text-xl font-bold text-foreground">Secure API layer</h3>
                 <p className="text-sm leading-6 text-muted-foreground">Authentication, validation, logging, retries, and permission checks happen before sync.</p>
               </article>
               <ArrowRight className="hidden h-6 w-6 text-orange-300 md:block" />
               <article className="enterprise-card p-6 text-left">
-                <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-sm font-bold text-orange-100">3</span>
+                <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50 text-sm font-bold text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-100">3</span>
                 <h3 className="mb-3 text-xl font-bold text-foreground">{integration.name}</h3>
                 <p className="text-sm leading-6 text-muted-foreground">{integration.name} receives approved data, returns records, and stays the source of truth.</p>
               </article>
@@ -398,7 +398,7 @@ const IntegrationDetail = () => {
                 <div className="grid gap-4">
                   {steps.map((item, index) => (
                     <p key={item} className="flex items-start gap-3 text-sm leading-6 text-muted-foreground">
-                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-xs font-bold text-orange-200">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-xs font-bold text-orange-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-orange-200">
                         {index + 1}
                       </span>
                       {item}
@@ -426,7 +426,7 @@ const IntegrationDetail = () => {
             <div className="grid gap-5 lg:grid-cols-3">
               <article className="enterprise-card p-6 text-left">
                 <div className="mb-5 flex items-center gap-3">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/15 bg-cyan-300/10 text-cyan-200">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-cyan-200 bg-cyan-50 text-cyan-700 dark:border-cyan-300/15 dark:bg-cyan-300/10 dark:text-cyan-200">
                     <UsersRound className="h-5 w-5" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground">Best for</h3>
@@ -443,7 +443,7 @@ const IntegrationDetail = () => {
 
               <article className="enterprise-card p-6 text-left">
                 <div className="mb-5 flex items-center gap-3">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50 text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200">
                     <AlertTriangle className="h-5 w-5" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground">Common challenges</h3>
@@ -460,7 +460,7 @@ const IntegrationDetail = () => {
 
               <article className="enterprise-card p-6 text-left">
                 <div className="mb-5 flex items-center gap-3">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-orange-100">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-white text-orange-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-orange-100">
                     <ClipboardCheck className="h-5 w-5" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground">What we need</h3>
@@ -533,7 +533,7 @@ const IntegrationDetail = () => {
                     <span className="mb-3 block">
                       <LogoMark system={system} />
                     </span>
-                    <span className="block text-sm font-semibold text-foreground group-hover:text-orange-100">{system.name}</span>
+                    <span className="block text-sm font-semibold text-foreground transition-colors group-hover:text-slate-950 dark:group-hover:text-orange-100">{system.name}</span>
                   </a>
                 ))}
               </div>

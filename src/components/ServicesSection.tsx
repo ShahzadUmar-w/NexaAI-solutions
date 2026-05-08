@@ -1,5 +1,5 @@
 ﻿import { motion } from "framer-motion";
-import { Mail, TableProperties, FileText, Presentation, ArrowRight, Sparkles, Video } from "lucide-react";
+import { Mail, TableProperties, FileText, Presentation, ArrowRight, Sparkles, Video, Smartphone, Workflow } from "lucide-react";
 
 const services = [
   {
@@ -8,6 +8,7 @@ const services = [
     description:
       "Custom Outlook solutions for email automation, calendar extensions, attachment management, and workflow automation.",
     features: ["Office.js / VSTO Integration", "Email Automation", "Calendar/Task Sync", "Attachment & PDF Workflows"],
+    href: "/outlook-add-in-development",
   },
   {
     icon: TableProperties,
@@ -15,6 +16,7 @@ const services = [
     description:
       "Excel add-ins with advanced formulas, data automation, macOS support, and business intelligence dashboards.",
     features: ["Custom Functions", "Data Automation", "Power BI Integration", "Mac & Web Support"],
+    href: "/excel-add-in-development",
   },
   {
     icon: FileText,
@@ -22,6 +24,7 @@ const services = [
     description:
       "Document automation and template-driven Word add-ins for contracts, reports, legal workflows, and compliance.",
     features: ["Template Management", "Document Assembly", "Content Controls", "PDF Export Workflows"],
+    href: "/word-add-in-development",
   },
   {
     icon: Presentation,
@@ -29,13 +32,15 @@ const services = [
     description:
       "Presentation tools for slide automation, branded templates, content generation, and export workflows.",
     features: ["Template Automation", "Slide Libraries", "Brand Compliance", "File Export"],
+    href: "/powerpoint-add-in-development",
   },
   {
     icon: Sparkles,
-    title: "Google Workspace Add-ons",
+    title: "Google Apps Script",
     description:
       "Custom Gmail, Sheets, Docs, and Slides add-ons for business automation and cloud workflow integration.",
     features: ["Gmail Automation", "Sheets Extensions", "Docs/Slides Add-ons", "Google API Integration"],
+    href: "/google-apps-script-development",
   },
   {
     icon: Video,
@@ -43,8 +48,27 @@ const services = [
     description:
       "Cross-platform desktop applications built with Electron, React, Node.js and packaged for Windows, macOS and Linux.",
     features: ["Electron JS Apps", "MS Store Publishing", "Node.js Backend", "Desktop Workflow Tools"],
+    href: "/desktop-app-development",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile App Development",
+    description:
+      "iOS and Android business apps, dashboards, portals, and API-connected workflow products.",
+    features: ["React Native Apps", "Mobile Dashboards", "API Integration", "User Flows"],
+    href: "/mobile-app-development",
+  },
+  {
+    icon: Workflow,
+    title: "Automations",
+    description:
+      "n8n, Make, Zapier, Power Automate, API workflows, and AI-powered business process automation.",
+    features: ["n8n Workflows", "Make/Zapier", "Power Automate", "AI Agents"],
+    href: "/automation-development",
   },
 ];
+
+const serviceOverviewImage = "/assets/pngwing.com%20(2).png";
 
 const ServicesSection = () => {
   return (
@@ -78,7 +102,7 @@ const ServicesSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Office 365, Google Workspace, and Electron
+                  Office 365, Google Workspace, and Electron
             <motion.span
               className="gradient-text-both block"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -97,9 +121,24 @@ const ServicesSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            Senior Office 365 add-in developer with 5+ years of experience building Outlook, Excel, Word, PowerPoint, Teams, Google Workspace and Electron automation tools.
+            Senior software developer with 5+ years of experience building Outlook, Excel, Word, PowerPoint, Teams, Google Workspace, Electron, mobile apps, and automation tools.
             I deliver reliable business workflows, document automation and AI-powered integrations.
           </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+          className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white/85 p-5 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04]"
+        >
+          <img
+            src={serviceOverviewImage}
+            alt="Business app dashboard and automation growth illustration"
+            className="aspect-[5/2] w-full object-contain"
+            loading="lazy"
+          />
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -116,14 +155,14 @@ const ServicesSection = () => {
 
               <div className="flex items-start gap-4 relative z-10">
                 <div
-                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 transition-all duration-300 group-hover:bg-orange-300/15"
+                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50 text-orange-700 transition-all duration-300 group-hover:border-orange-300 group-hover:bg-orange-100 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200 dark:group-hover:bg-orange-300/15"
                 >
-                  <service.icon className="h-7 w-7 text-orange-200" />
+                  <service.icon className="h-7 w-7" />
                 </div>
                 
                 <div className="flex-1">
                   <motion.h3
-                    className="mb-2 text-xl font-semibold text-foreground transition-colors group-hover:text-orange-100"
+                    className="mb-2 text-xl font-semibold text-foreground transition-colors group-hover:text-slate-950 dark:group-hover:text-orange-100"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -156,7 +195,7 @@ const ServicesSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.25, delay: index * 0.08 + featureIndex * 0.04 }}
-                        className="rounded-md border border-white/10 bg-white/[0.045] px-2.5 py-1 text-xs text-orange-100 transition-all duration-200"
+                        className="rounded-md border border-slate-200 bg-white/80 px-2.5 py-1 text-xs text-slate-600 transition-all duration-200 group-hover:border-orange-200 group-hover:text-slate-800 dark:border-white/10 dark:bg-white/[0.045] dark:text-orange-100 dark:group-hover:border-white/10 dark:group-hover:text-orange-100"
                       >
                         {feature}
                       </motion.span>
@@ -173,8 +212,8 @@ const ServicesSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.15 + 0.6 }}
               >
                 <motion.a
-                  href="/contact"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-orange-200 transition-all duration-300 hover:text-orange-100"
+                  href={service.href ?? "/contact"}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-orange-700 transition-all duration-300 hover:text-slate-950 dark:text-orange-200 dark:hover:text-orange-100"
                 >
                   Discuss Your Project
                   <ArrowRight className="w-4 h-4" />

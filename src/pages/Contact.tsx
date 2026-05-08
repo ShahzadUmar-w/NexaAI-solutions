@@ -92,7 +92,7 @@ const Contact = () => {
             <div className="grid gap-5 md:grid-cols-3">
               {responseSteps.map((step, index) => (
                 <article key={step.title} className="enterprise-card p-6 text-left">
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50 text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200">
                     {index + 1}
                   </div>
                   <h3 className="mb-3 text-lg font-bold text-foreground">{step.title}</h3>
@@ -102,7 +102,7 @@ const Contact = () => {
             </div>
 
             <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-orange-300/15 bg-orange-300/10 p-6 text-center sm:p-8">
-              <ShieldCheck className="mx-auto mb-4 h-8 w-8 text-orange-200" />
+              <ShieldCheck className="mx-auto mb-4 h-8 w-8 text-orange-700 dark:text-orange-200" />
               <h2 className="mb-3 text-2xl font-bold text-foreground">Need NDA or security review first?</h2>
               <p className="text-sm leading-6 text-muted-foreground">
                 Mention it in the message. We can discuss permissions, data handling, deployment, and review expectations before implementation starts.

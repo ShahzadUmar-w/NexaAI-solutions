@@ -85,10 +85,10 @@ const Blog = () => {
               </p>
             </div>
 
-            <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.035] p-4">
+            <div className="mt-10 rounded-3xl border border-slate-200/80 bg-white/[0.78] p-4 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.035]">
               <div className="flex items-center gap-3 text-left">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-soft dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200">
                     <Search className="h-5 w-5" />
                   </div>
                   <div>
@@ -101,12 +101,12 @@ const Blog = () => {
 
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {posts.map((post) => (
-                <article key={post.slug} className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] text-left transition-all hover:-translate-y-1 hover:border-orange-300/25">
+                <article key={post.slug} className="group overflow-hidden rounded-3xl border border-slate-200/80 bg-white/[0.78] text-left shadow-soft backdrop-blur-xl transition-all hover:-translate-y-1 hover:border-slate-300 hover:bg-white dark:border-white/10 dark:bg-white/[0.035] dark:hover:border-orange-300/25 dark:hover:bg-white/[0.055]">
                   <a href={`/blog/${post.slug}`} className="block">
                     <div className="relative h-52 overflow-hidden bg-[#0f172a]">
                       <img src={post.image} alt={post.title} loading="lazy" decoding="async" className="h-full w-full object-cover object-top opacity-85 transition-transform duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#070b14] via-transparent to-transparent" />
-                      <span className="absolute left-4 top-4 rounded-full border border-orange-300/20 bg-orange-300/10 px-3 py-1 text-xs font-bold text-orange-100">
+                      <span className="absolute left-4 top-4 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-bold text-orange-700 dark:border-orange-300/20 dark:bg-orange-300/10 dark:text-orange-100">
                         {post.category}
                       </span>
                     </div>
@@ -116,9 +116,9 @@ const Blog = () => {
                         <span>-</span>
                         <span>{post.readTime}</span>
                       </div>
-                      <h2 className="mb-3 text-xl font-bold leading-tight text-foreground group-hover:text-orange-100">{post.title}</h2>
+                      <h2 className="mb-3 text-xl font-bold leading-tight text-foreground transition-colors group-hover:text-slate-950 dark:group-hover:text-orange-100">{post.title}</h2>
                       <p className="mb-5 text-sm leading-6 text-muted-foreground">{post.excerpt}</p>
-                      <span className="inline-flex items-center text-sm font-bold text-orange-100">
+                      <span className="inline-flex items-center text-sm font-bold text-slate-700 transition-colors group-hover:text-slate-950 dark:text-orange-100 dark:group-hover:text-orange-200">
                         Read guide
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>

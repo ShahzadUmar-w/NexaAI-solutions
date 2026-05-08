@@ -157,7 +157,7 @@ const Integrations = () => {
               {integrationCategories.map((category) => (
                 <article key={category.id} className="enterprise-card p-6 text-left">
                   <div className="mb-5 flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50 text-orange-700 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200">
                       <Building2 className="h-6 w-6" />
                     </div>
                     <div>
@@ -173,7 +173,7 @@ const Integrations = () => {
                         className="group flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-3 transition-colors hover:border-orange-300/25 hover:bg-white/[0.065]"
                       >
                         <LogoMark system={system} />
-                        <span className="min-w-0 flex-1 truncate text-sm font-semibold text-foreground group-hover:text-orange-100">
+                        <span className="min-w-0 flex-1 truncate text-sm font-semibold text-foreground transition-colors group-hover:text-slate-950 dark:group-hover:text-orange-100">
                           {system.name}
                         </span>
                         <ArrowRight className="h-4 w-4 shrink-0 text-orange-300 transition-transform group-hover:translate-x-1" />

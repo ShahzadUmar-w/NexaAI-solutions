@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Building2, CheckCircle2 } from "lucide-react";
 
 const trustAreas = [
@@ -12,7 +12,7 @@ const trustAreas = [
 
 const CompaniesSection = () => {
   return (
-    <section id="companies" className="relative overflow-hidden border-y border-white/10 bg-white/[0.018] py-20">
+    <section id="companies" className="relative overflow-hidden border-y border-slate-200/80 bg-[#fbfcfe]/80 py-20 dark:border-white/10 dark:bg-white/[0.018]">
       <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -42,7 +42,7 @@ const CompaniesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 text-left text-sm font-semibold text-foreground"
+              className="flex items-center gap-3 rounded-2xl border border-border bg-card/80 px-5 py-4 text-left text-sm font-semibold text-foreground shadow-soft dark:border-white/10 dark:bg-white/[0.035]"
             >
               <CheckCircle2 className="h-4 w-4 shrink-0 text-orange-300" />
               {area}
@@ -55,4 +55,3 @@ const CompaniesSection = () => {
 };
 
 export default CompaniesSection;
-

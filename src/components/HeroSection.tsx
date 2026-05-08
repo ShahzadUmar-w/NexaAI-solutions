@@ -1,32 +1,67 @@
 import { motion, useInView } from "framer-motion";
 import {
   ArrowRight,
+  Braces,
   CheckCircle2,
-  FileText,
+  Code2,
   Mail,
-  Presentation,
-  ShieldCheck,
-  TableProperties,
+  Monitor,
+  Smartphone,
+  Sparkles,
+  Workflow,
 } from "lucide-react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { outlookBookingUrl } from "@/lib/booking";
 
 const directEmailHref =
-  "mailto:shahzad890.it@gmail.com?subject=Enterprise%20Office%20Add-in%20Consultation&body=Hi%20Shahzad%2C%0A%0AI%20would%20like%20to%20discuss%20an%20enterprise%20Office%20add-in%20project.%0A%0ACompany%3A%0AProject%20type%3A%0ATimeline%3A%0AKey%20requirements%3A%0A%0AThanks.";
+  "mailto:shahzad890.it@gmail.com?subject=Software%20Development%20Project%20Consultation&body=Hi%20Shahzad%2C%0A%0AI%20would%20like%20to%20discuss%20a%20software%20development%20project.%0A%0ACompany%3A%0AProject%20type%3A%0ATimeline%3A%0AKey%20requirements%3A%0A%0AThanks.";
 
-const apps = [
-  { icon: Mail, label: "Outlook" },
-  { icon: TableProperties, label: "Excel" },
-  { icon: FileText, label: "Word" },
-  { icon: Presentation, label: "PowerPoint" },
-];
-
-const deliveryItems = [
-  "Office.js add-in development",
-  "Microsoft Graph and API integration",
-  "Secure authentication and permissions",
-  "Microsoft 365 deployment support",
+const serviceTracks = [
+  {
+    icon: Code2,
+    image: "/assets/code.png",
+    label: "Web Apps",
+    detail: "Dashboards, portals, SaaS tools",
+    position: "left-[5%] top-[11%]",
+    accent: "from-white to-white-600",
+  },
+  {
+    icon: Smartphone,
+    image: "/assets/app.png",
+    label: "Mobile Apps",
+    detail: "iOS and Android interfaces",
+    position: "right-[4%] top-[20%]",
+    accent: "from-white-400 to-white-600",
+  },
+  {
+    icon: Monitor,
+    label: "Desktop Apps",
+    detail: "Electron workflow software",
+    position: "left-[1%] top-[49%]",
+    accent: "from-orange-300 to-orange-600",
+  },
+  {
+    icon: Workflow,
+    label: "Automations",
+    detail: "n8n, Make, Zapier, Power Automate",
+    position: "right-[5%] top-[55%]",
+    accent: "from-rose-400 to-pink-600",
+  },
+  {
+    icon: Braces,
+    label: "Apps Script",
+    detail: "Sheets, Docs, Gmail, Workspace",
+    position: "left-[17%] bottom-[11%]",
+    accent: "from-emerald-400 to-teal-600",
+  },
+  {
+    icon: Mail,
+    label: "Office Add-ins",
+    detail: "Outlook, Excel, Word, Graph",
+    position: "right-[18%] bottom-[8%]",
+    accent: "from-sky-400 to-indigo-600",
+  },
 ];
 
 const metrics = [
@@ -35,64 +70,103 @@ const metrics = [
   { value: "24h", label: "Typical reply" },
 ];
 
+const capabilityPills = ["React", "TypeScript", "Node.js", "Office.js", "Apps Script", "AI APIs", "Automation"];
+
+const proofPoints = ["Custom apps for real business workflows", "AI and automation built around your process", "Clean handoff, deployment, and support"];
+
 const HeroSection = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={containerRef} className="relative min-h-screen overflow-hidden pt-28 lg:pt-32">
-      <div className="absolute inset-0 bg-[#0b1020]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(255,209,61,0.12),transparent_24rem),radial-gradient(circle_at_86%_18%,rgba(225,29,143,0.08),transparent_26rem)]" />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+    <section id="home" ref={containerRef} className="relative overflow-hidden pt-24 lg:pt-28">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#fbfcfe] to-[#f4f7fb] dark:bg-none dark:bg-[#090d1a]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_13%_16%,rgba(249,115,22,0.09),transparent_24rem),radial-gradient(circle_at_83%_18%,rgba(14,165,233,0.08),transparent_28rem),linear-gradient(115deg,transparent_0%,rgba(15,23,42,0.028)_48%,transparent_74%)] dark:bg-[radial-gradient(circle_at_18%_12%,rgba(255,209,61,0.16),transparent_24rem),radial-gradient(circle_at_86%_18%,rgba(225,29,143,0.1),transparent_26rem),linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.035)_48%,transparent_76%)]" />
+      <div className="absolute left-1/2 top-28 hidden h-[34rem] w-[34rem] -translate-x-1/2 rounded-full border border-slate-200/70 dark:border-white/10 lg:block" />
+      <div className="absolute left-1/2 top-40 hidden h-[22rem] w-[22rem] -translate-x-1/2 rounded-full border border-slate-200/60 dark:border-white/[0.07] lg:block" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border to-transparent dark:via-white/15" />
 
       <div className="section-container relative z-10">
-        <div className="grid min-h-[calc(100vh-8rem)] items-center gap-12 pb-16 lg:grid-cols-[1.02fr,0.98fr]">
+        <div className="grid items-center gap-8 pb-12 lg:min-h-[660px] lg:grid-cols-[0.92fr,1.08fr] xl:gap-12">
           <div className="text-left">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45 }}
-              className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-sm font-semibold text-orange-100"
+              className="mb-6 inline-flex max-w-full items-center gap-3 rounded-full border border-slate-200 bg-white/[0.84] px-3 py-2 text-xs font-bold text-slate-700 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.05] dark:text-orange-100 sm:px-4 sm:text-sm"
             >
-              <span className="h-2 w-2 rounded-full bg-orange-300" />
-              Enterprise Microsoft Office Add-in Development
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white dark:bg-orange-300 dark:text-slate-950">
+                <Sparkles className="h-3.5 w-3.5" />
+              </span>
+              Software studio for apps, AI, add-ins, and automations
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.08] tracking-[-0.025em] text-white sm:text-5xl md:text-[3.45rem] xl:text-[4.25rem]"
+              className="mb-6 max-w-4xl font-heading text-5xl font-black leading-[0.98] tracking-[-0.035em] text-foreground sm:text-6xl md:text-[4rem] xl:text-[5rem] dark:text-white"
             >
-              Professional Office add-ins for Microsoft 365 teams.
+              <span className="block">Nexa AI</span>
+              <span className="gradient-text-both block pb-2">Solutions</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.52, delay: 0.18 }}
-              className="mb-8 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl"
+              className="mb-7 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg md:text-xl dark:text-slate-300"
             >
-              Custom Outlook, Excel, Word, and PowerPoint add-ins built with clean UI, Office.js, Microsoft Graph, secure authentication, and Microsoft 365 deployment support.
+              We design and build business software that replaces manual work with reliable apps, AI workflows, Microsoft Office add-ins, Google Workspace tools, and integrations.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.52, delay: 0.22 }}
+              className="mb-7 grid max-w-2xl gap-3 text-sm font-semibold text-slate-700 dark:text-slate-300 sm:grid-cols-3"
+            >
+              {proofPoints.map((point) => (
+                <div key={point} className="flex min-w-0 items-start gap-2 rounded-2xl border border-slate-200/70 bg-white/60 p-3 shadow-[0_10px_30px_rgba(15,23,42,0.055)] backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04]">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-orange-500 dark:text-orange-300" />
+                  <span className="leading-5">{point}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.52, delay: 0.28 }}
+              className="mb-8 flex max-w-2xl flex-wrap gap-2"
+            >
+              {capabilityPills.map((pill) => (
+                <span
+                  key={pill}
+                  className="rounded-full border border-slate-200 bg-white/[0.82] px-3 py-1.5 text-xs font-bold text-slate-600 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.045] dark:text-slate-300"
+                >
+                  {pill}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.52, delay: 0.36 }}
               className="mb-8 flex flex-col gap-3 sm:flex-row"
             >
-              <Button variant="hero" size="sm" asChild className="group h-11 whitespace-nowrap rounded-xl px-5 text-sm">
+              <Button variant="hero" size="lg" asChild className="group min-h-12 whitespace-nowrap rounded-xl px-6 text-sm sm:text-base">
                 <a href={outlookBookingUrl} target="_blank" rel="noreferrer" className="whitespace-nowrap">
-                  Book Outlook Call
+                  Book Strategy Call
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
               <Button
                 variant="heroOutline"
-                size="sm"
+                size="lg"
                 asChild
-                className="group h-11 whitespace-nowrap rounded-xl border-white/15 bg-white/[0.045] px-5 text-sm text-white hover:bg-white/[0.08]"
+                className="group min-h-12 whitespace-nowrap rounded-xl px-6 text-sm sm:text-base"
               >
                 <a href={directEmailHref} className="whitespace-nowrap">
                   Email Brief
@@ -104,13 +178,13 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.52, delay: 0.38 }}
-              className="grid max-w-2xl gap-4 border-t border-white/10 pt-7 sm:grid-cols-3"
+              transition={{ duration: 0.52, delay: 0.46 }}
+              className="grid max-w-2xl gap-4 border-t border-border pt-7 dark:border-white/10 sm:grid-cols-3"
             >
               {metrics.map((metric) => (
                 <div key={metric.label} className="text-left">
-                  <p className="text-3xl font-bold tracking-[-0.03em] text-white">{metric.value}</p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">{metric.label}</p>
+                  <p className="text-3xl font-bold tracking-[-0.03em] text-foreground dark:text-white">{metric.value}</p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground dark:text-slate-400">{metric.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -120,71 +194,70 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 28, scale: 0.98 }}
             animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{ duration: 0.65, delay: 0.18 }}
-            className="relative"
+            className="relative mx-auto min-h-[390px] w-full max-w-[40rem] sm:min-h-[500px] lg:min-h-[560px]"
           >
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.22)] md:p-6">
-              <div className="absolute right-6 top-6 h-24 w-24 rounded-full bg-orange-300/10 blur-3xl" />
+            <div className="absolute inset-8 rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1),transparent_58%)] blur-2xl dark:bg-[radial-gradient(circle,rgba(255,209,61,0.1),transparent_58%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_18%,rgba(15,23,42,0.22)_1px,transparent_1.5px),radial-gradient(circle_at_72%_28%,rgba(15,23,42,0.16)_1px,transparent_1.5px),radial-gradient(circle_at_52%_76%,rgba(249,115,22,0.22)_1px,transparent_1.5px)] bg-[size:92px_92px,132px_132px,104px_104px] opacity-30 dark:bg-[radial-gradient(circle_at_24%_18%,rgba(255,255,255,0.5)_1px,transparent_1.5px),radial-gradient(circle_at_72%_28%,rgba(255,255,255,0.32)_1px,transparent_1.5px),radial-gradient(circle_at_52%_76%,rgba(255,209,61,0.38)_1px,transparent_1.5px)]" />
 
-              <div className="relative mb-6 flex items-center justify-between gap-4 border-b border-white/10 pb-5">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-[#11182c]">
-                    <img src="/Logo.png" alt="NexaAI Solutions" className="h-9 w-auto" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-white">NexaAI Solutions</p>
-                    <p className="text-xs text-slate-400">Office add-in development</p>
-                  </div>
-                </div>
-                <span className="rounded-full border border-orange-300/20 bg-orange-300/10 px-3 py-1 text-xs font-semibold text-orange-100">
-                  M365
+            {[30, 22, 14].map((size, index) => (
+              <motion.div
+                key={size}
+                animate={{ rotate: index % 2 === 0 ? 360 : -360 }}
+                transition={{ duration: 72 - index * 12, repeat: Infinity, ease: "linear" }}
+                className="absolute left-[43%] top-[40%] rounded-full border border-slate-200/80 dark:border-white/[0.1]"
+                style={{
+                  width: `${size}rem`,
+                  height: `${size}rem`,
+                  marginLeft: `${size / -2}rem`,
+                  marginTop: `${size / -2}rem`,
+                }}
+              />
+            ))}
+            <div className="absolute left-[43%] top-[40%] h-px w-[min(30rem,86vw)] -translate-x-1/2 bg-gradient-to-r from-transparent via-slate-300/50 to-transparent dark:via-white/10" />
+            <div className="absolute left-[43%] top-[40%] h-[min(30rem,86vw)] w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-slate-300/50 to-transparent dark:via-white/10" />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.55, delay: 0.28 }}
+              className="absolute left-[43%] top-[40%] z-20 -ml-[5rem] -mt-[5rem] flex h-40 w-40 flex-col items-center justify-center rounded-full border border-slate-200 bg-white/[0.92] p-5 text-center shadow-[0_28px_75px_rgba(15,23,42,0.14)] backdrop-blur-2xl dark:border-white/10 dark:bg-[#11182c]/90 sm:-ml-[5.5rem] sm:-mt-[5.5rem] sm:h-44 sm:w-44"
+            >
+              <span className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.95),transparent_24%),radial-gradient(circle,rgba(249,115,22,0.11),transparent_62%)] dark:bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.16),transparent_24%),radial-gradient(circle,rgba(249,115,22,0.12),transparent_62%)]" />
+              <div className="relative mb-3 flex h-16 w-16 items-center justify-center rounded-3xl border border-slate-200 bg-white shadow-soft dark:border-white/10 dark:bg-white/[0.06]">
+                <img src="/Logo.png" alt="NexaAI Solutions" className="h-12 w-auto" />
+              </div>
+              <p className="relative text-base font-black text-foreground dark:text-white">NexaAI Studio</p>
+              <p className="relative mt-1 max-w-28 text-[11px] font-semibold leading-4 text-muted-foreground dark:text-slate-400">
+                Apps, automation and integrations
+              </p>
+            </motion.div>
+
+            {serviceTracks.map((track, index) => (
+              <motion.button
+                key={track.label}
+                type="button"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                whileHover={{ y: -5, scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.36, delay: 0.38 + index * 0.06 }}
+                className={`group absolute z-10 flex max-w-[10.5rem] items-center gap-2 rounded-2xl border border-slate-200 bg-white/[0.88] p-2 text-left shadow-[0_14px_34px_rgba(15,23,42,0.09)] backdrop-blur-xl outline-none transition-colors hover:border-orange-200 hover:bg-white focus-visible:ring-2 focus-visible:ring-orange-300 dark:border-white/10 dark:bg-[#11182c]/[0.8] dark:hover:border-orange-300/30 sm:max-w-[11rem] sm:gap-2.5 sm:p-2.5 ${track.position}`}
+              >
+                <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${track.accent} text-white shadow-soft sm:h-10 sm:w-10`}>
+                  {track.image ? (
+                    <img src={track.image} alt="" className="h-5 w-5 object-contain sm:h-6 sm:w-6" aria-hidden="true" />
+                  ) : (
+                    <track.icon className="h-4 w-4" />
+                  )}
                 </span>
-              </div>
-
-              <div className="relative mb-6">
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                  Add-ins we build
-                </p>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {apps.map((app, index) => (
-                    <motion.div
-                      key={app.label}
-                      initial={{ opacity: 0, y: 14 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.35, delay: 0.3 + index * 0.06 }}
-                      className="flex min-h-[4.25rem] items-center gap-3 rounded-2xl border border-white/10 bg-[#11182c]/70 p-3"
-                    >
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-orange-200">
-                        <app.icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="font-bold text-white">{app.label}</h3>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative rounded-2xl border border-white/10 bg-[#11182c]/75 p-5">
-                <div className="mb-4 flex items-center justify-between gap-3">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-200">Delivery scope</p>
-                    <h2 className="mt-1 text-xl font-bold text-white">What clients get</h2>
-                  </div>
-                  <ShieldCheck className="h-6 w-6 text-orange-300" />
-                </div>
-
-                <div className="space-y-3">
-                  {deliveryItems.map((item) => (
-                    <div key={item} className="flex items-center gap-3">
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-orange-300" />
-                      <p className="text-sm text-slate-300">{item}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <p className="mt-5 border-t border-white/10 pt-4 text-sm leading-6 text-slate-400">
-                  Built for maintainable code, secure permissions, and practical handover after launch.
-                </p>
-              </div>
-            </div>
+                <span className="min-w-0">
+                  <span className="block text-sm font-black leading-5 text-foreground dark:text-white">{track.label}</span>
+                  <span className="block truncate text-[11px] font-semibold leading-4 text-muted-foreground dark:text-slate-400">
+                    {track.detail}
+                  </span>
+                </span>
+              </motion.button>
+            ))}
           </motion.div>
         </div>
       </div>
@@ -193,4 +266,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-

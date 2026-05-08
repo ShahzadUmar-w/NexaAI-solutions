@@ -213,7 +213,7 @@ const ContactSection = () => {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             {trustSignals.map((signal) => (
-              <span key={signal} className="rounded-full border border-orange-300/15 bg-orange-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-orange-100">
+              <span key={signal} className="rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-slate-600 shadow-soft dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-100">
                 {signal}
               </span>
             ))}
@@ -230,7 +230,7 @@ const ContactSection = () => {
             {contactInfo.map((info) => {
               const content = (
                 <>
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-soft dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200">
                     <info.icon className="h-5 w-5" />
                   </div>
                   <div>
@@ -254,7 +254,7 @@ const ContactSection = () => {
 
             <div className="enterprise-card overflow-hidden p-6">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-orange-300/15 bg-orange-300/10 text-orange-200">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-soft dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-200">
                   <CalendarPlus className="h-5 w-5" />
                 </div>
                 <div>
@@ -305,7 +305,7 @@ const ContactSection = () => {
             className="h-full"
           >
             <form onSubmit={handleSubmit} className="enterprise-card flex h-full flex-col gap-6 p-6 text-left md:p-8">
-              <div className="rounded-2xl border border-orange-300/15 bg-orange-300/10 p-4">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 dark:border-orange-300/15 dark:bg-orange-300/10">
                 <p className="text-sm font-semibold text-foreground">Project inquiry</p>
                 <p className="mt-1 text-xs leading-5 text-muted-foreground">
                   Share the workflow, target Office app, timeline, and any APIs or deployment requirements.
@@ -320,7 +320,7 @@ const ContactSection = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full rounded-xl border border-white/10 bg-white/[0.045] px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-orange-300/45"
+                    className="w-full rounded-xl border border-border bg-white px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-orange-300/45 dark:border-white/10 dark:bg-white/[0.045]"
                     placeholder="John Doe"
                   />
                 </div>
@@ -331,7 +331,7 @@ const ContactSection = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full rounded-xl border border-white/10 bg-white/[0.045] px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-orange-300/45"
+                    className="w-full rounded-xl border border-border bg-white px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-orange-300/45 dark:border-white/10 dark:bg-white/[0.045]"
                     placeholder="john@company.com"
                   />
                 </div>
@@ -342,7 +342,7 @@ const ContactSection = () => {
                 <select
                   value={formData.project}
                   onChange={(e) => setFormData({ ...formData, project: e.target.value })}
-                  className="w-full rounded-xl border border-white/10 bg-slate-950/50 px-4 py-3 text-foreground outline-none transition-colors focus:border-orange-300/45"
+                  className="w-full rounded-xl border border-border bg-white px-4 py-3 text-foreground outline-none transition-colors focus:border-orange-300/45 dark:border-white/10 dark:bg-slate-950/50"
                 >
                   <option value="">Select add-in type...</option>
                   <option value="outlook">Outlook Add-in</option>
@@ -360,7 +360,7 @@ const ContactSection = () => {
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="min-h-[220px] flex-1 resize-none rounded-xl border border-white/10 bg-white/[0.045] px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-orange-300/45 lg:min-h-[280px]"
+                  className="min-h-[220px] flex-1 resize-none rounded-xl border border-border bg-white px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-orange-300/45 dark:border-white/10 dark:bg-white/[0.045] lg:min-h-[280px]"
                   placeholder="Tell me about your workflow, users, Office app, APIs, timeline, and deployment needs..."
                 />
               </div>

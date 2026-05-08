@@ -56,11 +56,11 @@ const AboutContent = ({ fullPage = false }: { fullPage?: boolean }) => {
         <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-orange-500/10 via-pink-500/10 to-transparent blur-2xl sm:-inset-5 sm:rounded-[2.5rem]" />
         <div className="enterprise-card relative min-w-0 overflow-hidden p-5 text-left sm:p-8">
           <div className="mb-7 flex min-w-0 items-center gap-4 sm:mb-8 sm:gap-5">
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-orange-400/20 bg-white/[0.04] sm:h-20 sm:w-20 sm:rounded-3xl">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-orange-400/25 bg-white shadow-soft dark:border-orange-400/20 dark:bg-white/[0.04] sm:h-20 sm:w-20 sm:rounded-3xl">
               <img src="/Logo.png" alt="Nexa AI Solutions company logo" className="h-12 w-auto object-contain sm:h-16" />
             </div>
             <div className="min-w-0">
-              <p className="text-sm font-semibold uppercase tracking-wider text-orange-200">About Us</p>
+              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700 dark:text-orange-200">About Us</p>
               <h2 className="font-heading text-2xl font-bold leading-tight text-foreground sm:text-3xl">Nexa AI Solutions</h2>
             </div>
           </div>
@@ -132,7 +132,7 @@ const AboutContent = ({ fullPage = false }: { fullPage?: boolean }) => {
 
         <div className="flex flex-wrap gap-2">
           {technologies.map((tech) => (
-            <span key={tech} className="rounded-lg border border-white/10 bg-white/[0.045] px-3 py-1.5 text-sm font-medium text-orange-100">
+            <span key={tech} className="rounded-lg border border-orange-200 bg-orange-50 px-3 py-1.5 text-sm font-medium text-orange-700 dark:border-white/10 dark:bg-white/[0.045] dark:text-orange-100">
               {tech}
             </span>
           ))}

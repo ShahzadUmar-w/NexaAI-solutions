@@ -142,6 +142,10 @@ const resources = {
 const relatedLinks = [
   { label: "Outlook Add-in Development", href: "/outlook-add-in-development" },
   { label: "Excel Add-in Development", href: "/excel-add-in-development" },
+  { label: "Google Apps Script", href: "/google-apps-script-development" },
+  { label: "Desktop App Development", href: "/desktop-app-development" },
+  { label: "Mobile App Development", href: "/mobile-app-development" },
+  { label: "Automation Development", href: "/automation-development" },
   { label: "Microsoft Graph Integration", href: "/microsoft-graph-integration" },
   { label: "M365 Add-in Deployment", href: "/microsoft-365-add-in-deployment" },
 ];
@@ -151,8 +155,8 @@ const getResourceAccent = (type: ResourceType) => {
     return {
       heroGlow: "bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.16),transparent_32%),radial-gradient(circle_at_78%_18%,rgba(168,85,247,0.12),transparent_30%)]",
       sectionGlow: "bg-[radial-gradient(circle_at_18%_12%,rgba(34,211,238,0.12),transparent_26rem),radial-gradient(circle_at_82%_18%,rgba(168,85,247,0.1),transparent_24rem)]",
-      pill: "border-cyan-300/20 bg-cyan-300/10 text-cyan-100",
-      icon: "text-cyan-200",
+      pill: "border-cyan-200 bg-cyan-50 text-cyan-700 dark:border-cyan-300/20 dark:bg-cyan-300/10 dark:text-cyan-100",
+      icon: "text-cyan-700 dark:text-cyan-200",
       card: "border-cyan-300/15 bg-cyan-300/10",
       check: "text-cyan-300",
       hover: "hover:border-cyan-300/25",
@@ -164,8 +168,8 @@ const getResourceAccent = (type: ResourceType) => {
     return {
       heroGlow: "bg-[radial-gradient(circle_at_20%_20%,rgba(34,197,94,0.15),transparent_32%),radial-gradient(circle_at_78%_18%,rgba(20,184,166,0.1),transparent_30%)]",
       sectionGlow: "bg-[radial-gradient(circle_at_18%_12%,rgba(34,197,94,0.1),transparent_26rem),radial-gradient(circle_at_82%_18%,rgba(20,184,166,0.08),transparent_24rem)]",
-      pill: "border-emerald-300/20 bg-emerald-300/10 text-emerald-100",
-      icon: "text-emerald-200",
+      pill: "border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-300/20 dark:bg-emerald-300/10 dark:text-emerald-100",
+      icon: "text-emerald-700 dark:text-emerald-200",
       card: "border-emerald-300/15 bg-emerald-300/10",
       check: "text-emerald-300",
       hover: "hover:border-emerald-300/25",
@@ -176,8 +180,8 @@ const getResourceAccent = (type: ResourceType) => {
   return {
     heroGlow: "bg-[radial-gradient(circle_at_20%_20%,rgba(37,99,235,0.16),transparent_32%),radial-gradient(circle_at_78%_18%,rgba(255,122,24,0.1),transparent_30%)]",
     sectionGlow: "bg-[radial-gradient(circle_at_18%_12%,rgba(37,99,235,0.1),transparent_26rem),radial-gradient(circle_at_82%_18%,rgba(255,122,24,0.08),transparent_24rem)]",
-    pill: "border-blue-300/20 bg-blue-300/10 text-blue-100",
-    icon: "text-blue-200",
+    pill: "border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-300/20 dark:bg-blue-300/10 dark:text-blue-100",
+    icon: "text-blue-700 dark:text-blue-200",
     card: "border-blue-300/15 bg-blue-300/10",
     check: "text-blue-300",
     hover: "hover:border-blue-300/25",
@@ -411,7 +415,7 @@ const SEOResourcePage = ({ type }: { type: ResourceType }) => {
                     <a
                       key={link.href}
                       href={link.href}
-                      className="rounded-2xl glass-light p-4 text-center text-sm font-semibold text-muted-foreground transition-all hover:text-orange-200 hover:shadow-glow-orange"
+                      className="rounded-2xl glass-light p-4 text-center text-sm font-semibold text-muted-foreground transition-all hover:text-orange-700 hover:shadow-soft dark:hover:text-orange-200 dark:hover:shadow-glow-orange"
                     >
                       {link.label}
                     </a>

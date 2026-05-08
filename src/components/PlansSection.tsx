@@ -88,7 +88,7 @@ const PlansSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.08 }}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-xs font-medium text-orange-100"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/[0.85] px-4 py-2 text-xs font-medium text-slate-700 shadow-soft dark:border-white/10 dark:bg-white/[0.045] dark:text-orange-100"
               >
                 <badge.icon className="h-3.5 w-3.5 text-orange-300" />
                 {badge.label}

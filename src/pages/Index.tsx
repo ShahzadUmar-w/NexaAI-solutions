@@ -3,9 +3,11 @@ import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
+import HomeScrollExperience from "@/components/HomeScrollExperience";
 import { officeAddInFaqs } from "@/lib/seo-data";
 
-const VideoSection = lazy(() => import("@/components/VideoSection"));
+const HomeFlowSection = lazy(() => import("@/components/HomeFlowSection"));
+const HomeServiceCardsSection = lazy(() => import("@/components/HomeServiceCardsSection"));
 const Interactive3DSection = lazy(() => import("@/components/Interactive3DSection"));
 const SkillsSection = lazy(() => import("@/components/SkillsSection"));
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -17,9 +19,9 @@ const ContactSection = lazy(() => import("@/components/ContactSection"));
 
 const siteUrl = "https://officeaddindevelopment.com/";
 const defaultOgImage = `${siteUrl}og-office-addin-development.png`;
-const seoTitle = "Office Add-in Development | NexaAI Solutions";
+const seoTitle = "Office Add-ins, Apps & Automations | NexaAI Solutions";
 const seoDescription =
-  "Custom Microsoft Office add-in development for Outlook, Excel, Word, PowerPoint, and Teams. Office.js, Microsoft Graph, Salesforce, QuickBooks, CRM, ERP, DMS, CMS, AI, and M365 deployment support.";
+  "Custom software development for Outlook, Excel, Word, PowerPoint, Google Apps Script, desktop apps, mobile apps, automations, Office.js, Microsoft Graph, AI, and business integrations.";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -37,6 +39,10 @@ const structuredData = {
     "Excel Add-in Development",
     "Word Add-in Development",
     "PowerPoint Add-in Development",
+    "Google Apps Script Development",
+    "Desktop App Development",
+    "Mobile App Development",
+    "Automation Development",
     "Microsoft Graph Integration",
     "Microsoft 365 Deployment Support",
   ],
@@ -46,6 +52,12 @@ const structuredData = {
     "Microsoft 365",
     "React",
     "TypeScript",
+    "Google Apps Script",
+    "Electron",
+    "React Native",
+    "n8n",
+    "Make.com",
+    "Zapier",
     "Enterprise Workflow Automation",
   ],
   offers: {
@@ -63,6 +75,22 @@ const structuredData = {
       {
         "@type": "Offer",
         name: "Microsoft 365 Admin Deployment Support",
+      },
+      {
+        "@type": "Offer",
+        name: "Google Apps Script Development",
+      },
+      {
+        "@type": "Offer",
+        name: "Desktop App Development",
+      },
+      {
+        "@type": "Offer",
+        name: "Mobile App Development",
+      },
+      {
+        "@type": "Offer",
+        name: "Business Automation Development",
       },
     ],
   },
@@ -93,7 +121,7 @@ const Index = () => {
         />
         <meta
           name="keywords"
-          content="Microsoft Office add-in development, enterprise Office add-ins, Outlook add-in developer, Excel add-in developer, Word add-in developer, PowerPoint add-in developer, Office.js, Microsoft Graph, Salesforce integration, QuickBooks integration, CRM integration, ERP integration, DMS integration, CMS integration, AI Office add-ins, Microsoft 365 deployment, React TypeScript add-ins"
+          content="Microsoft Office add-in development, enterprise Office add-ins, Outlook add-in developer, Excel add-in developer, Word add-in developer, PowerPoint add-in developer, Google Apps Script developer, desktop app development, mobile app development, automation developer, n8n developer, Make.com automation, Zapier automation, Office.js, Microsoft Graph, Salesforce integration, QuickBooks integration, CRM integration, ERP integration, DMS integration, CMS integration, AI Office add-ins, Microsoft 365 deployment, React TypeScript add-ins"
         />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="NexaAI Solutions" />
@@ -120,12 +148,14 @@ const Index = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="home-page-shell min-h-screen bg-background">
+        <HomeScrollExperience />
         <Navbar />
-        <main>
+        <main className="relative z-10">
           <HeroSection />
           <Suspense fallback={null}>
-            {/* <VideoSection /> */}
+            <HomeServiceCardsSection />
+            <HomeFlowSection />
             <Interactive3DSection />
             <SkillsSection />
             <AboutSection />

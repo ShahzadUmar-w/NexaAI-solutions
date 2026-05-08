@@ -50,7 +50,7 @@ const AboutUs = () => {
             <div className="absolute inset-0 hero-gradient" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,122,24,0.18),transparent_32%),radial-gradient(circle_at_80%_20%,rgba(142,45,226,0.14),transparent_32%)]" />
             <div className="section-container relative z-10 text-center">
-              <span className="mb-6 inline-flex rounded-full glass-orange px-4 py-2 text-sm font-semibold text-orange-100">
+              <span className="mb-6 inline-flex rounded-full glass-orange px-4 py-2 text-sm font-semibold text-orange-700 dark:text-orange-100">
                 About NexaAI Solutions
               </span>
               <h1 className="mx-auto mb-6 max-w-4xl font-heading text-4xl font-bold leading-tight md:text-6xl">
