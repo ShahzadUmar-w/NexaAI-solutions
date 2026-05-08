@@ -95,14 +95,14 @@ const Integrations = () => {
               </p>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] text-left">
-              <div className="hidden grid-cols-[0.7fr,1fr,1.3fr] border-b border-white/10 bg-white/[0.045] px-6 py-4 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground md:grid">
+            <div className="overflow-hidden rounded-3xl border border-slate-300/90 bg-white/90 text-left shadow-[0_1px_0_rgba(15,23,42,0.05),0_18px_46px_rgba(15,23,42,0.1)] dark:border-white/10 dark:bg-white/[0.035] dark:shadow-none">
+              <div className="hidden grid-cols-[0.7fr,1fr,1.3fr] border-b border-slate-200 bg-slate-50/80 px-6 py-4 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground dark:border-white/10 dark:bg-white/[0.045] md:grid">
                 <span>Type</span>
                 <span>Examples</span>
                 <span>Best workflow fit</span>
               </div>
               {comparisonRows.map(([type, examples, fit]) => (
-                <div key={type} className="grid gap-3 border-b border-white/10 px-6 py-5 last:border-b-0 md:grid-cols-[0.7fr,1fr,1.3fr] md:items-center">
+                <div key={type} className="grid gap-3 border-b border-slate-200 px-6 py-5 last:border-b-0 dark:border-white/10 md:grid-cols-[0.7fr,1fr,1.3fr] md:items-center">
                   <h3 className="text-lg font-bold text-foreground">{type}</h3>
                   <p className="text-sm leading-6 text-muted-foreground">{examples}</p>
                   <p className="text-sm leading-6 text-muted-foreground">{fit}</p>
@@ -112,7 +112,7 @@ const Integrations = () => {
           </div>
         </section>
 
-        <section className="relative overflow-hidden border-y border-white/10 bg-white/[0.018] py-20">
+        <section className="relative overflow-hidden border-y border-slate-200/80 bg-white/45 py-20 dark:border-white/10 dark:bg-white/[0.018]">
           <div className="section-container">
             <div className="grid gap-10 lg:grid-cols-[0.9fr,1.1fr] lg:items-start">
               <div className="text-left">
@@ -127,7 +127,7 @@ const Integrations = () => {
               </div>
               <div className="grid gap-4">
                 {choosingPoints.map((point) => (
-                  <article key={point} className="rounded-3xl border border-white/10 bg-[#070b16] p-5 text-left">
+                  <article key={point} className="rounded-3xl border border-slate-300/80 bg-white/90 p-5 text-left shadow-[0_12px_34px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-[#070b16] dark:shadow-none">
                     <p className="flex items-start gap-3 text-sm leading-6 text-muted-foreground">
                       <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-orange-300" />
                       {point}
@@ -137,11 +137,11 @@ const Integrations = () => {
               </div>
             </div>
 
-            <div className="mt-12 rounded-3xl border border-white/10 bg-white/[0.035] p-6 text-left">
+            <div className="mt-12 rounded-3xl border border-slate-300/90 bg-white/90 p-6 text-left shadow-[0_1px_0_rgba(15,23,42,0.05),0_18px_46px_rgba(15,23,42,0.1)] dark:border-white/10 dark:bg-white/[0.035] dark:shadow-none">
               <h3 className="mb-5 text-xl font-bold text-foreground">Top integration pages</h3>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {topIntegrationLinks.map(([label, href]) => (
-                  <a key={href} href={href} className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-sm font-semibold text-foreground transition-colors hover:border-orange-300/25 hover:bg-white/[0.065]">
+                  <a key={href} href={href} className="group flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-4 text-sm font-semibold text-foreground shadow-[0_8px_22px_rgba(15,23,42,0.05)] transition-colors hover:border-orange-300/60 hover:bg-orange-50/40 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none dark:hover:border-orange-300/25 dark:hover:bg-white/[0.065]">
                     {label}
                     <ArrowRight className="h-4 w-4 text-orange-300 transition-transform group-hover:translate-x-1" />
                   </a>
@@ -170,7 +170,7 @@ const Integrations = () => {
                       <a
                         key={system.slug}
                         href={`/integrations/${system.slug}`}
-                        className="group flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-3 transition-colors hover:border-orange-300/25 hover:bg-white/[0.065]"
+                        className="group flex min-w-0 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_8px_22px_rgba(15,23,42,0.05)] transition-colors hover:border-orange-300/60 hover:bg-orange-50/40 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none dark:hover:border-orange-300/25 dark:hover:bg-white/[0.065]"
                       >
                         <LogoMark system={system} />
                         <span className="min-w-0 flex-1 truncate text-sm font-semibold text-foreground transition-colors group-hover:text-slate-950 dark:group-hover:text-orange-100">

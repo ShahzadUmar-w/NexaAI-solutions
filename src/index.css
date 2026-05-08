@@ -166,11 +166,11 @@
   }
 
   .enterprise-card {
-    @apply min-w-0 rounded-3xl border border-slate-200/80 bg-white/[0.82] shadow-soft backdrop-blur-xl transition-all duration-300 dark:border-white/10 dark:bg-white/[0.045];
+    @apply min-w-0 rounded-3xl border border-slate-300/90 bg-white/[0.9] shadow-[0_1px_0_rgba(15,23,42,0.06),0_18px_46px_rgba(15,23,42,0.12)] backdrop-blur-xl transition-all duration-300 dark:border-white/10 dark:bg-white/[0.045] dark:shadow-soft;
   }
 
   .enterprise-card:hover {
-    @apply border-orange-300/45 bg-white dark:border-orange-300/25 dark:bg-white/[0.065];
+    @apply border-orange-300/70 bg-white shadow-[0_1px_0_rgba(249,115,22,0.1),0_22px_54px_rgba(15,23,42,0.14)] dark:border-orange-300/25 dark:bg-white/[0.065] dark:shadow-soft;
     transform: translateY(-3px);
   }
 
@@ -420,19 +420,24 @@
   }
 
   .service-hover-card-reveal {
-    max-height: 0;
+    position: absolute;
+    left: 1.5rem;
+    right: 1.5rem;
+    top: 8.25rem;
+    bottom: 1.45rem;
     opacity: 0;
-    overflow: hidden;
+    overflow: visible;
     transform: translateY(12px);
-    transition: max-height 420ms ease, opacity 320ms ease, transform 420ms ease;
+    visibility: hidden;
+    transition: opacity 320ms ease, transform 420ms ease, visibility 320ms ease;
     pointer-events: none;
   }
 
   .service-hover-card:hover .service-hover-card-reveal,
   .service-hover-card:focus-within .service-hover-card-reveal {
-    max-height: 14rem;
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;
     pointer-events: auto;
   }
 
@@ -444,8 +449,23 @@
 
   .service-hover-card:hover .service-hover-card-content > div:first-child,
   .service-hover-card:focus-within .service-hover-card-content > div:first-child {
-    margin-bottom: 1.25rem;
-    transform: scale(1);
+    margin-bottom: 0;
+    transform: translateY(-6.2rem) scale(0.96);
+  }
+
+  .service-hover-card-copy {
+    min-height: 6.7rem;
+    max-width: 100%;
+    padding-bottom: 3.05rem;
+  }
+
+  .service-hover-card-button {
+    position: absolute;
+    left: 50%;
+    bottom: 0.1rem;
+    box-sizing: border-box;
+    width: min(10.9rem, 100%);
+    transform: translateX(-50%);
   }
 
   .dark .service-hover-card::before,

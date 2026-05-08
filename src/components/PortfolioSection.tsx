@@ -276,7 +276,7 @@ const PortfolioSection = () => {
                       <p className="text-sm font-semibold leading-6 text-foreground">{narrative.outcome}</p>
                     </div>
 
-                    <div className="mb-6 flex flex-wrap gap-2">
+                    {/* <div className="mb-6 flex flex-wrap gap-2">
                       {visibleStack.map((item) => (
                         <span key={item} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-muted-foreground dark:border-white/10 dark:bg-white/[0.045]">
                           {item}
@@ -287,7 +287,7 @@ const PortfolioSection = () => {
                           +{hiddenStackCount}
                         </span>
                       )}
-                    </div>
+                    </div> */}
 
                     <div className="mt-auto grid grid-cols-2 gap-3">
                       <Button variant="heroOutline" size="sm" className="h-11 whitespace-nowrap rounded-xl px-3 text-sm" onClick={() => openProject(index)}>
