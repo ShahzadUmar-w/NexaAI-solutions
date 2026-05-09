@@ -31,6 +31,8 @@ const categoryOrder = [
   "Google Sheets Add-on",
 ];
 
+const projectsPerPage = 12;
+
 const getProjectNarrative = (project: (typeof portfolioProjects)[number]) => {
   const title = project.title.toLowerCase();
   const category = project.category.toLowerCase();
@@ -94,6 +96,7 @@ const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState(allCategory);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [visibleProjectCount, setVisibleProjectCount] = useState(projectsPerPage);
 
   const categories = useMemo(() => {
     const available = new Set(portfolioProjects.map((project) => project.category));
@@ -106,6 +109,8 @@ const PortfolioSection = () => {
   }, [activeCategory]);
 
   const selectedProject = selectedProjectIndex !== null ? filteredProjects[selectedProjectIndex] : null;
+  const visibleProjects = filteredProjects.slice(0, visibleProjectCount);
+  const hasMoreProjects = visibleProjectCount < filteredProjects.length;
 
   const openProject = (projectIndex: number) => {
     setSelectedProjectIndex(projectIndex);
@@ -119,6 +124,7 @@ const PortfolioSection = () => {
 
   const changeCategory = (category: string) => {
     setActiveCategory(category);
+    setVisibleProjectCount(projectsPerPage);
     closeProject();
   };
 
@@ -202,7 +208,7 @@ const PortfolioSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="rounded-2xl border border-slate-200 bg-white/80 p-5 text-sm leading-6 text-muted-foreground shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.035] dark:shadow-none"
+              className="rounded-2xl border border-slate-200 bg-white/80 p-5 text-sm leading-6 text-muted-foreground shadow-soft backdrop-blur-md dark:border-white/10 dark:bg-white/[0.035] dark:shadow-none"
             >
               {point}
             </motion.div>
@@ -210,10 +216,8 @@ const PortfolioSection = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {filteredProjects.map((project, index) => {
+          {visibleProjects.map((project, index) => {
             const narrative = getProjectNarrative(project);
-            const visibleStack = project.stack.slice(0, 3);
-            const hiddenStackCount = Math.max(project.stack.length - visibleStack.length, 0);
 
             return (
               <motion.article
@@ -244,15 +248,9 @@ const PortfolioSection = () => {
                       </span>
                     </div>
 
-                    {project.images.length > 1 && (
-                      <div className="absolute bottom-4 right-4 flex -space-x-3">
-                        {project.images.slice(1, 4).map((image, imageIndex) => (
-                          <span key={image} className="block h-12 w-16 overflow-hidden rounded-xl border border-white/80 bg-white shadow-soft dark:border-white/20 dark:bg-[#0f172a]">
-                            <img src={image} alt={`${project.title} small preview ${imageIndex + 2}`} loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                    <div className="absolute bottom-4 right-4 rounded-full border border-white/60 bg-slate-950/55 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md dark:border-white/10 dark:bg-black/45">
+                      Preview gallery
+                    </div>
                   </div>
 
                   <div className="flex flex-1 flex-col p-6 text-left">
@@ -307,6 +305,21 @@ const PortfolioSection = () => {
             );
           })}
         </div>
+
+        {hasMoreProjects && (
+          <div className="mt-10 flex justify-center">
+            <Button
+              type="button"
+              variant="heroOutline"
+              size="sm"
+              className="h-11 whitespace-nowrap rounded-xl px-5 text-sm"
+              onClick={() => setVisibleProjectCount((count) => Math.min(count + projectsPerPage, filteredProjects.length))}
+            >
+              Load more projects
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        )}
 
         <div className="mt-12 rounded-3xl border border-orange-400/15 bg-gradient-to-r from-orange-500/10 via-white/[0.03] to-purple-500/10 p-6 text-center md:p-8">
           <h3 className="mb-2 text-2xl font-bold text-foreground">Want a similar add-in for your team?</h3>
@@ -412,4 +425,3 @@ const PortfolioSection = () => {
 };
 
 export default PortfolioSection;
-

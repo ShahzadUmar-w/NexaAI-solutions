@@ -7,8 +7,6 @@ import {
   Sparkles,
   Workflow,
 } from "lucide-react";
-import { useState } from "react";
-import type { CSSProperties, PointerEvent } from "react";
 
 const processSteps = [
   {
@@ -62,32 +60,6 @@ const galleryApps = [
 ];
 
 const Interactive3DSection = () => {
-  const [rotation, setRotation] = useState({ x: 0, y: 0, mx: 50, my: 45 });
-
-  const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-    setRotation({
-      x: Number((-y * 12).toFixed(2)),
-      y: Number((x * 14).toFixed(2)),
-      mx: Number(((x + 0.5) * 100).toFixed(2)),
-      my: Number(((y + 0.5) * 100).toFixed(2)),
-    });
-  };
-
-  const resetRotation = () => {
-    setRotation({ x: 0, y: 0, mx: 50, my: 45 });
-  };
-
-  const sceneStyle = {
-    "--rx": `${rotation.x}deg`,
-    "--ry": `${rotation.y}deg`,
-    "--mx": `${rotation.mx}%`,
-    "--my": `${rotation.my}%`,
-  } as CSSProperties;
-
   return (
     <section id="build-system" className="relative overflow-hidden border-y border-slate-200/80 bg-white/70 py-24 dark:border-white/10 dark:bg-[#0b1020]/80">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(249,115,22,0.055),transparent_24rem),radial-gradient(circle_at_80%_70%,rgba(14,165,233,0.045),transparent_26rem)] dark:bg-[radial-gradient(circle_at_22%_20%,rgba(255,209,61,0.1),transparent_24rem),radial-gradient(circle_at_80%_70%,rgba(225,29,143,0.08),transparent_26rem)]" />
@@ -146,10 +118,7 @@ const Interactive3DSection = () => {
             className="relative h-full"
           >
             <div
-              className="office-3d-scene relative mx-auto h-full min-h-[640px] w-full overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft-lg dark:border-white/10 dark:bg-[#0b1020]"
-              onPointerMove={handlePointerMove}
-              onPointerLeave={resetRotation}
-              style={sceneStyle}
+              className="office-3d-scene relative mx-auto h-full min-h-[640px] w-full overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft-lg transition-transform duration-500 dark:border-white/10 dark:bg-[#0b1020]"
             >
               <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(14,165,233,0.06),transparent_36%),radial-gradient(circle_at_50%_45%,rgba(249,115,22,0.08),transparent_18rem)] dark:bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent_36%),radial-gradient(circle_at_50%_45%,rgba(255,209,61,0.14),transparent_18rem)]" />
               <div className="office-gallery-grid absolute inset-0" />
@@ -193,14 +162,14 @@ const Interactive3DSection = () => {
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-[#11182c]/90">
+                <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-soft backdrop-blur-md dark:border-white/10 dark:bg-[#11182c]/90">
                   <div className="mb-2 flex items-center gap-2 text-sm font-bold text-slate-950 dark:text-white">
                     <ShieldCheck className="h-4 w-4 text-orange-700 dark:text-orange-200" />
                     Secure by design
                   </div>
                   <p className="text-xs leading-5 text-slate-600 dark:text-slate-400">Auth, permissions, and Microsoft 365 deployment support.</p>
                 </div>
-                <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-[#11182c]/80">
+                <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-soft backdrop-blur-md dark:border-white/10 dark:bg-[#11182c]/80">
                   <div className="mb-2 flex items-center gap-2 text-sm font-bold text-slate-950 dark:text-white">
                     <Rocket className="h-4 w-4 text-orange-700 dark:text-orange-200" />
                     Built to launch

@@ -23,6 +23,7 @@
         "button-name": "off"
       }
     ],
-    "axe/aria": "off"
+    "axe/aria": "off",
+    "axe/text-alternatives": "off"
   }
 }

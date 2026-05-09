@@ -131,7 +131,7 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65 }}
-          className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white/85 p-5 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04]"
+          className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white/85 p-5 shadow-soft backdrop-blur-md dark:border-white/10 dark:bg-white/[0.04]"
         >
           <img
             src={serviceOverviewImage}
@@ -228,4 +228,3 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
-

@@ -1,5 +1,5 @@
 ﻿import { motion } from "framer-motion";
-import { Play, Pause, Video, Sparkles } from "lucide-react";
+import { Play, Pause, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const VideoSection = () => {
@@ -93,11 +93,10 @@ const VideoSection = () => {
             <video
               ref={videoRef}
               src="/lv_0_20250731140001_compressed.mp4"
-              poster="/video-thumb.jpg"
+              poster="/og-office-addin-development.png"
               className="w-full h-full object-cover min-h-[320px]"
-              autoPlay
               muted
-              loop
+              preload="none"
               playsInline
             />
 

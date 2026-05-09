@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { CheckCircle2, ClipboardList, Code2, LockKeyhole, Rocket } from "lucide-react";
 import { useRef } from "react";
 
@@ -33,12 +33,6 @@ const workflowPreviewImage = "/assets/Purple%20Gradient%20AI%20Development%20You
 
 const HomeFlowSection = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 70%", "end 40%"],
-  });
-  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
   return (
     <section ref={sectionRef} id="workflow" className="relative overflow-hidden py-24">
       <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(14,165,233,0.08)_42%,transparent_72%)] dark:bg-[linear-gradient(115deg,transparent_0%,rgba(255,209,61,0.06)_42%,transparent_72%)]" />
@@ -69,7 +63,7 @@ const HomeFlowSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.12 }}
-              className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white/80 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.045]"
+              className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white/80 shadow-soft backdrop-blur-md dark:border-white/10 dark:bg-white/[0.045]"
             >
               <img
                 src={workflowPreviewImage}
@@ -82,20 +76,12 @@ const HomeFlowSection = () => {
 
           <div className="relative mx-auto w-full max-w-[46rem]">
             <div className="absolute left-5 top-0 hidden h-full w-px bg-slate-200 dark:bg-white/10 sm:block" />
-            <motion.div
-              className="absolute left-5 top-0 hidden h-full w-px origin-top bg-gradient-to-b from-cyan-500 via-orange-400 to-pink-500 sm:block"
-              style={{ scaleY: lineScale }}
-            />
 
             <div className="grid gap-5">
               {flowSteps.map((step, index) => (
-                <motion.article
+                <article
                   key={step.title}
-                  initial={{ opacity: 0, x: 28 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.5, delay: index * 0.08 }}
-                  className="group relative grid gap-4 rounded-[1.5rem] border border-slate-200 bg-white/[0.84] p-5 text-left shadow-soft backdrop-blur-xl transition-all hover:-translate-y-1 hover:border-orange-300/60 hover:bg-white dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-orange-300/25 dark:hover:bg-white/[0.065] sm:grid-cols-[auto,1fr] sm:p-6"
+                  className="group relative grid gap-4 rounded-[1.5rem] border border-slate-200 bg-white/[0.84] p-5 text-left shadow-soft backdrop-blur-md transition-all hover:-translate-y-1 hover:border-orange-300/60 hover:bg-white dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-orange-300/25 dark:hover:bg-white/[0.065] sm:grid-cols-[auto,1fr] sm:p-6"
                 >
                   <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-slate-700 shadow-soft transition-colors group-hover:border-orange-200 group-hover:bg-orange-50 group-hover:text-orange-700 dark:border-white/10 dark:bg-white/[0.05] dark:text-orange-200 dark:group-hover:border-orange-300/20 dark:group-hover:bg-orange-300/10">
                     <step.icon className="h-5 w-5" />
@@ -106,7 +92,7 @@ const HomeFlowSection = () => {
                     <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
                     <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">{step.text}</p>
                   </div>
-                </motion.article>
+                </article>
               ))}
             </div>
           </div>

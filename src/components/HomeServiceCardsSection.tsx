@@ -23,7 +23,7 @@ const serviceCards: ServiceCard[] = [
     href: "/outlook-add-in-development",
     image: "/email.png",
     icon: Mail,
-    color: "from-sky-400 to-blue-600",
+    color: "font-transparent",
   },
   {
     title: "Excel Add-ins",
@@ -31,14 +31,14 @@ const serviceCards: ServiceCard[] = [
     href: "/excel-add-in-development",
     image: "/excel-icon.png",
     icon: TableProperties,
-    color: "from-emerald-400 to-green-600",
+    color: "font-transparent",
   },
   {
     title: "Word Add-ins",
     text: "Document generation, templates, AI review, clauses, and PDF flows.",
     href: "/word-add-in-development",
     image: "/Microsoft_Office_Word_Logo_512px.png",
-    color: "from-blue-400 to-indigo-600",
+    color: "font-transparent",
   },
   {
     title: "PowerPoint Add-ins",
@@ -46,35 +46,35 @@ const serviceCards: ServiceCard[] = [
     href: "/powerpoint-add-in-development",
     image: "/ppt-icon.png",
     icon: Presentation,
-    color: "from-orange-400 to-red-500",
+    color: "font-transparent",
   },
   {
     title: "Google Apps Script",
     text: "Sheets, Docs, Gmail, Drive, and Workspace workflow automation.",
     href: "/google-apps-script-development",
     image: "/services/google-apps-script.png",
-    color: "from-teal-400 to-cyan-600",
+    color: "font-transparent",
   },
   {
     title: "Desktop App Development",
     text: "Electron apps, packaged workflow tools, and Windows/macOS delivery.",
     href: "/desktop-app-development",
     image: "/services/desktop-application.png",
-    color: "from-violet-400 to-fuchsia-600",
+    color: "font-transparent",
   },
   {
     title: "Mobile App Development",
     text: "iOS and Android business apps, dashboards, portals, and API workflows.",
     href: "/mobile-app-development",
     image: "/services/clipart2079198.png",
-    color: "from-blue-400 to-indigo-600",
+    color: "font-transparent",
   },
   {
     title: "Automations",
     text: "n8n, Make, Zapier, Power Automate, APIs, and AI agents.",
     href: "/automation-development",
     image: "/services/workflow.png",
-    color: "from-pink-400 to-rose-600",
+    color: "font-transparent",
   },
 ];
 
@@ -106,17 +106,12 @@ const HomeServiceCardsSection = () => {
         <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-6">
           {serviceCards.map((card, index) => {
             const Icon = card.icon;
-
             return (
-              <motion.article
+              <article
                 key={card.title}
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.48, delay: Math.min(index * 0.06, 0.28) }}
-                className="service-hover-card group relative flex min-h-[20rem] w-full max-w-[16rem] flex-col items-center overflow-hidden rounded-[1.35rem] border border-white bg-white p-6 text-center shadow-[0_26px_70px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 dark:border-white/10 dark:bg-[#101827] dark:shadow-soft"
+                className="service-hover-card group relative flex min-h-[20rem] w-full max-w-[16rem] flex-col items-center overflow-hidden rounded-[1.35rem] border border-slate-50 bg-white p-6 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 dark:border-white/5 dark:bg-[#0c1425] dark:hover:border-orange-500/30"
               >
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-orange-300 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className={`mb-5 flex h-20 w-20 items-center justify-center rounded-[1.45rem] bg-gradient-to-br ${card.color} p-4 text-white shadow-soft`}>
                   {card.image ? (
                     <img src={card.image} alt="" className="h-full w-full object-contain" aria-hidden="true" loading="lazy" />
@@ -133,7 +128,7 @@ const HomeServiceCardsSection = () => {
                   Get Started
                   <ArrowRight className="h-4 w-4" />
                 </a>
-              </motion.article>
+              </article>
             );
           })}
         </div>

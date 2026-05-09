@@ -975,7 +975,7 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
                       </p>
                     </div>
 
-                    <div className="rounded-[2rem] border border-blue-300/15 bg-[#0b1428]/75 p-5 text-left shadow-[0_24px_80px_rgba(37,99,235,0.18)]">
+                    <div className="rounded-[2rem] border border-blue-300/15 bg-blue-50/50 dark:bg-[#0b1428]/75 p-5 text-left shadow-[0_24px_80px_rgba(37,99,235,0.1)] dark:shadow-[0_24px_80px_rgba(37,99,235,0.18)] backdrop-blur-md">
                       <div className="mb-5 flex items-center gap-4 rounded-3xl border border-white/10 bg-white/[0.045] p-4">
                         <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-blue-300/15 bg-blue-300/10">
                           <img src="/email.png" alt="Outlook add-in icon" className="h-11 w-11 object-contain" />
@@ -999,26 +999,23 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
 
                   <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                     {outlookCapabilityGroups.map((group, index) => (
-                      <article
-                        key={group.title}
-                        className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0d162b] p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} hover:bg-[#101d36]`}
-                      >
-                        <div className="absolute right-5 top-4 text-5xl font-black text-white/[0.035]">0{index + 1}</div>
-                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/35 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                        <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.iconBox}`}>
-                          <group.icon className="h-6 w-6" />
-                        </div>
-                        <h3 className="mb-3 text-xl font-bold text-foreground">{group.title}</h3>
-                        <p className="mb-5 text-sm leading-6 text-muted-foreground">{group.description}</p>
-                        <div className="grid gap-2">
-                          {group.items.map((item) => (
-                            <p key={item} className="flex items-start gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-3 py-2 text-sm leading-6 text-muted-foreground">
-                              <CheckCircle2 className={`mt-1 h-4 w-4 shrink-0 ${accent.check}`} />
-                              {item}
-                            </p>
-                          ))}
-                        </div>
-                      </article>
+                     <article
+  key={group.title}
+  className={`group relative overflow-hidden rounded-3xl border border-black/5 dark:border-white/10 bg-card dark:bg-[#0d162b] p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-1 ${accent.hover} dark:hover:bg-[#101d36]`}
+>
+  {/* Number indicator (01, 02) ko bhi theek karein */}
+  <div className="absolute right-5 top-4 text-5xl font-black text-foreground/[0.05] dark:text-white/[0.035]">0{index + 1}</div>
+  
+  {/* Inner items background theek karein */}
+  <div className="grid gap-2">
+    {group.items.map((item) => (
+      <p key={item} className="flex items-start gap-2 rounded-xl border border-black/5 dark:border-white/10 bg-muted/50 dark:bg-white/[0.025] px-3 py-2 text-sm leading-6 text-muted-foreground">
+        <CheckCircle2 className={`mt-1 h-4 w-4 shrink-0 ${accent.check}`} />
+        {item}
+      </p>
+    ))}
+  </div>
+</article>
                     ))}
                   </div>
 
@@ -1068,7 +1065,7 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
                   </div>
 
                   <div className="grid gap-5 lg:grid-cols-[1.05fr,0.95fr]">
-                    <article className="group overflow-hidden rounded-[2rem] border border-blue-300/15 bg-[#0d162b] text-left shadow-[0_24px_80px_rgba(37,99,235,0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-300/30">
+                   <article className="group overflow-hidden rounded-[2rem] border border-blue-300/15 bg-card dark:bg-[#0d162b] text-left shadow-lg dark:shadow-[0_24px_80px_rgba(37,99,235,0.14)] ...">
                       <div className="relative aspect-[16/10] overflow-hidden bg-[#0f172a]">
                         <img
                           src={featuredOutlookImage.src}
@@ -1164,7 +1161,7 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
 
           {type === "word" && (
             <>
-              <section className="relative overflow-hidden py-20">
+              {/* <section className="relative overflow-hidden py-20">
                 <div className={`absolute inset-0 ${accent.sectionGlow}`} />
                 <div className="absolute left-1/2 top-16 h-72 w-[44rem] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
 
@@ -1231,7 +1228,7 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
                     ))}
                   </div>
                 </div>
-              </section>
+              </section> */}
 
               <section className="relative overflow-hidden py-20">
                 <div className={`absolute inset-0 ${accent.sectionGlow}`} />
@@ -1245,7 +1242,7 @@ const AddInServicePage = ({ type }: { type: ServiceType }) => {
                       </span>
                       <h2 className="section-title mb-5">
                         Real Word add-in screens
-                        <span className={`block bg-gradient-to-r ${accent.gradientText} bg-clip-text text-transparent`}>for document automation trust.</span>
+                        <span className={`block bg-gradient-to-r ${accent.gradientText} bg-clip-text text-gray-400`}>for document automation trust.</span>
                       </h2>
                       <p className="max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
                         Word add-in screenshots make the service easier to trust by showing real task panes, AI writing tools, document generation flows, comments, tracking, and business integrations.

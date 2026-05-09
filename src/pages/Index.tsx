@@ -1,5 +1,5 @@
 ﻿import { Helmet } from "react-helmet-async";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
@@ -16,6 +16,45 @@ const IntegrationEcosystemSection = lazy(() => import("@/components/IntegrationE
 const ResourcesSection = lazy(() => import("@/components/ResourcesSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
+
+type DeferredSectionProps = {
+  children: ReactNode;
+  minHeight?: string;
+};
+
+const DeferredSection = ({ children, minHeight = "420px" }: DeferredSectionProps) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    if (shouldRender) return;
+
+    const current = ref.current;
+    if (!current || typeof IntersectionObserver === "undefined") {
+      setShouldRender(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldRender(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "720px 0px" }
+    );
+
+    observer.observe(current);
+    return () => observer.disconnect();
+  }, [shouldRender]);
+
+  return (
+    <div ref={ref} style={{ minHeight: shouldRender ? undefined : minHeight }}>
+      {shouldRender ? children : null}
+    </div>
+  );
+};
 
 const siteUrl = "https://officeaddindevelopment.com/";
 const defaultOgImage = `${siteUrl}og-office-addin-development.png`;
@@ -153,18 +192,57 @@ const Index = () => {
         <Navbar />
         <main className="relative z-10">
           <HeroSection />
-          <Suspense fallback={null}>
-            <HomeServiceCardsSection />
-            <HomeFlowSection />
-            <Interactive3DSection />
-            <SkillsSection />
-            <AboutSection />
-            <CompaniesSection />
-            <IntegrationEcosystemSection />
-            <ResourcesSection />
-            <TestimonialsSection limit={6} showFeedbacksLink />
-            <ContactSection />
-          </Suspense>
+          <DeferredSection minHeight="520px">
+             <DeferredSection minHeight="560px">
+            <Suspense fallback={null}>
+              <HomeFlowSection />
+            </Suspense>
+          </DeferredSection>
+            <Suspense fallback={null}>
+              <HomeServiceCardsSection />
+            </Suspense>
+          </DeferredSection>
+         
+          <DeferredSection minHeight="680px">
+            <Suspense fallback={null}>
+              <Interactive3DSection />
+            </Suspense>
+          </DeferredSection>
+          <DeferredSection>
+            <Suspense fallback={null}>
+              <SkillsSection />
+            </Suspense>
+          </DeferredSection>
+          <DeferredSection>
+            <Suspense fallback={null}>
+              <AboutSection />
+            </Suspense>
+          </DeferredSection>
+          <DeferredSection minHeight="260px">
+            <Suspense fallback={null}>
+              <CompaniesSection />
+            </Suspense>
+          </DeferredSection>
+          <DeferredSection>
+            <Suspense fallback={null}>
+              <IntegrationEcosystemSection />
+            </Suspense>
+          </DeferredSection>
+          <DeferredSection>
+            <Suspense fallback={null}>
+              <ResourcesSection />
+            </Suspense>
+          </DeferredSection>
+          <DeferredSection>
+            <Suspense fallback={null}>
+              <TestimonialsSection limit={6} showFeedbacksLink />
+            </Suspense>
+          </DeferredSection>
+          <DeferredSection>
+            <Suspense fallback={null}>
+              <ContactSection />
+            </Suspense>
+          </DeferredSection>
         </main>
         <Footer />
       </div>

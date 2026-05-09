@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   BarChart3,
@@ -176,13 +176,29 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const isScrolledRef = useRef(false);
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 14);
+    let frameId = 0;
+    const updateScrolled = () => {
+      frameId = 0;
+      const nextScrolled = window.scrollY > 14;
+      if (nextScrolled !== isScrolledRef.current) {
+        isScrolledRef.current = nextScrolled;
+        setIsScrolled(nextScrolled);
+      }
+    };
+    const onScroll = () => {
+      if (frameId) return;
+      frameId = window.requestAnimationFrame(updateScrolled);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
   }, []);
 
   useEffect(() => {
@@ -299,10 +315,11 @@ const Navbar = () => {
                 </span>
               ))}
             </div> */}
-            <Button variant="heroOutline" size="default" className="hidden rounded-full min-[1500px]:inline-flex" asChild>
+           
+            <ThemeToggle />
+             <Button variant="heroOutline" size="default" className="hidden rounded-full min-[1500px]:inline-flex" asChild>
               <a href={directEmailHref}>Email Brief</a>
             </Button>
-            <ThemeToggle />
             <BookCallButton />
           </div>
 
