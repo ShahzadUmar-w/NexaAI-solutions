@@ -22,7 +22,7 @@ const serviceTracks = [
     icon: Code2,
     image: "/assets/code.png",
     label: "Web Apps",
-    detail: "Dashboards, portals, SaaS tools",
+    detail: "React, Next.js dashboards, portals",
     position: "left-[5%] top-[11%]",
     accent: "from-white to-white-600",
   },
@@ -30,7 +30,7 @@ const serviceTracks = [
     icon: Smartphone,
     image: "/assets/app.png",
     label: "Mobile Apps",
-    detail: "iOS and Android interfaces",
+    detail: "React Native iOS and Android",
     position: "right-[4%] top-[20%]",
     accent: "from-white-400 to-white-600",
   },
@@ -58,7 +58,7 @@ const serviceTracks = [
   {
     icon: Mail,
     label: "Office Add-ins",
-    detail: "Outlook, Excel, Word, Graph",
+    detail: "Word, Excel, Outlook plugins",
     position: "right-[18%] bottom-[8%]",
     accent: "from-sky-400 to-indigo-600",
   },
@@ -117,7 +117,7 @@ const HeroSection = () => {
               transition={{ duration: 0.52, delay: 0.18 }}
               className="mb-7 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg md:text-xl dark:text-slate-300"
             >
-              We design and build business software that replaces manual work with reliable apps, AI workflows, Microsoft Office add-ins, Google Workspace tools, and integrations.
+              We design and build desktop apps, mobile apps, React and Next.js products, AI workflows, and custom Office add-ins for Word, Excel, Outlook, and Office 365.
             </motion.p>
 
             <motion.div

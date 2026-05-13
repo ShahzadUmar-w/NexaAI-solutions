@@ -33,7 +33,7 @@ const Blog = () => {
     "@type": "Blog",
     name: "NexaAI Solutions Blog",
     url: `${siteUrl}/blog`,
-    description: "Office add-in development guides for Outlook, Excel, Word, PowerPoint, Office.js, and Microsoft Graph.",
+    description: "Office add-in development blog covering Word add-in, Excel add-in, Outlook add-in, Office plugins, Office.js, Microsoft Graph, Office 365 deployment, React, Next.js, and app development.",
     publisher: {
       "@type": "Organization",
       name: "NexaAI Solutions",
@@ -52,14 +52,14 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>Office Add-in Development Blog | Outlook, Excel, Graph Guides</title>
+        <title>Office Add-in Development Blog | Word, Excel, Outlook Add-in Guides | React, Next.js Tutorials</title>
         <meta
           name="description"
-          content="SEO-friendly Office add-in development blog with guides for Outlook add-ins, Excel add-ins, Office.js, Microsoft Graph, and Microsoft 365 deployment."
+          content="Comprehensive blog about Office add-in development: Word add-in, Excel add-in, Outlook add-in, Office plugins, Office.js, Office 365 deployment. Also React, Next.js, desktop app development, and mobile app guides."
         />
         <link rel="canonical" href={`${siteUrl}/blog`} />
-        <meta property="og:title" content="Office Add-in Development Blog | NexaAI Solutions" />
-        <meta property="og:description" content="Guides and insights for Microsoft Office add-ins, Office.js, Outlook, Excel, Word, PowerPoint, and Graph integrations." />
+        <meta property="og:title" content="Office Add-in & App Development Blog | Word, Excel, Outlook, React, Next.js" />
+        <meta property="og:description" content="Expert guides and tutorials for Office add-in development, Office 365 solutions, React, React Native, and modern app development." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${siteUrl}/blog`} />
         <meta property="og:image" content={defaultOgImage} />

@@ -10,14 +10,14 @@ const Portfolio = () => {
   return (
     <>
       <Helmet>
-        <title>Office Add-in Portfolio | NexaAI Solutions</title>
+        <title>Office Add-in Portfolio | Word, Excel, Outlook Add-in Projects | Desktop & Mobile Apps</title>
         <meta
           name="description"
-          content="View anonymized Microsoft Office add-in portfolio examples for Outlook, Excel, Word, PowerPoint, Microsoft Graph, and enterprise automation."
+          content="Portfolio of Office add-in projects: Word add-in, Excel add-in, Outlook add-in, Office 365 plugin, and Office.js solutions. Also desktop app development, mobile apps with React Native, React, and Next.js work."
         />
         <link rel="canonical" href={`${siteUrl}/portfolio`} />
-        <meta property="og:title" content="Office Add-in Portfolio | NexaAI Solutions" />
-        <meta property="og:description" content="Real Outlook, Excel, Word, PowerPoint, Google Workspace, and Office.js add-in project screens." />
+        <meta property="og:title" content="Office Add-in & App Development Portfolio | Word, Excel, Outlook" />
+        <meta property="og:description" content="Real Office add-in project examples: Word add-in, Excel add-in, Outlook plugin, Office.js solutions, desktop apps, mobile apps built with React and React Native." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${siteUrl}/portfolio`} />
         <meta property="og:image" content={defaultOgImage} />

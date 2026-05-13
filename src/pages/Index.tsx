@@ -58,9 +58,9 @@ const DeferredSection = ({ children, minHeight = "420px" }: DeferredSectionProps
 
 const siteUrl = "https://officeaddindevelopment.com/";
 const defaultOgImage = `${siteUrl}og-office-addin-development.png`;
-const seoTitle = "Office Add-ins, Apps & Automations | NexaAI Solutions";
+const seoTitle = "Office Add-in & App Development Services | Word, Excel, Outlook | React, Next.js | Desktop & Mobile Apps";
 const seoDescription =
-  "Custom software development for Outlook, Excel, Word, PowerPoint, Google Apps Script, desktop apps, mobile apps, automations, Office.js, Microsoft Graph, AI, and business integrations.";
+  "Expert Office add-in developers: Word add-in, Excel add-in, Outlook add-in, Office plugins, Office 365 add-ins. Also building React, Next.js, desktop apps, React Native mobile apps, AI automation. Office.js, Microsoft Graph integration specialists.";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -73,31 +73,55 @@ const structuredData = {
   email: "shahzad890.it@gmail.com",
   areaServed: "Worldwide",
   serviceType: [
-    "Microsoft Office Add-in Development",
-    "Outlook Add-in Development",
-    "Excel Add-in Development",
+    "Office Add-in Development",
     "Word Add-in Development",
+    "Excel Add-in Development",
+    "Outlook Add-in Development",
+    "Office 365 Add-ins",
+    "Office Plugins",
+    "Outlook Plugin Development",
+    "Word Plugin Development",
+    "Excel Plugin Development",
+    "Microsoft Office Add-in Development",
     "PowerPoint Add-in Development",
     "Google Apps Script Development",
     "Desktop App Development",
     "Mobile App Development",
+    "React Development",
+    "React Native Development",
+    "Next.js Development",
     "Automation Development",
     "Microsoft Graph Integration",
     "Microsoft 365 Deployment Support",
+    "AI Office Automation",
+    "AI Word Add-in Development",
+    "AI Outlook Plugin Development",
   ],
   knowsAbout: [
     "Office.js",
+    "Office JS",
     "Microsoft Graph",
     "Microsoft 365",
+    "Office Add-ins",
+    "Office Plugins",
+    "Word Add-in",
+    "Excel Add-in",
+    "Outlook Add-in",
+    "Office 365 Add-ins",
     "React",
+    "React Native",
+    "Next.js",
     "TypeScript",
     "Google Apps Script",
     "Electron",
-    "React Native",
+    "Desktop App Development",
+    "Mobile App Development",
     "n8n",
     "Make.com",
     "Zapier",
     "Enterprise Workflow Automation",
+    "AI Integration",
+    "Business Automation",
   ],
   offers: {
     "@type": "OfferCatalog",
@@ -160,7 +184,7 @@ const Index = () => {
         />
         <meta
           name="keywords"
-          content="Microsoft Office add-in development, enterprise Office add-ins, Outlook add-in developer, Excel add-in developer, Word add-in developer, PowerPoint add-in developer, Google Apps Script developer, desktop app development, mobile app development, automation developer, n8n developer, Make.com automation, Zapier automation, Office.js, Microsoft Graph, Salesforce integration, QuickBooks integration, CRM integration, ERP integration, DMS integration, CMS integration, AI Office add-ins, Microsoft 365 deployment, React TypeScript add-ins"
+          content="desktop app developer, desktop app development, mobile app developer, mobile app development, react native developer, react native development, react developer, react development, next.js developer, nextjs developer, next js development, Office add-in, Office add-ins, Office addin, Office addins, Office 365 add-ins, Office plugins, Office plugin, Office.js, office js, Word add-in, Word addin, Word plugin, Word add-in plugins, AI based Word addin, Excel add-in, Excel addins, Excel plugin, Outlook add-in, Outlook addin, Outlook add-ins, Outlook plugin, Outlook addin with AI, office 365 add-in, office 365 addin"
         />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="NexaAI Solutions" />

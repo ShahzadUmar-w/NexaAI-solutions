@@ -56,10 +56,10 @@ const Integrations = () => {
   return (
     <>
       <Helmet>
-        <title>Office Add-in Integrations | CRM, ERP, DMS, CMS, AI Systems</title>
+        <title>Office Add-in Integration Solutions | Word, Excel, Outlook Add-ins with CRM, ERP Integration</title>
         <meta
           name="description"
-          content="Explore Office add-in integration pages for Salesforce, QuickBooks, HubSpot, Xero, SharePoint, DocuSign, Jira, Zendesk, databases, AI workflows, and custom APIs."
+          content="Office add-in integration expertise: Word add-in, Excel add-in, Outlook add-in integration with Salesforce, QuickBooks, HubSpot, SharePoint, DocuSign. Office plugins for CRM, ERP, DMS, API integration."
         />
         <link rel="canonical" href={`${siteUrl}/integrations`} />
       </Helmet>

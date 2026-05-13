@@ -41,10 +41,10 @@ const Plans = () => {
   return (
     <>
       <Helmet>
-        <title>Office Add-in Development Plans | NexaAI Solutions</title>
+        <title>Office Add-in Development Plans | Word, Excel, Outlook Add-in Pricing | MVP to Enterprise</title>
         <meta
           name="description"
-          content="Compare Office add-in development plans for MVP add-ins, business automation, and enterprise Microsoft 365 workflows."
+          content="Flexible Office add-in development plans: MVP scope for Word add-in, Excel add-in, Outlook add-in. Production and enterprise scope for Office 365 plugins with Microsoft Graph, React, and deployment support."
         />
         <link rel="canonical" href="https://officeaddindevelopment.com/plans" />
       </Helmet>

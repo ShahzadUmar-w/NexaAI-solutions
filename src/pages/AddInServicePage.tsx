@@ -100,9 +100,9 @@ const serviceContent = {
     brandAlt: "Outlook add-in icon",
     path: "/outlook-add-in-development",
     title: "Outlook Add-in Development Services",
-    metaTitle: "Outlook Add-in Development Services | NexaAI",
+    metaTitle: "Outlook Add-in, Outlook Addin & Outlook Plugin Development | AI Outlook Add-ins",
     description:
-      "Custom Outlook add-in development for AI email assistants, phishing report tools, Salesforce and HubSpot CRM sync, Asana task automation, Microsoft Graph integration, attachments, calendar workflows, and enterprise Microsoft 365 deployment.",
+      "Expert Outlook add-in and Outlook plugin development for AI email assistants, phishing report tools, CRM sync, Outlook addin for task automation, Microsoft Graph integration, attachments, calendar workflows, and Microsoft 365 deployment.",
     h1: "Custom Outlook Add-in Development for Business Automation",
     intro:
       "Build secure Outlook add-ins that automate email workflows, connect Microsoft Graph, sync business systems, and improve team productivity inside Microsoft 365.",
@@ -121,9 +121,9 @@ const serviceContent = {
     brandAlt: "Excel add-in icon",
     path: "/excel-add-in-development",
     title: "Excel Add-in Development Services",
-    metaTitle: "Excel Add-in Development Services | NexaAI",
+    metaTitle: "Excel Add-in, Excel Addin & Excel Plugin Development | Custom Excel Add-ins",
     description:
-      "Custom Excel add-in development for business reporting, API imports, custom functions, dashboards, workflow automation, and secure Microsoft 365 deployment.",
+      "Expert Excel add-in and Excel plugin development for business reporting, API imports, custom functions, dashboards, workflow automation, Excel addin for data management, and secure Microsoft 365 deployment.",
     h1: "Custom Excel Add-in Development for Data Automation",
     intro:
       "Create Excel add-ins that connect APIs, automate reporting, add custom functions, clean data, and turn manual spreadsheet work into reliable business workflows.",
@@ -142,9 +142,9 @@ const serviceContent = {
     brandAlt: "Word add-in icon",
     path: "/word-add-in-development",
     title: "Word Add-in Development Services",
-    metaTitle: "Word Add-in Development Services | NexaAI",
+    metaTitle: "Word Add-in, Word Addin & Word Plugin Development | AI-Powered Word Add-ins",
     description:
-      "Custom Word add-in development for document automation, templates, contracts, proposals, content controls, PDF export, and Microsoft Graph integrations.",
+      "Expert Word add-in and Word plugin development for document automation, templates, contracts, proposals, content controls, Word addin for PDF export, AI word addin capabilities, and Microsoft Graph integrations.",
     h1: "Custom Word Add-in Development for Document Automation",
     intro:
       "Build Word add-ins that generate contracts, proposals, reports, and branded documents from templates, structured data, and business systems.",
@@ -163,9 +163,9 @@ const serviceContent = {
     brandAlt: "PowerPoint add-in icon",
     path: "/powerpoint-add-in-development",
     title: "PowerPoint Add-in Development Services",
-    metaTitle: "PowerPoint Add-in Development Services | NexaAI",
+    metaTitle: "PowerPoint Add-in Development | Office 365 Presentation Automation",
     description:
-      "Custom PowerPoint add-in development for branded templates, proposal decks, slide automation, content libraries, CRM integrations, and enterprise deployment.",
+      "Expert PowerPoint add-in development for branded templates, proposal decks, slide automation, content libraries, CRM integrations, Office 365 add-in plugins, and enterprise deployment.",
     h1: "Custom PowerPoint Add-in Development for Presentation Automation",
     intro:
       "Create PowerPoint add-ins that help teams build branded decks faster, reuse approved slides, generate proposals, and keep presentations compliant.",

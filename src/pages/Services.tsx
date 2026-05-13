@@ -58,10 +58,10 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Office Add-in Development Services | NexaAI Solutions</title>
+        <title>Office Add-in Development & App Development Services | Word, Excel, Outlook Add-ins</title>
         <meta
           name="description"
-          content="Software development services for Outlook, Excel, Word, PowerPoint, Google Apps Script, desktop apps, mobile apps, automations, Office.js, Microsoft Graph, AI, CRM, ERP, DMS, CMS, and business integrations."
+          content="Office add-in development : Word add-in, Excel add-in, Outlook add-in, Office 365 plugins, Office.js development. Also desktop app development, mobile apps, React Native, Next.js, AI office automation."
         />
         <link rel="canonical" href={`${siteUrl}/services`} />
         <meta property="og:title" content="Office Add-in Development Services | NexaAI Solutions" />

@@ -109,7 +109,7 @@ const HomeServiceCardsSection = () => {
             return (
               <article
                 key={card.title}
-                className="service-hover-card group relative flex min-h-[20rem] w-full max-w-[16rem] flex-col items-center overflow-hidden rounded-[1.35rem] border border-slate-50 bg-white p-6 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 dark:border-white/5 dark:bg-[#0c1425] dark:hover:border-orange-500/30"
+                className="service-hover-card group relative flex min-h-[20rem] w-full max-w-[16rem] flex-col items-center overflow-hidden rounded-[1.35rem] border border-slate-50 bg-white p-6 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-gray-200 dark:border-white/5 dark:bg-[#0c1425] dark:hover:border-white-500/30"
               >
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className={`mb-5 flex h-20 w-20 items-center justify-center rounded-[1.45rem] bg-gradient-to-br ${card.color} p-4 text-white shadow-soft`}>

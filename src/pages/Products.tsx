@@ -24,12 +24,14 @@ const implementationSteps = [
 ];
 
 const productUseCases = [
-  "Email triage, AI replies, attachment saving, and CRM updates inside Outlook.",
-  "Excel dashboards, custom functions, API imports, and report generation.",
-  "Word document generation, clause libraries, AI review, and PDF workflows.",
-  "PowerPoint proposal decks, branded slide libraries, and sales enablement tools.",
-  "Microsoft Graph workflows across mail, calendar, files, users, SharePoint, and Teams.",
-  "Internal automation products for agencies, SaaS teams, legal teams, and operations teams.",
+  "Email triage, AI replies, attachment saving, and CRM updates inside Outlook add-in and outlook plugin solutions.",
+  "Excel dashboards, custom functions, API imports, and report generation with advanced Excel add-in capabilities.",
+  "Word document generation, clause libraries, AI review, and PDF workflows using Word add-in and Word plugin technology.",
+  "PowerPoint proposal decks, branded slide libraries, and sales enablement tools with Office 365 add-ins.",
+  "Microsoft Graph workflows across mail, calendar, files, users, SharePoint, and Teams integration.",
+  "AI-powered office add-in solutions for agencies, SaaS teams, legal teams, and operations teams.",
+  "Desktop app development and mobile app development with React and React Native frameworks.",
+  "Custom Next.js applications and React development for business automation.",
 ];
 
 const productFaqs = [
@@ -43,10 +45,10 @@ const Products = () => {
   return (
     <>
       <Helmet>
-        <title>Office Add-in Product Foundations | NexaAI Solutions</title>
+        <title>Office Add-in Products | Word Add-in, Excel Add-in, Outlook Plugin Foundations</title>
         <meta
           name="description"
-          content="Explore reusable Office add-in product foundations for Outlook, Excel, Word, PowerPoint, Microsoft Graph, AI workflows, and enterprise automation."
+          content="Reusable Office add-in product foundations: Word add-in solutions, Excel add-in templates, Outlook plugin frameworks, Office 365 automation, Microsoft Graph integration, AI office add-ins."
         />
         <link rel="canonical" href="https://officeaddindevelopment.com/products" />
       </Helmet>

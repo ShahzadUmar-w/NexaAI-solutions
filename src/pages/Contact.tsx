@@ -33,14 +33,14 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Office Add-in Developer | NexaAI Solutions</title>
+        <title>Contact Office Add-in Developer | Word, Excel, Outlook Add-in Expert</title>
         <meta
           name="description"
-          content="Contact NexaAI Solutions for Outlook, Excel, Word, PowerPoint, Office.js, Microsoft Graph, and enterprise Office add-in development."
+          content="Contact NexaAI Solutions for Office add-in development: Word add-in, Excel add-in, Outlook add-in, Office plugins, Office 365 solutions. Also desktop app and mobile app development with React and React Native."
         />
         <link rel="canonical" href={`${siteUrl}/contact`} />
-        <meta property="og:title" content="Contact Office Add-in Developer | NexaAI Solutions" />
-        <meta property="og:description" content="Send a project brief for Outlook, Excel, Word, PowerPoint, Office.js, Microsoft Graph, and enterprise add-in development." />
+        <meta property="og:title" content="Contact Office Add-in Developer | Word, Excel, Outlook" />
+        <meta property="og:description" content="Start your Word add-in, Excel add-in, Outlook add-in, or Office 365 plugin project with NexaAI Solutions." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${siteUrl}/contact`} />
         <meta property="og:image" content={defaultOgImage} />

@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 
 const siteUrl = "https://officeaddindevelopment.com";
 const defaultOgImage = `${siteUrl}/og-office-addin-development.png`;
-const title = "About NexaAI Solutions | Office Add-in Development";
+const title = "About NexaAI Solutions | Office Add-in & App Development Expert";
 const description =
-  "Learn about NexaAI Solutions, a specialist Office add-in development company building secure Microsoft 365 automation with Office.js, Microsoft Graph, React, and TypeScript.";
+  "Expert Office add-in developers specializing in Word add-in, Excel add-in, Outlook add-in, Office 365 plugins, and Office.js development. Also build desktop apps, mobile apps with React Native, React, and Next.js solutions.";
 
 const AboutUs = () => {
   const structuredData = {
@@ -21,7 +21,24 @@ const AboutUs = () => {
     email: "shahzad890.it@gmail.com",
     description,
     areaServed: "Worldwide",
-    knowsAbout: ["Office.js", "Microsoft Graph", "Microsoft 365", "React", "TypeScript", "Office Add-in Development"],
+    knowsAbout: [
+      "Office Add-in Development",
+      "Word Add-in",
+      "Excel Add-in",
+      "Outlook Add-in",
+      "Office 365 Add-ins",
+      "Office Plugins",
+      "Office.js",
+      "Microsoft Graph",
+      "Microsoft 365",
+      "React",
+      "React Native",
+      "Next.js",
+      "TypeScript",
+      "Desktop App Development",
+      "Mobile App Development",
+      "AI Office Automation",
+    ],
   };
 
   return (
