@@ -39,11 +39,11 @@ const HomeFlowSection = () => {
 
       <div className="section-container relative z-10">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.72fr,1fr] lg:items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+           
+        
+          
+           
             className="max-w-[29rem] text-left lg:sticky lg:top-28"
           >
             <span className="section-kicker">
@@ -58,11 +58,8 @@ const HomeFlowSection = () => {
               Every engagement is shaped around a practical delivery journey: scope, build, integration, deployment, proof, and support.
             </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: 0.12 }}
+            <div
+              
               className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white/80 shadow-soft backdrop-blur-md dark:border-white/10 dark:bg-white/[0.045]"
             >
               <img
@@ -71,8 +68,8 @@ const HomeFlowSection = () => {
                 className="aspect-video w-full object-cover"
                 loading="lazy"
               />
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           <div className="relative mx-auto w-full max-w-[46rem]">
             <div className="absolute left-5 top-0 hidden h-full w-px bg-slate-200 dark:bg-white/10 sm:block" />

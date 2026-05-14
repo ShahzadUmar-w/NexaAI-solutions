@@ -89,17 +89,17 @@ const HeroSection = () => {
       <div className="section-container relative z-10">
         <div className="grid items-center gap-8 pb-12 lg:min-h-[660px] lg:grid-cols-[0.92fr,1.08fr] xl:gap-12">
           <div className="text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45 }}
+            <div
+              // initial={{ opacity: 0, y: 16 }}
+              // animate={isInView ? { opacity: 1, y: 0 } : {}}
+              // transition={{ duration: 0.45 }}
               className="mb-6 inline-flex max-w-full items-center gap-3 rounded-full border border-slate-200 bg-white/[0.84] px-3 py-2 text-xs font-bold text-slate-700 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.05] dark:text-orange-100 sm:px-4 sm:text-sm"
             >
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white dark:bg-orange-300 dark:text-slate-950">
                 <Sparkles className="h-3.5 w-3.5" />
               </span>
               Software studio for apps, AI, add-ins, and automations
-            </motion.div>
+            </div>
 
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
@@ -120,10 +120,10 @@ const HeroSection = () => {
               We design and build desktop apps, mobile apps, React and Next.js products, AI workflows, and custom Office add-ins for Word, Excel, Outlook, and Office 365.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.52, delay: 0.22 }}
+            <div
+              // initial={{ opacity: 0, y: 18 }}
+              // animate={isInView ? { opacity: 1, y: 0 } : {}}
+              // transition={{ duration: 0.52, delay: 0.22 }}
               className="mb-7 grid max-w-2xl gap-3 text-sm font-semibold text-slate-700 dark:text-slate-300 sm:grid-cols-3"
             >
               {proofPoints.map((point) => (
@@ -132,7 +132,7 @@ const HeroSection = () => {
                   <span className="leading-5">{point}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}

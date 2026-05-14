@@ -64,11 +64,11 @@ const SkillsSection = () => {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/30 to-transparent" />
 
       <div className="section-container relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
+          // initial={{ opacity: 0, y: 24 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // viewport={{ once: true }}
+          // transition={{ duration: 0.6 }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
           <span className="section-kicker">
@@ -82,7 +82,7 @@ const SkillsSection = () => {
           <p className="text-muted-foreground">
             A practical mix of frontend, backend, automation, database, add-in, and integration work used across client projects.
           </p>
-        </motion.div>
+        </div>
 
         <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item, index) => (

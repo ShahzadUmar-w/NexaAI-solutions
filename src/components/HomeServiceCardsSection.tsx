@@ -86,11 +86,8 @@ const HomeServiceCardsSection = () => {
       <div className="absolute left-[8%] right-[6%] top-[53%] h-24 rotate-2 rounded-[999px] border-y-[18px] border-slate-300/70 opacity-60 dark:border-white/10" />
 
       <div className="section-container relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
+        <div
+         
           className="mx-auto mb-12 max-w-3xl text-center"
         >
           <span className="section-kicker">Choose Your Build</span>
@@ -101,7 +98,7 @@ const HomeServiceCardsSection = () => {
           <p className="text-muted-foreground">
             Pick the surface you want to improve, then we shape the app, add-in, or automation around the real workflow.
           </p>
-        </motion.div>
+        </div>
 
         <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-6">
           {serviceCards.map((card, index) => {

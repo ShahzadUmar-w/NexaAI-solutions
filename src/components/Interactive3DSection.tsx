@@ -66,11 +66,8 @@ const Interactive3DSection = () => {
 
       <div className="section-container relative z-10">
         <div className="grid items-stretch gap-10 lg:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+            
             className="flex h-full flex-col justify-between text-left lg:min-h-[640px]"
           >
             <div>
@@ -108,13 +105,10 @@ const Interactive3DSection = () => {
                 </motion.article>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, delay: 0.08 }}
+          <div
+            
             className="relative h-full"
           >
             <div
@@ -178,7 +172,7 @@ const Interactive3DSection = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
