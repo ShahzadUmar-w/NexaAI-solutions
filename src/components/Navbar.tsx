@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   BarChart3,
   CalendarCheck,
@@ -257,15 +256,11 @@ const Navbar = () => {
                 <ChevronDown className={`h-4 w-4 transition-transform ${isSolutionsOpen ? "rotate-180" : ""}`} />
               </button>
 
-              <AnimatePresence>
+              <div>
                 {isSolutionsOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 10, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                    transition={{ duration: 0.16 }}
+                  <div
                     onMouseLeave={() => setIsSolutionsOpen(false)}
-                    className="absolute right-0 top-full w-[300px]"
+                    className="absolute right-0 top-full w-[300px] animate-in fade-in slide-in-from-top-2 duration-200"
                   >
                     <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_24px_70px_rgba(15,23,42,0.14)] backdrop-blur-xl dark:border-white/10 dark:bg-[#070b14] dark:shadow-[0_24px_70px_rgba(0,0,0,0.42)]">
                       <div className="mb-1.5 flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 dark:border-orange-300/15 dark:bg-orange-300/10 dark:text-orange-100">
@@ -301,9 +296,9 @@ const Navbar = () => {
                         })}
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
+              </div>
             </div>
           </div>
 
@@ -336,14 +331,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="border-b border-border bg-background/98 backdrop-blur-2xl dark:border-white/10 dark:bg-[#070b14]/98 lg:hidden"
-          >
+          <div className="border-b border-border bg-background/98 backdrop-blur-2xl transition-all duration-200 dark:border-white/10 dark:bg-[#070b14]/98 lg:hidden animate-in fade-in slide-in-from-top-2">
             <div className="section-container flex max-h-[calc(100vh-4rem)] flex-col gap-3 overflow-y-auto py-4">
               <div className="grid gap-2 sm:grid-cols-2">
                 {[...sectionLinks, ...companyLinks].map((link) => {
@@ -390,9 +379,8 @@ const Navbar = () => {
                 <BookCallButton size="lg" className="rounded-full" />
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </nav>
   );
 };

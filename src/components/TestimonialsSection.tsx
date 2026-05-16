@@ -218,9 +218,8 @@
 // export default TestimonialsSection;
 
 
-import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, Eye, ExternalLink, Quote, Star, X } from "lucide-react";
-import { useCallback, useMemo, useState, useEffect, useRef } from "react";
+import { useCallback, useMemo, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import fiverrReviews from "@/data/fiverrReviews.json";
 
@@ -295,7 +294,6 @@ const TestimonialsSection = () => {
 
         {/* 3D Carousel Wrapper */}
         <div className="relative mt-20 flex min-h-[580px] items-center justify-center perspective-[1500px]">
-          <AnimatePresence initial={false}>
             {[-1, 0, 1].map((offset) => {
               const cardIndex = (index + offset + completedReviews.length) % completedReviews.length;
               const item = completedReviews[cardIndex];
@@ -304,20 +302,9 @@ const TestimonialsSection = () => {
               if (isMobile && !isCenter) return null;
 
               return (
-                <motion.article
+                <div
                   key={`${item.id}-${offset}`}
-                  initial={{ opacity: 0, scale: 0.8, x: offset * 300 }}
-                  animate={{
-                    opacity: isCenter ? 1 : 0.4,
-                    scale: isCenter ? 1 : 0.85,
-                    x: offset * (isMobile ? 0 : 420),
-                    rotateY: offset * -15,
-                    zIndex: isCenter ? 30 : 10,
-                    filter: isCenter ? "blur(0px)" : "blur(3px)",
-                  }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  className="absolute w-full max-w-[440px] px-4 cursor-pointer h-full"
+                  className={`absolute w-full max-w-[440px] px-4 cursor-pointer h-full transition-all duration-300 ${isCenter ? "translate-x-0 scale-100 opacity-100 z-30 blur-none" : offset === -1 ? "-translate-x-[420px] scale-[0.85] opacity-40 z-10 blur-sm" : "translate-x-[420px] scale-[0.85] opacity-40 z-10 blur-sm"}`}
                   onClick={() => !isCenter && paginate(offset)}
                 >
                   <div className={`relative flex flex-col h-full min-h-[520px] overflow-hidden rounded-[2.5rem] border p-8 transition-all duration-500 backdrop-blur-sm text-left ${
@@ -331,7 +318,7 @@ const TestimonialsSection = () => {
                     <div className="flex-1">
                       {isCenter && item.imageUrl && (
                         <div onClick={(e) => { e.stopPropagation(); setActiveScreenshot(item); }} className="group relative mb-6 h-44 w-full overflow-hidden rounded-3xl bg-slate-100 dark:bg-black/20">
-                          <img src={item.imageUrl} className="h-full w-full object-cover" alt="Review" />
+                          <img src={item.imageUrl} loading="lazy" decoding="async" className="h-full w-full object-cover" alt="Review" />
                           <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
                             <span className="flex items-center gap-2 text-[10px] font-bold text-white uppercase tracking-widest"><Eye size={14} /> Preview</span>
                           </div>
@@ -350,7 +337,7 @@ const TestimonialsSection = () => {
 
                     <div className="mt-8 flex items-center gap-4 border-t border-slate-100 dark:border-white/5 pt-6">
                       <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-white dark:border-slate-800 bg-slate-100">
-                        {item.avatarUrl ? <img src={item.avatarUrl} className="h-full w-full object-cover" /> : <div className="flex h-full items-center justify-center font-bold text-orange-600">{item.name.charAt(0)}</div>}
+                        {item.avatarUrl ? <img src={item.avatarUrl} loading="lazy" decoding="async" className="h-full w-full object-cover" /> : <div className="flex h-full items-center justify-center font-bold text-orange-600">{item.name.charAt(0)}</div>}
                       </div>
                       <div className="min-w-0 flex-1">
                         <h4 className="truncate text-sm font-bold text-slate-900 dark:text-white">{item.name}</h4>
@@ -358,10 +345,9 @@ const TestimonialsSection = () => {
                       </div>
                     </div>
                   </div>
-                </motion.article>
+                </div>
               );
             })}
-          </AnimatePresence>
         </div>
 
         {/* Dots & Nav */}
@@ -382,19 +368,17 @@ const TestimonialsSection = () => {
       </div>
 
       {/* Lightbox Modal */}
-      <AnimatePresence>
-        {activeScreenshot && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 p-6 backdrop-blur-md" onClick={() => setActiveScreenshot(null)}>
-            <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }} onClick={e => e.stopPropagation()} className="relative w-full max-w-4xl overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-900 shadow-2xl">
+      {activeScreenshot && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 p-6 backdrop-blur-md" onClick={() => setActiveScreenshot(null)}>
+            <div onClick={e => e.stopPropagation()} className="relative w-full max-w-4xl overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-900 shadow-2xl">
               <div className="flex items-center justify-between p-6 border-b dark:border-white/10">
                 <h3 className="font-bold">{activeScreenshot.name}'s Success</h3>
                 <button onClick={() => setActiveScreenshot(null)}><X size={20} /></button>
               </div>
-              <div className="max-h-[70vh] overflow-auto p-4"><img src={activeScreenshot.imageUrl} className="w-full rounded-2xl" /></div>
-            </motion.div>
-          </motion.div>
+              <div className="max-h-[70vh] overflow-auto p-4"><img src={activeScreenshot.imageUrl} loading="lazy" decoding="async" className="w-full rounded-2xl" /></div>
+            </div>
+          </div>
         )}
-      </AnimatePresence>
     </section>
   );
 };

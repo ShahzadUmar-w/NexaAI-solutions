@@ -1,4 +1,3 @@
-import { motion, useInView } from "framer-motion";
 import {
   ArrowRight,
   Braces,
@@ -10,7 +9,6 @@ import {
   Sparkles,
   Workflow,
 } from "lucide-react";
-import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { outlookBookingUrl } from "@/lib/booking";
 
@@ -75,11 +73,8 @@ const capabilityPills = ["React", "TypeScript", "Node.js", "Office.js", "Apps Sc
 const proofPoints = ["Custom apps for real business workflows", "AI and automation built around your process", "Clean handoff, deployment, and support"];
 
 const HeroSection = () => {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-
   return (
-    <section id="home" ref={containerRef} className="relative overflow-hidden pt-24 lg:pt-28">
+    <section id="home" className="relative overflow-hidden pt-24 lg:pt-28">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#fbfcfe] to-[#f4f7fb] dark:bg-none dark:bg-[#090d1a]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_13%_16%,rgba(249,115,22,0.09),transparent_24rem),radial-gradient(circle_at_83%_18%,rgba(14,165,233,0.08),transparent_28rem),linear-gradient(115deg,transparent_0%,rgba(15,23,42,0.028)_48%,transparent_74%)] dark:bg-[radial-gradient(circle_at_18%_12%,rgba(255,209,61,0.16),transparent_24rem),radial-gradient(circle_at_86%_18%,rgba(225,29,143,0.1),transparent_26rem),linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.035)_48%,transparent_76%)]" />
       <div className="absolute left-1/2 top-28 hidden h-[34rem] w-[34rem] -translate-x-1/2 rounded-full border border-slate-200/70 dark:border-white/10 lg:block" />
@@ -101,24 +96,14 @@ const HeroSection = () => {
               Software studio for apps, AI, add-ins, and automations
             </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.08 }}
-              className="mb-6 max-w-4xl font-heading text-5xl font-black leading-[0.98] tracking-[-0.035em] text-foreground sm:text-6xl md:text-[4rem] xl:text-[5rem] dark:text-white"
-            >
+            <h1 className="mb-6 max-w-4xl font-heading text-5xl font-black leading-[0.98] tracking-[-0.035em] text-foreground sm:text-6xl md:text-[4rem] xl:text-[5rem] dark:text-white">
               <span className="block">Nexa AI</span>
               <span className="gradient-text-both block pb-2">Solutions</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.52, delay: 0.18 }}
-              className="mb-7 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg md:text-xl dark:text-slate-300"
-            >
+            <p className="mb-7 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg md:text-xl dark:text-slate-300">
               We design and build desktop apps, mobile apps, React and Next.js products, AI workflows, and custom Office add-ins for Word, Excel, Outlook, and Office 365.
-            </motion.p>
+            </p>
 
             <div
               // initial={{ opacity: 0, y: 18 }}
@@ -134,12 +119,7 @@ const HeroSection = () => {
               ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.52, delay: 0.28 }}
-              className="mb-8 flex max-w-2xl flex-wrap gap-2"
-            >
+            <div className="mb-8 flex max-w-2xl flex-wrap gap-2">
               {capabilityPills.map((pill) => (
                 <span
                   key={pill}
@@ -148,14 +128,9 @@ const HeroSection = () => {
                   {pill}
                 </span>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.52, delay: 0.36 }}
-              className="mb-8 flex flex-col gap-3 sm:flex-row"
-            >
+            <div className="mb-8 flex flex-col gap-3 sm:flex-row">
               <Button variant="hero" size="lg" asChild className="group min-h-12 whitespace-nowrap rounded-xl px-6 text-sm sm:text-base">
                 <a href={outlookBookingUrl} target="_blank" rel="noreferrer" className="whitespace-nowrap">
                   Book Strategy Call
@@ -173,12 +148,10 @@ const HeroSection = () => {
                   <Mail className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
                 </a>
               </Button>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.52, delay: 0.46 }}
+            <div
+            
               className="grid max-w-2xl gap-4 border-t border-border pt-7 dark:border-white/10 sm:grid-cols-3"
             >
               {metrics.map((metric) => (
@@ -187,23 +160,20 @@ const HeroSection = () => {
                   <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground dark:text-slate-400">{metric.label}</p>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 28, scale: 0.98 }}
-            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-            transition={{ duration: 0.65, delay: 0.18 }}
+          <div
+         
             className="relative mx-auto min-h-[390px] w-full max-w-[40rem] sm:min-h-[500px] lg:min-h-[560px]"
           >
             <div className="absolute inset-8 rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1),transparent_58%)] blur-2xl dark:bg-[radial-gradient(circle,rgba(255,209,61,0.1),transparent_58%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_18%,rgba(15,23,42,0.22)_1px,transparent_1.5px),radial-gradient(circle_at_72%_28%,rgba(15,23,42,0.16)_1px,transparent_1.5px),radial-gradient(circle_at_52%_76%,rgba(249,115,22,0.22)_1px,transparent_1.5px)] bg-[size:92px_92px,132px_132px,104px_104px] opacity-30 dark:bg-[radial-gradient(circle_at_24%_18%,rgba(255,255,255,0.5)_1px,transparent_1.5px),radial-gradient(circle_at_72%_28%,rgba(255,255,255,0.32)_1px,transparent_1.5px),radial-gradient(circle_at_52%_76%,rgba(255,209,61,0.38)_1px,transparent_1.5px)]" />
 
-            {[30, 22, 14].map((size, index) => (
-              <motion.div
+            {[30, 22, 14].map((size) => (
+              // @ts-ignore - dynamic styles required for responsive sizing
+              <div
                 key={size}
-                animate={{ rotate: index % 2 === 0 ? 360 : -360 }}
-                transition={{ duration: 72 - index * 12, repeat: Infinity, ease: "linear" }}
                 className="absolute left-[43%] top-[40%] rounded-full border border-slate-200/80 dark:border-white/[0.1]"
                 style={{
                   width: `${size}rem`,
@@ -216,10 +186,7 @@ const HeroSection = () => {
             <div className="absolute left-[43%] top-[40%] h-px w-[min(30rem,86vw)] -translate-x-1/2 bg-gradient-to-r from-transparent via-slate-300/50 to-transparent dark:via-white/10" />
             <div className="absolute left-[43%] top-[40%] h-[min(30rem,86vw)] w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-slate-300/50 to-transparent dark:via-white/10" />
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.55, delay: 0.28 }}
+            <div
               className="absolute left-[43%] top-[40%] z-20 -ml-[5rem] -mt-[5rem] flex h-40 w-40 flex-col items-center justify-center rounded-full border border-slate-200 bg-white/[0.92] p-5 text-center shadow-[0_28px_75px_rgba(15,23,42,0.14)] backdrop-blur-2xl dark:border-white/10 dark:bg-[#11182c]/90 sm:-ml-[5.5rem] sm:-mt-[5.5rem] sm:h-44 sm:w-44"
             >
               <span className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.95),transparent_24%),radial-gradient(circle,rgba(249,115,22,0.11),transparent_62%)] dark:bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.16),transparent_24%),radial-gradient(circle,rgba(249,115,22,0.12),transparent_62%)]" />
@@ -230,17 +197,12 @@ const HeroSection = () => {
               <p className="relative mt-1 max-w-28 text-[11px] font-semibold leading-4 text-muted-foreground dark:text-slate-400">
                 Apps, automation and integrations
               </p>
-            </motion.div>
+            </div>
 
             {serviceTracks.map((track, index) => (
-              <motion.button
+              <button
                 key={track.label}
                 type="button"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                whileHover={{ y: -5, scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.36, delay: 0.38 + index * 0.06 }}
                 className={`group absolute z-10 flex max-w-[10.5rem] items-center gap-2 rounded-2xl border border-slate-200 bg-white/[0.88] p-2 text-left shadow-[0_14px_34px_rgba(15,23,42,0.09)] backdrop-blur-xl outline-none transition-colors hover:border-orange-200 hover:bg-white focus-visible:ring-2 focus-visible:ring-orange-300 dark:border-white/10 dark:bg-[#11182c]/[0.8] dark:hover:border-orange-300/30 sm:max-w-[11rem] sm:gap-2.5 sm:p-2.5 ${track.position}`}
               >
                 <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${track.accent} text-white shadow-soft sm:h-10 sm:w-10`}>
@@ -256,9 +218,9 @@ const HeroSection = () => {
                     {track.detail}
                   </span>
                 </span>
-              </motion.button>
+              </button>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -227,11 +227,11 @@ const Index = () => {
             </Suspense>
           </DeferredSection>
          
-          <DeferredSection minHeight="680px">
+          {/* <DeferredSection minHeight="680px">
             <Suspense fallback={null}>
               <Interactive3DSection />
             </Suspense>
-          </DeferredSection>
+          </DeferredSection> */}
           <DeferredSection>
             <Suspense fallback={null}>
               <SkillsSection />
